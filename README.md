@@ -6,6 +6,7 @@
 - [Html]
 - [Css]
 - [JavaScript]
+- [SpeechSynthesisUtterance]
 
 ### About
 
