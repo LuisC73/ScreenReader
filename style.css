@@ -156,6 +156,13 @@
   filter: invert(100%);
 }
 
+/* En caso que al activar el contraste y modo gris se pierda la barra y boton de subir descomentar linea de codigo 187-189 */
+
+/* .scr_highcontrast .scroll-to-top,.scr_highcontrast .accesibilidadBtn{
+	bottom: 8rem !important;
+} */
+
+
 /* Letra para dislexicos*/
 
 @font-face {
@@ -172,6 +179,12 @@
 .scr_grayHues {
   filter: grayscale(1);
 }
+
+/* En caso que al activar el contraste y modo gris se pierda la barra y boton de subir descomentar linea de codigo 187-189 */
+
+/* .scr_grayHues .scroll-to-top,.scr_grayHues .accesibilidadBtn{
+	bottom: 8rem !important;
+} */
 
 /* Cursor grande */
 
