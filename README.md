@@ -11,12 +11,12 @@
 
 - Barra de accesibilidad diseñada con css y javascript, que permite las siguientes funcionalidades:
 
-    Aumentar tamaño de letra
-    Disminuir tamaño de letra
-    Aplicar fuente para dislexicos
-    Aplicar tono gris
-    Aumentar tamaño de cursor
-    Aplicar contraste
+    * Aumentar tamaño de letra <br>
+    * Disminuir tamaño de letra <br>
+    * Aplicar fuente para dislexicos <br>
+    * Aplicar tono gris <br>
+    * Aumentar tamaño de cursor <br>
+    * Aplicar contraste <br>
 
 
 ## How To Use
