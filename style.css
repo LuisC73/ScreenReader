@@ -5,7 +5,7 @@
   right: 1rem;
   bottom: 30%;
   flex-direction: row-reverse;
-  z-index: 9999;
+  z-index: 999;
   transition: .4s ease-in-out;
   transform: translateX(80%);
 }
@@ -71,6 +71,12 @@
   width: 5rem;
   height: 5rem;
   border: 1px solid #333333;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.barraAccesibilidad__logo:focus{
+  border-radius: none !important;
 }
 
 .barraAccesibilidad--active{

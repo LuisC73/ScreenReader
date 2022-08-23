@@ -1,6 +1,70 @@
-window.addEventListener('DOMContentLoaded',() =>{
+window.addEventListener('DOMContentLoaded', () => {
 
- 
+
+  //insertar contenido
+  let accesibilidadHtml = document.createElement('div');
+  accesibilidadHtml.classList.add('barraAccesibilidad')
+
+  const $s4Workspace = document.getElementById('s4-workspace')
+
+  accesibilidadHtml.innerHTML = `
+          <div class="barraAccesibilidad__content">
+          <h3 class="barraAccesibilidad__title">Accesibilidad</h3>
+          <div class="barraAccesibilidad__options">
+            <div class="barraAccesibilidad__option" tabindex="1">
+              <img src="/Style Library/ScreenReaderV3/imagenes/play.svg" alt="Narrador" class="barraAccesibilidad__img" id="narradorIMG">
+              <p class="barraAccesibilidad__p" id="narradorAC">Narrador</p>
+            </div>
+            <div class="barraAccesibilidad__option" tabindex="1">
+              <img src="/Style Library/ScreenReaderV3/imagenes/more_size.svg" alt="Aumentar letra"
+                class="barraAccesibilidad__img">
+              <p class="barraAccesibilidad__p" id="aumentarAC">Aumentar Texto</p>
+            </div>
+            <div class="barraAccesibilidad__option" tabindex="1">
+              <img src="/Style Library/ScreenReaderV3/imagenes/less_size.svg" alt="Disminuir letra"
+                class="barraAccesibilidad__img">
+              <p class="barraAccesibilidad__p" id="disminuirAC">Disminuir Texto</p>
+            </div>
+            <div class="barraAccesibilidad__option" tabindex="1">
+              <img src="/Style Library/ScreenReaderV3/imagenes/bar_gray.svg" alt="Escala de grises"
+                class="barraAccesibilidad__img">
+              <p class="barraAccesibilidad__p" id="tonoAC">Escala de grises</p>
+            </div>
+            <div class="barraAccesibilidad__option" tabindex="1">
+              <img src="/Style Library/ScreenReaderV3/imagenes/contrast.svg" alt="Alto contraste"
+                class="barraAccesibilidad__img">
+              <p class="barraAccesibilidad__p" id="contrasteAC">Alto contraste</p>
+            </div>
+            <div class="barraAccesibilidad__option" tabindex="1">
+              <img src="/Style Library/ScreenReaderV3/imagenes/dyslexic.svg" alt="Fuente dislexicos"
+                class="barraAccesibilidad__img">
+              <p class="barraAccesibilidad__p" id="dislexicosAC">Fuente dislexicos</p>
+            </div>
+            <div class="barraAccesibilidad__option" tabindex="1">
+              <img src="/Style Library/ScreenReaderV3/imagenes/cursor.svg" alt="Aumentar cursor"
+                class="barraAccesibilidad__img">
+              <p class="barraAccesibilidad__p" id="cursorAC">Aumentar cursor</p>
+            </div>
+            <div class="barraAccesibilidad__option" tabindex="1">
+              <img src="/Style Library/ScreenReaderV3/imagenes/restart.svg" alt="Resetear" class="barraAccesibilidad__img">
+              <p class="barraAccesibilidad__p" id="reiniciarAC">Resetear</p>
+            </div>
+            <div class="barraAccesibilidad__option" tabindex="1">
+              <img src="/Style Library/ScreenReaderV3/imagenes/centro_relevo.svg" alt="Centro de relevo"
+                class="barraAccesibilidad__img">
+              <a href="https://centroderelevo.gov.co/632/w3-channel.html" class="barraAccesibilidad__p" target="_blank" id="centroRelevo">Centro de
+                relevo
+              </a>
+            </div>
+          </div>
+        </div>
+        <figure class="barraAccesibilidad__logo" tabindex="1">
+          <img src="/Style Library/ScreenReaderV3/imagenes/logo.svg" alt="logo" class="barraAccesibilidad__lg">
+        </figure>
+  `
+
+  $s4Workspace.append(accesibilidadHtml)
+
   // Barra accesibilidad
   const $audio = document.getElementById("narradorAC"),
     $audioIMG = document.getElementById('narradorIMG'),
@@ -14,9 +78,9 @@ window.addEventListener('DOMContentLoaded',() =>{
     $screenreaderLogo = document.querySelector('.barraAccesibilidad__logo'),
     $screenreader = document.querySelector('.barraAccesibilidad');
 
-    $screenreaderLogo.addEventListener('click',() =>{
-      $screenreader.classList.toggle('barraAccesibilidad--active')
-    })
+  $screenreaderLogo.addEventListener('click', () => {
+    $screenreader.classList.toggle('barraAccesibilidad--active')
+  })
 
   const $html = document.querySelector("html"),
     $body = document.querySelector("body"),
@@ -45,9 +109,9 @@ window.addEventListener('DOMContentLoaded',() =>{
       if (type == "normal") {
         el.style.fontSize = 15 + "px";
         el.classList.toggle("font-dyslexic");
-        el.classList.contains("font-dyslexic")
-          ? el.classList.remove("font-dyslexic")
-          : "";
+        el.classList.contains("font-dyslexic") ?
+          el.classList.remove("font-dyslexic") :
+          "";
       }
     });
   }
@@ -91,9 +155,9 @@ window.addEventListener('DOMContentLoaded',() =>{
   speak.volume = volume
   $audio.addEventListener("click", () => {
     speakerOnOff = !speakerOnOff;
-    $audioIMG.getAttribute("src") == "/Style Library/ScreenReaderV3/imagenes/play.svg"
-      ? ($audioIMG.src = "/Style Library/ScreenReaderV3/imagenes/stop.svg")
-      : ($audioIMG.src = "/Style Library/ScreenReaderV3/imagenes/play.svg");
+    $audioIMG.getAttribute("src") == "/Style Library/ScreenReaderV3/imagenes/play.svg" ?
+      ($audioIMG.src = "/Style Library/ScreenReaderV3/imagenes/stop.svg") :
+      ($audioIMG.src = "/Style Library/ScreenReaderV3/imagenes/play.svg");
   });
 
   $allFont.forEach((item) => {
@@ -108,11 +172,4 @@ window.addEventListener('DOMContentLoaded',() =>{
     });
   });
 
-  // $volumen.addEventListener("click", () => {
-  //   $volumen.getAttribute("src") == "/Style Library/Images/volume.svg"
-  //     ? ($volumen.src = "/Style Library/Images/mute.svg")
-  //     : ($volumen.src = "/Style Library/Images/volume.svg");
-  //     volume == 1 ? volume = 0 : volume = 1
-  //     speak.volume = volume
-  // });
 })
