@@ -1,14 +1,14 @@
 
 <h1 align="center">💻 ScreenReader ✌</h1>
 
-### Built With
+### Herramientas Utilizadas
 
 - [Html]
 - [Css]
 - [JavaScript]
 - [SpeechSynthesisUtterance]
 
-### About
+### Sobre el proyecto
 
 - Barra de accesibilidad diseñada con css y javascript, que permite las siguientes funcionalidades:
 
@@ -20,11 +20,24 @@
     * Aplicar contraste <br>
 
 
-## How To Use
+## Como instalarlo
 
 ```bash
-# Clone this repository
+# Clonar o descargar el repositorio
 $ git clone https://github.com/LuisC73/ScreenReader.git
+
+# Pegar la carpeta en Sytle Library
+
+# Pegar codigo html al inicio o final del footer
 
 ```
 
+```javascript
+// Pegar script 
+<script src="/Style Library/ScreenReaderV3/main.js" type="text/javascript"></script>
+```
+
+```css
+/* Pegar Hoja de estilos */
+ <link rel="stylesheet" href="/Style Library/ScreenReaderV3/style.css">
+```
