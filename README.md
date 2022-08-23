@@ -26,11 +26,11 @@
 # Clonar o descargar el repositorio
 $ git clone https://github.com/LuisC73/ScreenReader.git
 
-```
-
 # Pegar la carpeta en Sytle Library
 
 # Pegar codigo html al inicio o final del footer
+
+```
 
 ```javascript
 // Pegar script 
