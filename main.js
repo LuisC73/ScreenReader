@@ -109,9 +109,10 @@ window.addEventListener('DOMContentLoaded', () => {
       if (type == "normal") {
         el.style.fontSize = 15 + "px";
         el.classList.toggle("font-dyslexic");
-        el.classList.contains("font-dyslexic") ?
-          el.classList.remove("font-dyslexic") :
-          "";
+        if (el.classList.contains("font-dyslexic")) el.classList.toggle("font-dyslexic")
+        if ($body.classList.contains('scr_highcontrast')) $body.classList.toggle('scr_highcontrast')
+        if ($body.classList.contains('scr_grayHues')) $body.classList.toggle('scr_grayHues')
+        if ($body.classList.contains('scr_bigcursor')) $body.classList.toggle('scr_bigcursor')
       }
     });
   }
