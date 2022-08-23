@@ -91,9 +91,9 @@ window.addEventListener('DOMContentLoaded',() =>{
   speak.volume = volume
   $audio.addEventListener("click", () => {
     speakerOnOff = !speakerOnOff;
-    $audioIMG.getAttribute("src") == "/SiteAssets/V2/ScreenReaderV3/imagenes/play.svg"
-      ? ($audioIMG.src = "/SiteAssets/V2/ScreenReaderV3/imagenes/stop.svg")
-      : ($audioIMG.src = "/SiteAssets/V2/ScreenReaderV3/imagenes/play.svg");
+    $audioIMG.getAttribute("src") == "/Style Library/ScreenReaderV3/imagenes/play.svg"
+      ? ($audioIMG.src = "/Style Library/ScreenReaderV3/imagenes/stop.svg")
+      : ($audioIMG.src = "/Style Library/ScreenReaderV3/imagenes/play.svg");
   });
 
   $allFont.forEach((item) => {

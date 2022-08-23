@@ -98,7 +98,7 @@
 
 @font-face {
   font-family: "OpenDyslexic";
-  src: url("/SiteAssets/V2/ScreenReaderV3/fonts/OpenDyslexic-Regular.otf");
+  src: url("/Style Library/ScreenReaderV3/fonts/OpenDyslexic-Regular.otf");
 }
 
 .font-dyslexic {
@@ -120,7 +120,7 @@
 /* Cursor grande */
 
 .scr_bigcursor * {
-  cursor: url("/SiteAssets/V2/ScreenReaderV3/imagenes/bigcursor.svg"), auto !important;
+  cursor: url("/Style Library/ScreenReaderV3/imagenes/bigcursor.svg"), auto !important;
 }
 
 /* Responsive */
