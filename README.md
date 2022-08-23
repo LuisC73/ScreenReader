@@ -18,6 +18,7 @@
     * Aplicar tono gris <br>
     * Aumentar tamaño de cursor <br>
     * Aplicar contraste <br>
+    * Resetear cambios
 
 
 ## Como instalarlo

@@ -91,6 +91,7 @@
 
 .scr_highcontrast {
   filter: invert(100%);
+  background-color: #000;
 }
 
 /* En caso que al activar el contraste y modo gris se pierda la barra y boton de subir descomentar linea de codigo 187-189 */
