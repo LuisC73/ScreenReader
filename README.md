@@ -28,7 +28,7 @@ $ git clone https://github.com/LuisC73/ScreenReader.git
 
 # Cambiar nombre de carpeta a ScreenReaderV3
 
-# Pegar la carpeta en Sytle Library
+# Pegar la carpeta en Style Library
 
 ```
 
