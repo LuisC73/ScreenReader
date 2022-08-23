@@ -1,19 +1,21 @@
 window.addEventListener('DOMContentLoaded',() =>{
-  
-  // Barra accesibilidad
-  const $volumen = document.getElementById("accesibilidadVolumen"),
-    $audio = document.getElementById("accesibilidadAudio"),
-    $moreFont = document.getElementById("accesibilidadLetraGrande"),
-    $lessFont = document.getElementById("accesbilidadLetraPequeña"),
-    $normalFont = document.getElementById("accesibilidadReiniciarLetra"),
-    $dyslexic = document.getElementById("accesibilidadDyslexic"),
-    $hues = document.getElementById("accesibilidadGray"),
-    $cursor = document.getElementById("accesibilidadCursor"),
-    $contraste = document.getElementById("accesibilidadContraste"),
-    $screenreader = document.querySelector('.accesibilidadBtn');
 
-    $screenreader.addEventListener('click',() =>{
-      $screenreader.classList.toggle('accesibilidadBtn--active')
+ 
+  // Barra accesibilidad
+  const $audio = document.getElementById("narradorAC"),
+    $audioIMG = document.getElementById('narradorIMG'),
+    $moreFont = document.getElementById("aumentarAC"),
+    $lessFont = document.getElementById("disminuirAC"),
+    $normalFont = document.getElementById("reiniciarAC"),
+    $dyslexic = document.getElementById("dislexicosAC"),
+    $hues = document.getElementById("tonoAC"),
+    $cursor = document.getElementById("cursorAC"),
+    $contraste = document.getElementById("contrasteAC"),
+    $screenreaderLogo = document.querySelector('.barraAccesibilidad__logo'),
+    $screenreader = document.querySelector('.barraAccesibilidad');
+
+    $screenreaderLogo.addEventListener('click',() =>{
+      $screenreader.classList.toggle('barraAccesibilidad--active')
     })
 
   const $html = document.querySelector("html"),
@@ -89,9 +91,9 @@ window.addEventListener('DOMContentLoaded',() =>{
   speak.volume = volume
   $audio.addEventListener("click", () => {
     speakerOnOff = !speakerOnOff;
-    $audio.getAttribute("src") == "/Style Library/Images/play.svg"
-      ? ($audio.src = "/Style Library/Images/stop.svg")
-      : ($audio.src = "/Style Library/Images/play.svg");
+    $audioIMG.getAttribute("src") == "/SiteAssets/V2/ScreenReaderV3/imagenes/play.svg"
+      ? ($audioIMG.src = "/SiteAssets/V2/ScreenReaderV3/imagenes/stop.svg")
+      : ($audioIMG.src = "/SiteAssets/V2/ScreenReaderV3/imagenes/play.svg");
   });
 
   $allFont.forEach((item) => {
@@ -106,11 +108,11 @@ window.addEventListener('DOMContentLoaded',() =>{
     });
   });
 
-  $volumen.addEventListener("click", () => {
-    $volumen.getAttribute("src") == "/Style Library/Images/volume.svg"
-      ? ($volumen.src = "/Style Library/Images/mute.svg")
-      : ($volumen.src = "/Style Library/Images/volume.svg");
-      volume == 1 ? volume = 0 : volume = 1
-      speak.volume = volume
-  });
+  // $volumen.addEventListener("click", () => {
+  //   $volumen.getAttribute("src") == "/Style Library/Images/volume.svg"
+  //     ? ($volumen.src = "/Style Library/Images/mute.svg")
+  //     : ($volumen.src = "/Style Library/Images/volume.svg");
+  //     volume == 1 ? volume = 0 : volume = 1
+  //     speak.volume = volume
+  // });
 })

@@ -1,153 +1,84 @@
-.accesibilidadBtn {
+.barraAccesibilidad{
+  display: flex;
+  align-items: flex-start;
   position: fixed;
-  bottom: 10px;
-  left: 6px;
-  background-color: #0072c6;
-  border-radius: 2px;
-  display: flex;
-  align-items: center;
-  height: 36px;
-  width: 170px;
-  justify-content: space-between;
-  padding: 0.2rem 0.6rem;
-  border-radius: 4px;
-  transition: 0.6s ease-in-out;
-  align-items: center;
-  text-align: center;
-  overflow: hidden;
-  z-index: 999;
-  background-size: 260% auto;
-  background-image: linear-gradient(
-    325deg,
-    hsla(217 100% 56% / 1) 0%,
-    hsla(194 100% 69% / 1) 55%,
-    hsla(217 100% 56% / 1)
-  );
-  border: none;
-  box-shadow: 0px 0px 20px rgba(71, 184, 255, 0.5),
-    0px 5px 5px -1px rgba(58, 125, 233, 0.25),
-    inset 4px 4px 8px rgba(175, 230, 255, 0.5),
-    inset -4px -4px 8px rgba(19, 95, 216, 0.35);
+  right: 1rem;
+  bottom: 30%;
+  flex-direction: row-reverse;
+  z-index: 9999;
+  transition: .4s ease-in-out;
+  transform: translateX(80%);
 }
 
-.accesibilidadBtn:hover {
-  width: 525px;
-  background-position: right top;
-}
-
-.accesibilidadBtn--active{
-  width: 525px;
-  background-position: right top;
-}
-
-
-.accesibilidadBtn--active > .accesibilidadBtn__contenido {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.accesibilidadBtn:hover .accesibilidadBtn__contenido {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-
-.accesibilidadBtn__inicio {
-  display: flex;
-  align-items: center;
-  color: #fff;
-}
-
-.accesibilidadBtn__picture {
-  width: 3.5rem;
-  height: 50px;
-  background: #fff;
-  padding: 6px;
+.barraAccesibilidad__content{
+  background-color: #ffffff;
+  border: 1px solid #333333;
+  color: #333333;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  left: -8px;
-  transition: 0.3s;
+  align-items: flex-start;
+  justify-content: start;
+  width: 15rem;
+  height: 29rem;
+  padding: .2rem 1rem .5rem 1rem;
 }
 
-.accesibilidadBtn:hover .accesibilidadBtn__picture img {
-  animation: moveLogo 0.8s ease-in;
+.barraAccesibilidad__title{
+  font-size: 1.3rem;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 15px;
 }
 
-.accesibilidadBtn--active .accesibilidadBtn__picture img {
-  animation: moveLogo 0.8s ease-in;
+.barraAccesibilidad__p{
+  font-size: 1rem;
 }
 
-.accesibilidadBtn__p {
-  margin: 0;
-  font-size: 1.3rem !important;
-  transition: 0.3s ease;
+#centroRelevo:visited{
+  color: #333333;
 }
 
-.accesibilidadBtn__contenido {
-  display: none;
+.barraAccesibilidad__img{
+  width: .9rem;
+  vertical-align: middle;
+  margin-right: 1.4rem;
 }
 
-.accesibilidadBtn__button {
-  height: 36px;
-  border: none;
-  outline: none;
-  width: 2rem;
-  background: none;
-  padding: 0;
-  margin: 0 1rem;
+.barraAccesibilidad__options{
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: start;
+  align-items: flex-start;
+  row-gap: .3rem;
+}
+
+.barraAccesibilidad__option{
+  display: flex;
+  align-items: baseline;
+  transition: .2s;
+}
+
+.barraAccesibilidad__option:hover .barraAccesibilidad__p{
+  text-decoration: underline;
   cursor: pointer;
 }
 
-.accesibilidadBtn__button:hover {
-  background: none;
-  transform: scale(1.1);
-  transition: 0.2s ease-in;
+.barraAccesibilidad__logo{
+  background-color: #0072C6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5rem;
+  height: 5rem;
+  border: 1px solid #333333;
 }
 
-.accesibilidadBtn__img {
-  width: 1.5rem;
-  height: 1.5rem;
+.barraAccesibilidad--active{
+  transform: translateX(0%);
 }
 
-.accesibilidad__arrow {
-  animation: moveArrow 1s ease infinite alternate;
-}
-
-@keyframes moveArrow {
-  to {
-    transform: translateX(0);
-  }
-  from {
-    transform: translateX(7px);
-  }
-}
-
-@keyframes moveLogo {
-  0% {
-    transform: translateY(0);
-  }
-  25% {
-    transform: translateY(-50%);
-  }
-
-  50% {
-    transform: translateY(-300%);
-  }
-
-  75% {
-    transform: translateY(50%);
-  }
-
-  100% {
-    transform: translateY(0);
-  }
+.barraAccesibilidad__lg{
+  width: 2.5rem;
 }
 
 /* Contraste */
@@ -167,7 +98,7 @@
 
 @font-face {
   font-family: "OpenDyslexic";
-  src: url("/SiteAssets/V2/fonts/OpenDyslexic-Regular.otf");
+  src: url("/SiteAssets/V2/ScreenReaderV3/fonts/OpenDyslexic-Regular.otf");
 }
 
 .font-dyslexic {
@@ -189,87 +120,7 @@
 /* Cursor grande */
 
 .scr_bigcursor * {
-  cursor: url("/Style Library/screenreaderV2/images/bigcursor.svg"), auto !important;
+  cursor: url("/SiteAssets/V2/ScreenReaderV3/imagenes/bigcursor.svg"), auto !important;
 }
 
 /* Responsive */
-
-@media (max-width: 768px) {
-  .accesibilidadBtn {
-    bottom: 1rem;
-    left: 6px;
-    height: 3.6rem;
-    width: 4.1rem;
-    justify-content: center;
-    padding: 0rem;
-    transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    align-items: center;
-    flex-direction: column-reverse;
-  }
-
-  .accesibilidadBtn:hover {
-    width: 4.1rem;
-    background-position: bottom top;
-    flex-direction: column-reverse;
-    justify-content: center;
-  }
-
-  .accesibilidadBtn--active{
-    height: 397px;
-    width: 4.1rem;
-    background-position: bottom top;
-    flex-direction: column-reverse;
-    justify-content: center;
-  }
-
-  .accesibilidadBtn:hover .accesibilidadBtn__contenido {
-    display: none;
-    justify-content: center;
-    flex-direction: column;
-  }
-
-  .accesibilidadBtn:hover .accesibilidadBtn__picture {
-    left: 0px;
-  }
-
-  .accesibilidadBtn--active .accesibilidadBtn__contenido {
-    display: flex !important;
-    justify-content: center;
-    flex-direction: column;
-  }
-
-  .accesibilidadBtn--active .accesibilidadBtn__picture {
-    left: 0px;
-  }
-
-  .accesibilidadBtn__picture {
-    width: 4.3rem;
-    height: 3.6rem;
-    justify-content: center;
-    align-items: center;
-    left: 0%;
-    transition: 0.3s;
-  }
-
-  .accesibilidadBtn__picture > img {
-    width: 70%;
-  }
-
-  .accesibilidadBtn__contenido{
-    flex-direction: column;
-  }
-
-  .accesibilidadBtn__contenido,
-  .accesibilidad__arrow,
-  .accesibilidadBtn__p {
-    display: none;
-  }
-
-  .accesibilidadBtn:hover .accesibilidadBtn__picture img {
-    animation:none;
-  }
-
-  .accesibilidadBtn--active .accesibilidadBtn__picture img {
-    animation:none;
-  }
-}
