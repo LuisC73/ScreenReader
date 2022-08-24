@@ -12,7 +12,7 @@
 
 .barraAccesibilidad__content{
   background-color: #ffffff;
-  border: 1px solid #333333;
+  border: 1px solid #0072C6;
   color: #333333;
   display: flex;
   flex-direction: column;
@@ -70,7 +70,7 @@
   align-items: center;
   width: 5rem;
   height: 5rem;
-  border: 1px solid #333333;
+  border: 1px solid #0072C6;
   cursor: pointer;
   transition: .3s;
 }
