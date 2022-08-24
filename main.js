@@ -1,6 +1,4 @@
 window.addEventListener('DOMContentLoaded', () => {
-
-
   //insertar contenido
   let accesibilidadHtml = document.createElement('div');
   accesibilidadHtml.classList.add('barraAccesibilidad')
@@ -76,24 +74,24 @@ window.addEventListener('DOMContentLoaded', () => {
     $cursor = document.getElementById("cursorAC"),
     $contraste = document.getElementById("contrasteAC"),
     $screenreaderLogo = document.querySelector('.barraAccesibilidad__logo'),
-    $screenreader = document.querySelector('.barraAccesibilidad');
-
-  $screenreaderLogo.addEventListener('click', () => {
-    $screenreader.classList.toggle('barraAccesibilidad--active')
-  })
-
-  const $html = document.querySelector("html"),
+    $logoImg = document.querySelector('.barraAccesibilidad__lg'),
+    $screenreader = document.querySelector('.barraAccesibilidad'),
     $body = document.querySelector("body"),
     $allFont = document.querySelectorAll(
       "span, p, a, h1, h2, h3, h4, h5, input, div, .titulos, #testimonios > .card-title, .evento-fecha-2,button,strong,td"
+    ),
+    $allFont2 = document.querySelectorAll(
+      "p, a, h1, h2, h3, h4, h5, input, div, .titulos, #testimonios > .card-title, .evento-fecha-2,button, .w3layouts_event_grid"
     );
 
-  const $allFont2 = document.querySelectorAll(
-    "p, a, h1, h2, h3, h4, h5, input, div, .titulos, #testimonios > .card-title, .evento-fecha-2,button, .w3layouts_event_grid"
-  );
+  let speakerOnOff = false;
+  let speak = new SpeechSynthesisUtterance();
+  let volume = 1;
+  speak.volume = volume;
+
 
   function changeSizeFont(type) {
-    $allFont.forEach((el) => {
+    $allFont.forEach((el,i) => {
       let fontSize = window
         .getComputedStyle(el, null)
         .getPropertyValue("font-size");
@@ -107,8 +105,11 @@ window.addEventListener('DOMContentLoaded', () => {
       }
 
       if (type == "normal") {
-        el.style.fontSize = 15 + "px";
-        el.classList.toggle("font-dyslexic");
+        el.style.fontSize = `${15}px`  
+        if(el.classList.contains("modal__p")) $allFont[i].style.fontSize = 1 + "rem"
+        if(el.classList.contains("header__title")) $allFont[i].style.fontSize = 20 + "px"
+        if(el.classList.contains("footer__p")) $allFont[i].style.fontSize = 1.3 + "rem"
+        if(el.classList.contains("titulos") || el.classList.contains("titulos1")) $allFont[i].style.fontSize = 24 + "px"
         if (el.classList.contains("font-dyslexic")) el.classList.toggle("font-dyslexic")
         if ($body.classList.contains('scr_highcontrast')) $body.classList.toggle('scr_highcontrast')
         if ($body.classList.contains('scr_grayHues')) $body.classList.toggle('scr_grayHues')
@@ -117,49 +118,11 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  $moreFont.addEventListener("click", () => changeSizeFont("more"));
-  $lessFont.addEventListener("click", () => changeSizeFont("less"));
-  $normalFont.addEventListener("click", () => changeSizeFont("normal"));
-
   function addClass(nameClass, button) {
     document.addEventListener("click", (e) => {
       if (e.target == button) $body.classList.toggle(nameClass);
     });
   }
-
-  // Alto contraste
-  $contraste.addEventListener("click", () =>
-    addClass("scr_highcontrast", $contraste)
-  );
-
-  // Fuente para dislexicos
-  $dyslexic.addEventListener("click", () => {
-    $allFont2.forEach((el) => {
-      el.classList.toggle("font-dyslexic");
-    });
-  });
-
-  // Tono gris
-  $hues.addEventListener("click", () => {
-    addClass("scr_grayHues", $hues);
-  });
-
-  // Cursor
-  $cursor.addEventListener("click", () => {
-    addClass("scr_bigcursor", $cursor);
-  });
-
-  let textToSpeak = document.querySelectorAll("h1, h2, p, a");
-  let speakerOnOff = false;
-  let speak = new SpeechSynthesisUtterance();
-  let volume = 1
-  speak.volume = volume
-  $audio.addEventListener("click", () => {
-    speakerOnOff = !speakerOnOff;
-    $audioIMG.getAttribute("src") == "/Style Library/ScreenReaderV3/imagenes/play.svg" ?
-      ($audioIMG.src = "/Style Library/ScreenReaderV3/imagenes/stop.svg") :
-      ($audioIMG.src = "/Style Library/ScreenReaderV3/imagenes/play.svg");
-  });
 
   $allFont.forEach((item) => {
     item.addEventListener("mouseover", () => {
@@ -173,4 +136,28 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  document.addEventListener('click', (e) => {
+    if (e.target == $screenreaderLogo || e.target == $logoImg) $screenreader.classList.toggle('barraAccesibilidad--active');
+
+    if (e.target == $moreFont) changeSizeFont("more");
+
+    if (e.target == $lessFont) changeSizeFont("less");
+
+    if (e.target == $normalFont) changeSizeFont("normal");
+
+    if (e.target == $contraste) addClass("scr_highcontrast", $contraste);
+
+    if (e.target == $dyslexic) $allFont2.forEach((el) => el.classList.toggle("font-dyslexic"));
+
+    if (e.target == $hues) addClass("scr_grayHues", $hues);
+
+    if (e.target == $cursor) addClass("scr_bigcursor", $cursor);
+
+    if (e.target == $audio) {
+      speakerOnOff = !speakerOnOff;
+      $audioIMG.getAttribute("src") == "/Style Library/ScreenReaderV3/imagenes/play.svg" ?
+        ($audioIMG.src = "/Style Library/ScreenReaderV3/imagenes/stop.svg") :
+        ($audioIMG.src = "/Style Library/ScreenReaderV3/imagenes/play.svg");
+    }
+  })
 })
