@@ -5,50 +5,52 @@ window.addEventListener('DOMContentLoaded', () => {
 
   const $s4Workspace = document.getElementById('s4-workspace')
 
+  let direccion = `/Style Library/ScreenReaderV3`
+
   accesibilidadHtml.innerHTML = `
           <div class="barraAccesibilidad__content">
           <h3 class="barraAccesibilidad__title">Accesibilidad</h3>
           <div class="barraAccesibilidad__options">
             <div class="barraAccesibilidad__option" tabindex="1">
-              <img src="/Style Library/ScreenReaderV3/imagenes/play.svg" alt="Narrador" class="barraAccesibilidad__img" id="narradorIMG">
+              <img src="${direccion}/imagenes/play.svg" alt="Narrador" class="barraAccesibilidad__img" id="narradorIMG">
               <p class="barraAccesibilidad__p" id="narradorAC">Narrador</p>
             </div>
             <div class="barraAccesibilidad__option" tabindex="1">
-              <img src="/Style Library/ScreenReaderV3/imagenes/more_size.svg" alt="Aumentar letra"
+              <img src="${direccion}/imagenes/more_size.svg" alt="Aumentar letra"
                 class="barraAccesibilidad__img">
               <p class="barraAccesibilidad__p" id="aumentarAC">Aumentar Texto</p>
             </div>
             <div class="barraAccesibilidad__option" tabindex="1">
-              <img src="/Style Library/ScreenReaderV3/imagenes/less_size.svg" alt="Disminuir letra"
+              <img src="${direccion}/imagenes/less_size.svg" alt="Disminuir letra"
                 class="barraAccesibilidad__img">
               <p class="barraAccesibilidad__p" id="disminuirAC">Disminuir Texto</p>
             </div>
             <div class="barraAccesibilidad__option" tabindex="1">
-              <img src="/Style Library/ScreenReaderV3/imagenes/bar_gray.svg" alt="Escala de grises"
+              <img src="${direccion}/imagenes/bar_gray.svg" alt="Escala de grises"
                 class="barraAccesibilidad__img">
               <p class="barraAccesibilidad__p" id="tonoAC">Escala de grises</p>
             </div>
             <div class="barraAccesibilidad__option" tabindex="1">
-              <img src="/Style Library/ScreenReaderV3/imagenes/contrast.svg" alt="Alto contraste"
+              <img src="${direccion}/imagenes/contrast.svg" alt="Alto contraste"
                 class="barraAccesibilidad__img">
               <p class="barraAccesibilidad__p" id="contrasteAC">Alto contraste</p>
             </div>
             <div class="barraAccesibilidad__option" tabindex="1">
-              <img src="/Style Library/ScreenReaderV3/imagenes/dyslexic.svg" alt="Fuente dislexicos"
+              <img src="${direccion}/imagenes/dyslexic.svg" alt="Fuente dislexicos"
                 class="barraAccesibilidad__img">
               <p class="barraAccesibilidad__p" id="dislexicosAC">Fuente dislexicos</p>
             </div>
             <div class="barraAccesibilidad__option" tabindex="1">
-              <img src="/Style Library/ScreenReaderV3/imagenes/cursor.svg" alt="Aumentar cursor"
+              <img src="${direccion}/imagenes/cursor.svg" alt="Aumentar cursor"
                 class="barraAccesibilidad__img">
               <p class="barraAccesibilidad__p" id="cursorAC">Aumentar cursor</p>
             </div>
             <div class="barraAccesibilidad__option" tabindex="1">
-              <img src="/Style Library/ScreenReaderV3/imagenes/restart.svg" alt="Resetear" class="barraAccesibilidad__img">
+              <img src="${direccion}/imagenes/restart.svg" alt="Resetear" class="barraAccesibilidad__img">
               <p class="barraAccesibilidad__p" id="reiniciarAC">Resetear</p>
             </div>
             <div class="barraAccesibilidad__option" tabindex="1">
-              <img src="/Style Library/ScreenReaderV3/imagenes/centro_relevo.svg" alt="Centro de relevo"
+              <img src="${direccion}/imagenes/centro_relevo.svg" alt="Centro de relevo"
                 class="barraAccesibilidad__img">
               <a href="https://centroderelevo.gov.co/632/w3-channel.html" class="barraAccesibilidad__p" target="_blank" id="centroRelevo">Centro de
                 relevo
@@ -57,7 +59,7 @@ window.addEventListener('DOMContentLoaded', () => {
           </div>
         </div>
         <figure class="barraAccesibilidad__logo" tabindex="1">
-          <img src="/Style Library/ScreenReaderV3/imagenes/logo.svg" alt="logo" class="barraAccesibilidad__lg">
+          <img src="${direccion}/imagenes/logo.svg" alt="logo" class="barraAccesibilidad__lg">
         </figure>
   `
 
