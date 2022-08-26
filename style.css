@@ -56,6 +56,7 @@
   display: flex;
   align-items: baseline;
   transition: .2s;
+  opacity: 0;
 }
 
 .barraAccesibilidad__option:hover .barraAccesibilidad__p{
@@ -129,5 +130,20 @@
 .scr_bigcursor * {
   cursor: url("/Style Library/ScreenReaderV3/imagenes/bigcursor.svg"), auto !important;
 }
+
+/* Animaciones */
+
+@keyframes itemFade {
+  from {
+    opacity: 0;
+    transform: translateX(70px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
 
 /* Responsive */

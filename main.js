@@ -84,16 +84,16 @@ window.addEventListener('DOMContentLoaded', () => {
     ),
     $allFont2 = document.querySelectorAll(
       "p, a, h1, h2, h3, h4, h5, input, div, .titulos, #testimonios > .card-title, .evento-fecha-2,button, .w3layouts_event_grid"
-    );
+    ),
+    $itemsMenu = document.querySelectorAll('.barraAccesibilidad__option');
 
   let speakerOnOff = false;
   let speak = new SpeechSynthesisUtterance();
   let volume = 1;
   speak.volume = volume;
 
-
   function changeSizeFont(type) {
-    $allFont.forEach((el,i) => {
+    $allFont.forEach((el, i) => {
       let fontSize = window
         .getComputedStyle(el, null)
         .getPropertyValue("font-size");
@@ -107,11 +107,11 @@ window.addEventListener('DOMContentLoaded', () => {
       }
 
       if (type == "normal") {
-        el.style.fontSize = `${15}px`  
-        if(el.classList.contains("modal__p")) $allFont[i].style.fontSize = 1 + "rem"
-        if(el.classList.contains("header__title")) $allFont[i].style.fontSize = 20 + "px"
-        if(el.classList.contains("footer__p")) $allFont[i].style.fontSize = 1.3 + "rem"
-        if(el.classList.contains("titulos") || el.classList.contains("titulos1")) $allFont[i].style.fontSize = 24 + "px"
+        el.style.fontSize = `${15}px`
+        if (el.classList.contains("modal__p")) $allFont[i].style.fontSize = 1 + "rem"
+        if (el.classList.contains("header__title")) $allFont[i].style.fontSize = 20 + "px"
+        if (el.classList.contains("footer__p")) $allFont[i].style.fontSize = 1.3 + "rem"
+        if (el.classList.contains("titulos") || el.classList.contains("titulos1")) $allFont[i].style.fontSize = 24 + "px"
         if (el.classList.contains("font-dyslexic")) el.classList.toggle("font-dyslexic")
         if ($body.classList.contains('scr_highcontrast')) $body.classList.toggle('scr_highcontrast')
         if ($body.classList.contains('scr_grayHues')) $body.classList.toggle('scr_grayHues')
@@ -125,21 +125,44 @@ window.addEventListener('DOMContentLoaded', () => {
       if (e.target == button) $body.classList.toggle(nameClass);
     });
   }
+  let mediaQuery = window.matchMedia("(max-width: 800px)");
 
-  $allFont.forEach((item) => {
-    item.addEventListener("mouseover", () => {
-      speak.text = item.textContent;
-      if (speakerOnOff) {
-        speechSynthesis.speak(speak);
-      }
+  if (mediaQuery.matches) {
+    $allFont.forEach((item) => {
+      item.addEventListener("click", () => {
+        speak.text = item.textContent;
+        if (speakerOnOff) {
+          speechSynthesis.speak(speak);
+        }
+      });
+      item.addEventListener("mouseout", () => {
+        speechSynthesis.cancel();
+      });
     });
-    item.addEventListener("mouseout", () => {
-      speechSynthesis.cancel();
+  } else {
+    $allFont.forEach((item) => {
+      item.addEventListener("mouseover", () => {
+        speak.text = item.textContent;
+        if (speakerOnOff) {
+          speechSynthesis.speak(speak);
+        }
+      });
+      item.addEventListener("mouseout", () => {
+        speechSynthesis.cancel();
+      });
     });
-  });
+  }
 
   document.addEventListener('click', (e) => {
-    if (e.target == $screenreaderLogo || e.target == $logoImg) $screenreader.classList.toggle('barraAccesibilidad--active');
+    if (e.target == $screenreaderLogo || e.target == $logoImg) {
+      $screenreader.classList.toggle('barraAccesibilidad--active');
+
+      $itemsMenu.forEach((item, index) => {
+        (item.style.animation) ?
+        item.style.animation = '': item.style.animation = `itemFade .5s ease forwards ${index / 7 + .3}s`
+      })
+
+    };
 
     if (e.target == $moreFont) changeSizeFont("more");
 
