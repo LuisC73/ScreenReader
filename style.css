@@ -1,4 +1,4 @@
-.barraAccesibilidad{
+.barraAccesibilidad {
   display: flex;
   align-items: flex-start;
   position: fixed;
@@ -6,12 +6,12 @@
   bottom: 30%;
   flex-direction: row-reverse;
   z-index: 999;
-  transition: .4s ease-in-out;
+  transition: .6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   transform: translateX(80%);
 }
 
-.barraAccesibilidad__content{
-  background-color: #ffffff;
+.barraAccesibilidad__content {
+  background: #fff;
   border: 1px solid #0072C6;
   color: #333333;
   display: flex;
@@ -23,28 +23,28 @@
   padding: .2rem 1rem .5rem 1rem;
 }
 
-.barraAccesibilidad__title{
+.barraAccesibilidad__title {
   font-size: 1.3rem !important;
   width: 100%;
   margin-top: 10px;
   margin-bottom: 15px;
 }
 
-.barraAccesibilidad__p{
+.barraAccesibilidad__p {
   font-size: 1rem !important;
 }
 
-#centroRelevo:visited{
+#centroRelevo:visited {
   color: #333333;
 }
 
-.barraAccesibilidad__img{
+.barraAccesibilidad__img {
   width: .9rem;
   vertical-align: middle;
   margin-right: 1.4rem;
 }
 
-.barraAccesibilidad__options{
+.barraAccesibilidad__options {
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -52,19 +52,20 @@
   row-gap: .3rem;
 }
 
-.barraAccesibilidad__option{
+.barraAccesibilidad__option {
   display: flex;
   align-items: baseline;
   transition: .2s;
   opacity: 0;
 }
 
-.barraAccesibilidad__option:hover .barraAccesibilidad__p{
+.barraAccesibilidad__option:hover .barraAccesibilidad__p {
   text-decoration: underline;
   cursor: pointer;
+  transform: scale(1.1);
 }
 
-.barraAccesibilidad__logo{
+.barraAccesibilidad__logo {
   background-color: #0072C6;
   display: flex;
   justify-content: center;
@@ -76,15 +77,15 @@
   transition: .3s;
 }
 
-.barraAccesibilidad__logo:focus{
+.barraAccesibilidad__logo:focus {
   border-radius: none !important;
 }
 
-.barraAccesibilidad--active{
+.barraAccesibilidad--active {
   transform: translateX(0%);
 }
 
-.barraAccesibilidad__lg{
+.barraAccesibilidad__lg {
   width: 2.5rem;
 }
 

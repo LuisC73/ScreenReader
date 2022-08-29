@@ -92,12 +92,15 @@ window.addEventListener('DOMContentLoaded', () => {
   let volume = 1;
   speak.volume = volume;
 
+  let arrayFont = []
+
   function changeSizeFont(type) {
     $allFont.forEach((el, i) => {
       let fontSize = window
         .getComputedStyle(el, null)
         .getPropertyValue("font-size");
-      fontSize = parseFloat(fontSize);
+      fontSize = parseFloat(fontSize)
+      arrayFont.push(fontSize)
       if (type == "more" && fontSize < 23) {
         el.style.fontSize = fontSize + 5 + "px";
       } else if (type == "less" && fontSize > 11) {
@@ -105,13 +108,11 @@ window.addEventListener('DOMContentLoaded', () => {
       } else {
         el.style.fontSize = fontSize + "px";
       }
-
       if (type == "normal") {
-        el.style.fontSize = `${15}px`
-        if (el.classList.contains("modal__p")) $allFont[i].style.fontSize = 1 + "rem"
-        if (el.classList.contains("header__title")) $allFont[i].style.fontSize = 20 + "px"
-        if (el.classList.contains("footer__p")) $allFont[i].style.fontSize = 1.3 + "rem"
-        if (el.classList.contains("titulos") || el.classList.contains("titulos1")) $allFont[i].style.fontSize = 24 + "px"
+        arrayFont.forEach((font, index) => {
+          if (i == index) el.style.fontSize = `${font}px`
+        })
+
         if (el.classList.contains("font-dyslexic")) el.classList.toggle("font-dyslexic")
         if ($body.classList.contains('scr_highcontrast')) $body.classList.toggle('scr_highcontrast')
         if ($body.classList.contains('scr_grayHues')) $body.classList.toggle('scr_grayHues')
@@ -125,6 +126,7 @@ window.addEventListener('DOMContentLoaded', () => {
       if (e.target == button) $body.classList.toggle(nameClass);
     });
   }
+
   let mediaQuery = window.matchMedia("(max-width: 800px)");
 
   if (mediaQuery.matches) {
