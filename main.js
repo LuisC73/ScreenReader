@@ -62,7 +62,7 @@ window.addEventListener('DOMContentLoaded', () => {
           <img src="${direccion}/imagenes/logo.svg" alt="logo" class="barraAccesibilidad__lg">
         </figure>
   `
-
+  
   $s4Workspace.append(accesibilidadHtml)
 
   // Barra accesibilidad
