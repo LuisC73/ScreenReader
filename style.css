@@ -75,22 +75,7 @@
   border: 1px solid #0072C6;
   cursor: pointer;
   transition: .3s;
-  position: relative;
-}
-
-.barraAccesibilidad__logo::after{
-  content: '';
-  background-color: #00AFF0;
-  width: 0;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
-
-.barraAccesibilidad__logo:hover::after{
-  width: 100%;
+  overflow: hidden;
 }
 
 .barraAccesibilidad__logo:focus {
@@ -170,7 +155,6 @@
   0% {
     transform: translateY(0);
   }
-
   25% {
     transform: translateY(-50%);
   }
