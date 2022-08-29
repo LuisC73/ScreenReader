@@ -1,5 +1,5 @@
 window.addEventListener('DOMContentLoaded', () => {
-  //insertar contenido
+  //insertar barra lateral al html 
   let accesibilidadHtml = document.createElement('div');
   accesibilidadHtml.classList.add('barraAccesibilidad')
 
@@ -62,7 +62,7 @@ window.addEventListener('DOMContentLoaded', () => {
           <img src="${direccion}/imagenes/logo.svg" alt="logo" class="barraAccesibilidad__lg">
         </figure>
   `
-  
+
   $s4Workspace.append(accesibilidadHtml)
 
   // Barra accesibilidad
@@ -80,19 +80,16 @@ window.addEventListener('DOMContentLoaded', () => {
     $screenreader = document.querySelector('.barraAccesibilidad'),
     $body = document.querySelector("body"),
     $allFont = document.querySelectorAll(
-      "span, p, a, h1, h2, h3, h4, h5, input, div, .titulos, #testimonios > .card-title, .evento-fecha-2,button,strong,td"
+      "span, p, a, h1, h2, h3, h4, h5, input, div, .titulos,.titulo,#testimonios > .card-title, .evento-fecha-2,button,strong,td"
     ),
     $allFont2 = document.querySelectorAll(
-      "p, a, h1, h2, h3, h4, h5, input, div, .titulos, #testimonios > .card-title, .evento-fecha-2,button, .w3layouts_event_grid"
+      "p, a, h1, h2, h3, h4, h5, input, div, .titulos, #testimonios > .card-title, .evento-fecha-2,button, .w3layouts_event_grid,.titulo,.nav-link"
     ),
     $itemsMenu = document.querySelectorAll('.barraAccesibilidad__option');
 
-  let speakerOnOff = false;
-  let speak = new SpeechSynthesisUtterance();
-  let volume = 1;
-  speak.volume = volume;
-
-  let arrayFont = []
+  let speakerOnOff = false,
+    speak = new SpeechSynthesisUtterance(),
+    arrayFont = [];
 
   function changeSizeFont(type) {
     $allFont.forEach((el, i) => {
@@ -101,18 +98,17 @@ window.addEventListener('DOMContentLoaded', () => {
         .getPropertyValue("font-size");
       fontSize = parseFloat(fontSize)
       arrayFont.push(fontSize)
-      if (type == "more" && fontSize < 23) {
-        el.style.fontSize = fontSize + 5 + "px";
+      if (type == "more" && fontSize < 25) {
+        el.style.fontSize = `${fontSize + 5}px`;
       } else if (type == "less" && fontSize > 11) {
-        el.style.fontSize = fontSize - 5 + "px";
+        el.style.fontSize = `${fontSize - 5}px`;
       } else {
-        el.style.fontSize = fontSize + "px";
+        el.style.fontSize = `${fontSize}px`;
       }
       if (type == "normal") {
         arrayFont.forEach((font, index) => {
           if (i == index) el.style.fontSize = `${font}px`
         })
-
         if (el.classList.contains("font-dyslexic")) el.classList.toggle("font-dyslexic")
         if ($body.classList.contains('scr_highcontrast')) $body.classList.toggle('scr_highcontrast')
         if ($body.classList.contains('scr_grayHues')) $body.classList.toggle('scr_grayHues')
