@@ -27,8 +27,10 @@
   font-size: 1.3rem !important;
   width: 100%;
   margin-top: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 15px; 
+  font-weight: 700;
 }
+
 
 .barraAccesibilidad__p {
   font-size: 1rem !important;
@@ -134,7 +136,7 @@
 /* Cursor grande */
 
 .scr_bigcursor * {
-  cursor: url("/Style Library/ScreenReaderV3/imagenes/bigcursor.svg"), auto !important;
+  cursor: url("/Style Library/ScreenReaderV3/images/bigcursor.svg"), auto !important;
 }
 
 /* Animaciones */

@@ -59,7 +59,7 @@ window.addEventListener('DOMContentLoaded', () => {
           </div>
         </div>
         <figure class="barraAccesibilidad__logo" tabindex="1">
-          <img src="${direccion}/imagenes/logo.svg" alt="logo" class="barraAccesibilidad__lg">
+          <img src="${direccion}/imagenes/logo.svg" alt="logo" class="barraAccesibilidad__lg" title="Accesibilidad">
         </figure>
   `
 
