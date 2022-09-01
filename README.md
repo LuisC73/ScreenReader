@@ -18,6 +18,8 @@
     * Aplicar tono gris <br>
     * Aumentar tamaño de cursor <br>
     * Aplicar contraste <br>
+    * Aumentar espaciado de letras <br>
+    * Resaltar enlaces <br>
     * Resetear cambios
 
 
