@@ -19,7 +19,7 @@
   align-items: flex-start;
   justify-content: start;
   width: 15rem;
-  height: 34rem;
+  height: 36rem;
   padding: .2rem 1rem .5rem 1rem;
 }
 
@@ -143,7 +143,7 @@
 
 .src_highlightLink{
   background-color: #000 !important;
-  color: #ffff00 ;
+  color: #ffff00 !important;
 }
 
 /* Animaciones */

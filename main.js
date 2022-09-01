@@ -30,6 +30,11 @@ window.addEventListener("DOMContentLoaded", () => {
               class="barraAccesibilidad__img">
             <p class="barraAccesibilidad__p" id="espaciadoAC">Aumentar espacio</p>
           </div>
+          <div class="barraAccesibilidad__option" tabindex="1">
+            <img src="${direccion}/images/less_spacing.svg" alt="Disminuir Espacio"
+              class="barraAccesibilidad__img">
+            <p class="barraAccesibilidad__p" id="disminuirEspaciadoAC">Disminuir espacio</p>
+          </div>
             <div class="barraAccesibilidad__option" tabindex="1">
               <img src="${direccion}/images/bar_gray.svg" alt="Escala de grises"
                 class="barraAccesibilidad__img">
@@ -86,7 +91,8 @@ window.addEventListener("DOMContentLoaded", () => {
     $cursor = document.getElementById("cursorAC"),
     $contraste = document.getElementById("contrasteAC"),
     $highlight = document.getElementById("resaltarAC"),
-    $spacing = document.getElementById("espaciadoAC"),
+    $moreSpacing = document.getElementById("espaciadoAC"),
+    $lessSpacing = document.getElementById("disminuirEspaciadoAC"),
     $screenreaderLogo = document.querySelector(".barraAccesibilidad__logo"),
     $logoImg = document.querySelector(".barraAccesibilidad__lg"),
     $screenreader = document.querySelector(".barraAccesibilidad"),
@@ -105,6 +111,17 @@ window.addEventListener("DOMContentLoaded", () => {
     arrayFont = [],
     spacing = 1;
 
+  function activeMenu() {
+    $screenreader.classList.toggle("barraAccesibilidad--active");
+    $itemsMenu.forEach((item, index) => {
+      item.style.animation
+        ? (item.style.animation = "")
+        : (item.style.animation = `itemFade .5s ease forwards ${
+            index / 7 + 0.3
+          }s`);
+    });
+  }
+
   function changeSizeFont(type) {
     $allFont.forEach((el, i) => {
       let fontSize = window
@@ -116,10 +133,7 @@ window.addEventListener("DOMContentLoaded", () => {
         el.style.fontSize = `${fontSize + 5}px`;
       } else if (type == "less" && fontSize > 11) {
         el.style.fontSize = `${fontSize - 5}px`;
-      } else {
-        el.style.fontSize = `${fontSize}px`;
-      }
-      if (type == "normal") {
+      } else if (type == "normal") {
         arrayFont.forEach((font, index) => {
           if (i == index) el.style.fontSize = `${font}px`;
         });
@@ -134,68 +148,72 @@ window.addEventListener("DOMContentLoaded", () => {
           $body.classList.toggle("scr_bigcursor");
         if (el.classList.contains("src_highlightLink"))
           el.classList.remove("src_highlightLink");
+      } else {
+        el.style.fontSize = `${fontSize}px`;
       }
     });
   }
 
-  function changeSpacing() {
-    $allFont.forEach((el) => {
-      el.style.letterSpacing = `${spacing * 0.5}px`;
-    });
-    spacing++;
+  function changeSpacing(type) {
+    if (type == "more") {
+      $allFont.forEach((el) => {
+        el.style.letterSpacing = `${spacing * 0.5}px`;
+      });
+      spacing++;
+    } else if (type == "less") {
+      $allFont.forEach((el) => {
+        el.style.letterSpacing = `${spacing * 0.5}px`;
+      });
+      spacing--;
+    } else {
+      $allFont.forEach((el) => {
+        el.style.letterSpacing = `normal`;
+      });
+    }
   }
 
-  function highlightLink() {
-    $allLinks.forEach((el) => {
-      el.classList.toggle("src_highlightLink");
-    });
-  }
-
-  function addClass(nameClass, button) {
+  function addClass(nameClass, button, container) {
     document.addEventListener("click", (e) => {
-      if (e.target == button) $body.classList.toggle(nameClass);
+      if (e.target == button) container.classList.toggle(nameClass);
     });
   }
 
-  let mediaQuery = window.matchMedia("(max-width: 800px)");
+  function screenReader(value) {
+    let mediaQuery = window.matchMedia("(max-width: 800px)");
+    speakerOnOff = value
+    if (mediaQuery.matches) {
+      $allFont.forEach((item) => {
+        item.addEventListener("click", () => {
+          speak.text = item.textContent;
+          if (speakerOnOff) {
+            speechSynthesis.speak(speak);
+          }
+        });
+        item.addEventListener("mouseout", () => {
+          speechSynthesis.cancel();
+        });
+      });
+    } else {
+      $allFont.forEach((item) => {
+        item.addEventListener("mouseover", () => {
+          speak.text = item.textContent;
+          if (speakerOnOff) {
+            speechSynthesis.speak(speak);
+          }
+        });
+        item.addEventListener("mouseout", () => {
+          speechSynthesis.cancel();
+        });
+      });
+    }
 
-  if (mediaQuery.matches) {
-    $allFont.forEach((item) => {
-      item.addEventListener("click", () => {
-        speak.text = item.textContent;
-        if (speakerOnOff) {
-          speechSynthesis.speak(speak);
-        }
-      });
-      item.addEventListener("mouseout", () => {
-        speechSynthesis.cancel();
-      });
-    });
-  } else {
-    $allFont.forEach((item) => {
-      item.addEventListener("mouseover", () => {
-        speak.text = item.textContent;
-        if (speakerOnOff) {
-          speechSynthesis.speak(speak);
-        }
-      });
-      item.addEventListener("mouseout", () => {
-        speechSynthesis.cancel();
-      });
-    });
+    $audioIMG.getAttribute("src") == `${direccion}/images/play.svg`
+      ? ($audioIMG.src = `${direccion}/images/stop.svg`)
+      : ($audioIMG.src = `${direccion}/images/play.svg`);
   }
 
   document.addEventListener("click", (e) => {
-    if (e.target == $screenreaderLogo || e.target == $logoImg) {
-      $screenreader.classList.toggle("barraAccesibilidad--active");
-      $itemsMenu.forEach((item, index) => {
-        item.style.animation
-          ? (item.style.animation = "")
-          : (item.style.animation = `itemFade .5s ease forwards ${
-              index / 7 + 0.3
-            }s`);
-      });
-    }
+    if (e.target == $screenreaderLogo || e.target == $logoImg) activeMenu();
 
     if (e.target == $moreFont) changeSizeFont("more");
 
@@ -203,24 +221,22 @@ window.addEventListener("DOMContentLoaded", () => {
 
     if (e.target == $normalFont) changeSizeFont("normal");
 
-    if (e.target == $spacing) changeSpacing();
+    if (e.target == $moreSpacing) changeSpacing("more");
 
-    if (e.target == $contraste) addClass("scr_highcontrast", $contraste);
+    if (e.target == $lessSpacing) changeSpacing("less");
+
+    if (e.target == $contraste) addClass("scr_highcontrast", $contraste, $body);
 
     if (e.target == $dyslexic)
-      $allFont2.forEach((el) => el.classList.toggle("font-dyslexic"));
+      $allFont2.forEach((el) => addClass("font-dyslexic", $dyslexic, el));
 
-    if (e.target == $hues) addClass("scr_grayHues", $hues);
+    if (e.target == $hues) addClass("scr_grayHues", $hues, $body);
 
-    if (e.target == $cursor) addClass("scr_bigcursor", $cursor);
+    if (e.target == $cursor) addClass("scr_bigcursor", $cursor, $body);
 
-    if (e.target == $highlight) highlightLink();
+    if (e.target == $highlight)
+      $allLinks.forEach((el) => addClass("src_highlightLink", $highlight, el));
 
-    if (e.target == $audio) {
-      speakerOnOff = !speakerOnOff;
-      $audioIMG.getAttribute("src") == `${direccion}/images/play.svg`
-        ? ($audioIMG.src = `${direccion}/images/stop.svg`)
-        : ($audioIMG.src = `${direccion}/images/play.svg`);
-    }
+    if (e.target == $audio) screenReader(!speakerOnOff);
   });
 });
