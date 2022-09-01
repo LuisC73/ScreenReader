@@ -1,11 +1,11 @@
-window.addEventListener('DOMContentLoaded', () => {
-  //insertar barra lateral al html 
-  let accesibilidadHtml = document.createElement('div');
-  accesibilidadHtml.classList.add('barraAccesibilidad')
+window.addEventListener("DOMContentLoaded", () => {
+  //insertar barra lateral al html
+  let accesibilidadHtml = document.createElement("div");
+  accesibilidadHtml.classList.add("barraAccesibilidad");
 
-  const $s4Workspace = document.getElementById('s4-workspace')
+  const $s4Workspace = document.getElementById("s4-workspace");
 
-  let direccion = `/Style Library/ScreenReaderV3`
+  let direccion = `/Style Library/ScreenReaderV3`;
 
   accesibilidadHtml.innerHTML = `
           <div class="barraAccesibilidad__content">
@@ -59,15 +59,15 @@ window.addEventListener('DOMContentLoaded', () => {
           </div>
         </div>
         <figure class="barraAccesibilidad__logo" tabindex="1">
-          <img src="${direccion}/imagenes/logo.svg" alt="logo" class="barraAccesibilidad__lg" title="Accesibilidad">
+          <img src="${direccion}/images/logo.svg" alt="logo" class="barraAccesibilidad__lg" title="Accesibilidad">
         </figure>
-  `
+  `;
 
-  $s4Workspace.append(accesibilidadHtml)
+  $s4Workspace.append(accesibilidadHtml);
 
   // Barra accesibilidad
   const $audio = document.getElementById("narradorAC"),
-    $audioIMG = document.getElementById('narradorIMG'),
+    $audioIMG = document.getElementById("narradorIMG"),
     $moreFont = document.getElementById("aumentarAC"),
     $lessFont = document.getElementById("disminuirAC"),
     $normalFont = document.getElementById("reiniciarAC"),
@@ -75,17 +75,17 @@ window.addEventListener('DOMContentLoaded', () => {
     $hues = document.getElementById("tonoAC"),
     $cursor = document.getElementById("cursorAC"),
     $contraste = document.getElementById("contrasteAC"),
-    $screenreaderLogo = document.querySelector('.barraAccesibilidad__logo'),
-    $logoImg = document.querySelector('.barraAccesibilidad__lg'),
-    $screenreader = document.querySelector('.barraAccesibilidad'),
+    $screenreaderLogo = document.querySelector(".barraAccesibilidad__logo"),
+    $logoImg = document.querySelector(".barraAccesibilidad__lg"),
+    $screenreader = document.querySelector(".barraAccesibilidad"),
     $body = document.querySelector("body"),
     $allFont = document.querySelectorAll(
-      "span, p, a, h1, h2, h3, h4, h5, input, div, .titulos,.titulo,#testimonios > .card-title, .evento-fecha-2,button,strong,td"
+      "span, p, a, h1, h2, h3, h4, h5, input, div, .titulos,.titulo,#testimonios > .card-title, .evento-fecha-2,button,strong,td,.w3layouts_event_grid,.nav-link"
     ),
     $allFont2 = document.querySelectorAll(
       "p, a, h1, h2, h3, h4, h5, input, div, .titulos, #testimonios > .card-title, .evento-fecha-2,button, .w3layouts_event_grid,.titulo,.nav-link"
     ),
-    $itemsMenu = document.querySelectorAll('.barraAccesibilidad__option');
+    $itemsMenu = document.querySelectorAll(".barraAccesibilidad__option");
 
   let speakerOnOff = false,
     speak = new SpeechSynthesisUtterance(),
@@ -96,8 +96,8 @@ window.addEventListener('DOMContentLoaded', () => {
       let fontSize = window
         .getComputedStyle(el, null)
         .getPropertyValue("font-size");
-      fontSize = parseFloat(fontSize)
-      arrayFont.push(fontSize)
+      fontSize = parseFloat(fontSize);
+      arrayFont.push(fontSize);
       if (type == "more" && fontSize < 25) {
         el.style.fontSize = `${fontSize + 5}px`;
       } else if (type == "less" && fontSize > 11) {
@@ -107,12 +107,17 @@ window.addEventListener('DOMContentLoaded', () => {
       }
       if (type == "normal") {
         arrayFont.forEach((font, index) => {
-          if (i == index) el.style.fontSize = `${font}px`
-        })
-        if (el.classList.contains("font-dyslexic")) el.classList.toggle("font-dyslexic")
-        if ($body.classList.contains('scr_highcontrast')) $body.classList.toggle('scr_highcontrast')
-        if ($body.classList.contains('scr_grayHues')) $body.classList.toggle('scr_grayHues')
-        if ($body.classList.contains('scr_bigcursor')) $body.classList.toggle('scr_bigcursor')
+          if (i == index) el.style.fontSize = `${font}px`;
+          console.log(font);
+        });
+        if (el.classList.contains("font-dyslexic"))
+          el.classList.toggle("font-dyslexic");
+        if ($body.classList.contains("scr_highcontrast"))
+          $body.classList.toggle("scr_highcontrast");
+        if ($body.classList.contains("scr_grayHues"))
+          $body.classList.toggle("scr_grayHues");
+        if ($body.classList.contains("scr_bigcursor"))
+          $body.classList.toggle("scr_bigcursor");
       }
     });
   }
@@ -151,16 +156,17 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  document.addEventListener('click', (e) => {
+  document.addEventListener("click", (e) => {
     if (e.target == $screenreaderLogo || e.target == $logoImg) {
-      $screenreader.classList.toggle('barraAccesibilidad--active');
-
+      $screenreader.classList.toggle("barraAccesibilidad--active");
       $itemsMenu.forEach((item, index) => {
-        (item.style.animation) ?
-        item.style.animation = '': item.style.animation = `itemFade .5s ease forwards ${index / 7 + .3}s`
-      })
-
-    };
+        item.style.animation
+          ? (item.style.animation = "")
+          : (item.style.animation = `itemFade .5s ease forwards ${
+              index / 7 + 0.3
+            }s`);
+      });
+    }
 
     if (e.target == $moreFont) changeSizeFont("more");
 
@@ -170,7 +176,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
     if (e.target == $contraste) addClass("scr_highcontrast", $contraste);
 
-    if (e.target == $dyslexic) $allFont2.forEach((el) => el.classList.toggle("font-dyslexic"));
+    if (e.target == $dyslexic)
+      $allFont2.forEach((el) => el.classList.toggle("font-dyslexic"));
 
     if (e.target == $hues) addClass("scr_grayHues", $hues);
 
@@ -178,9 +185,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
     if (e.target == $audio) {
       speakerOnOff = !speakerOnOff;
-      $audioIMG.getAttribute("src") == "/Style Library/ScreenReaderV3/imagenes/play.svg" ?
-        ($audioIMG.src = "/Style Library/ScreenReaderV3/imagenes/stop.svg") :
-        ($audioIMG.src = "/Style Library/ScreenReaderV3/imagenes/play.svg");
+      $audioIMG.getAttribute("src") == `${direccion}/images/play.svg`
+        ? ($audioIMG.src = `${direccion}/images/stop.svg`)
+        : ($audioIMG.src = `${direccion}/images/play.svg`);
     }
-  })
-})
+  });
+});
