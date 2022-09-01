@@ -18,13 +18,18 @@ window.addEventListener("DOMContentLoaded", () => {
             <div class="barraAccesibilidad__option" tabindex="1">
               <img src="${direccion}/images/more_size.svg" alt="Aumentar letra"
                 class="barraAccesibilidad__img">
-              <p class="barraAccesibilidad__p" id="aumentarAC">Aumentar Texto</p>
+              <p class="barraAccesibilidad__p" id="aumentarAC">Aumentar texto</p>
             </div>
             <div class="barraAccesibilidad__option" tabindex="1">
               <img src="${direccion}/images/less_size.svg" alt="Disminuir letra"
                 class="barraAccesibilidad__img">
-              <p class="barraAccesibilidad__p" id="disminuirAC">Disminuir Texto</p>
+              <p class="barraAccesibilidad__p" id="disminuirAC">Disminuir texto</p>
             </div>
+            <div class="barraAccesibilidad__option" tabindex="1">
+            <img src="${direccion}/images/more_spacing.svg" alt="Aumentar Espacio"
+              class="barraAccesibilidad__img">
+            <p class="barraAccesibilidad__p" id="espaciadoAC">Aumentar espacio</p>
+          </div>
             <div class="barraAccesibilidad__option" tabindex="1">
               <img src="${direccion}/images/bar_gray.svg" alt="Escala de grises"
                 class="barraAccesibilidad__img">
@@ -44,6 +49,11 @@ window.addEventListener("DOMContentLoaded", () => {
               <img src="${direccion}/images/cursor.svg" alt="Aumentar cursor"
                 class="barraAccesibilidad__img">
               <p class="barraAccesibilidad__p" id="cursorAC">Aumentar cursor</p>
+            </div>
+            <div class="barraAccesibilidad__option" tabindex="1">
+              <img src="${direccion}/images/link.svg" alt="Resaltar Enlaces"
+                class="barraAccesibilidad__img">
+              <p class="barraAccesibilidad__p" id="resaltarAC">Resaltar enlaces</p>
             </div>
             <div class="barraAccesibilidad__option" tabindex="1">
               <img src="${direccion}/images/restart.svg" alt="Resetear" class="barraAccesibilidad__img">
@@ -75,6 +85,8 @@ window.addEventListener("DOMContentLoaded", () => {
     $hues = document.getElementById("tonoAC"),
     $cursor = document.getElementById("cursorAC"),
     $contraste = document.getElementById("contrasteAC"),
+    $highlight = document.getElementById("resaltarAC"),
+    $spacing = document.getElementById("espaciadoAC"),
     $screenreaderLogo = document.querySelector(".barraAccesibilidad__logo"),
     $logoImg = document.querySelector(".barraAccesibilidad__lg"),
     $screenreader = document.querySelector(".barraAccesibilidad"),
@@ -85,11 +97,13 @@ window.addEventListener("DOMContentLoaded", () => {
     $allFont2 = document.querySelectorAll(
       "p, a, h1, h2, h3, h4, h5, input, div, .titulos, #testimonios > .card-title, .evento-fecha-2,button, .w3layouts_event_grid,.titulo,.nav-link"
     ),
-    $itemsMenu = document.querySelectorAll(".barraAccesibilidad__option");
+    $itemsMenu = document.querySelectorAll(".barraAccesibilidad__option"),
+    $allLinks = document.querySelectorAll("a");
 
   let speakerOnOff = false,
     speak = new SpeechSynthesisUtterance(),
-    arrayFont = [];
+    arrayFont = [],
+    spacing = 1;
 
   function changeSizeFont(type) {
     $allFont.forEach((el, i) => {
@@ -108,8 +122,8 @@ window.addEventListener("DOMContentLoaded", () => {
       if (type == "normal") {
         arrayFont.forEach((font, index) => {
           if (i == index) el.style.fontSize = `${font}px`;
-          console.log(font);
         });
+        el.style.letterSpacing = `normal`;
         if (el.classList.contains("font-dyslexic"))
           el.classList.toggle("font-dyslexic");
         if ($body.classList.contains("scr_highcontrast"))
@@ -118,7 +132,22 @@ window.addEventListener("DOMContentLoaded", () => {
           $body.classList.toggle("scr_grayHues");
         if ($body.classList.contains("scr_bigcursor"))
           $body.classList.toggle("scr_bigcursor");
+        if (el.classList.contains("src_highlightLink"))
+          el.classList.remove("src_highlightLink");
       }
+    });
+  }
+
+  function changeSpacing() {
+    $allFont.forEach((el) => {
+      el.style.letterSpacing = `${spacing * 0.5}px`;
+    });
+    spacing++;
+  }
+
+  function highlightLink() {
+    $allLinks.forEach((el) => {
+      el.classList.toggle("src_highlightLink");
     });
   }
 
@@ -174,6 +203,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
     if (e.target == $normalFont) changeSizeFont("normal");
 
+    if (e.target == $spacing) changeSpacing();
+
     if (e.target == $contraste) addClass("scr_highcontrast", $contraste);
 
     if (e.target == $dyslexic)
@@ -182,6 +213,8 @@ window.addEventListener("DOMContentLoaded", () => {
     if (e.target == $hues) addClass("scr_grayHues", $hues);
 
     if (e.target == $cursor) addClass("scr_bigcursor", $cursor);
+
+    if (e.target == $highlight) highlightLink();
 
     if (e.target == $audio) {
       speakerOnOff = !speakerOnOff;

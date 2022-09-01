@@ -19,21 +19,22 @@
   align-items: flex-start;
   justify-content: start;
   width: 15rem;
-  height: 29rem;
+  height: 34rem;
   padding: .2rem 1rem .5rem 1rem;
 }
 
 .barraAccesibilidad__title {
   font-size: 1.3rem !important;
+  letter-spacing: normal !important;
   width: 100%;
   margin-top: 10px;
   margin-bottom: 15px; 
   font-weight: 700;
 }
 
-
 .barraAccesibilidad__p {
   font-size: 1rem !important;
+  letter-spacing: normal !important;
 }
 
 #centroRelevo:visited {
@@ -134,13 +135,18 @@
 } */
 
 /* Cursor grande */
-
 .scr_bigcursor * {
   cursor: url("/Style Library/ScreenReaderV3/images/bigcursor.svg"), auto !important;
 }
 
-/* Animaciones */
+/* highlightLink */
 
+.src_highlightLink{
+  background-color: #000 !important;
+  color: #ffff00 ;
+}
+
+/* Animaciones */
 @keyframes itemFade {
   from {
     opacity: 0;
@@ -173,6 +179,5 @@
     transform: translateY(0);
   }
 }
-
 
 /* Responsive */
