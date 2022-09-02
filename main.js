@@ -178,32 +178,63 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  function returnTag(e) {
+    let tag = e.srcElement ? e.srcElement.tagName : e.target.type;
+    return tag;
+  }
+
+  function returnText(e) {
+    if (
+      returnTag(e) == "P" ||
+      returnTag(e) == "H1" ||
+      returnTag(e) == "H2" ||
+      returnTag(e) == "H3" ||
+      returnTag(e) == "H4" ||
+      returnTag(e) == "H5" ||
+      returnTag(e) == "H6" ||
+      returnTag(e) == "A" ||
+      returnTag(e) == "LI" ||
+      returnTag(e) == "SPAN" ||
+      returnTag(e) == "STRONG"
+    ) {
+      return e.target.textContent;
+    } else if (returnTag(e) == "DIV" && e.target.textContent.length <= 100) {
+      return e.target.textContent;
+    } else if (returnTag(e) == "IMG" && e.target.getAttribute("alt")) {
+      return e.target.getAttribute("alt");
+    } else {
+      return "";
+    }
+  }
+
   function screenReader(value) {
     let mediaQuery = window.matchMedia("(max-width: 800px)");
-    speakerOnOff = value
+    speakerOnOff = value;
     if (mediaQuery.matches) {
-      $allFont.forEach((item) => {
-        item.addEventListener("click", () => {
-          speak.text = item.textContent;
+      $body.addEventListener("click", (e) => {
+        if (returnText(e) != "") {
+          speak.text = returnText(e);
           if (speakerOnOff) {
             speechSynthesis.speak(speak);
           }
-        });
-        item.addEventListener("mouseout", () => {
-          speechSynthesis.cancel();
-        });
+        }
+      });
+
+      $body.addEventListener("mouseout", () => {
+        speechSynthesis.cancel();
       });
     } else {
-      $allFont.forEach((item) => {
-        item.addEventListener("mouseover", () => {
-          speak.text = item.textContent;
+      $body.addEventListener("mouseover", (e) => {
+        if (returnText(e) != "") {
+          speak.text = returnText(e);
           if (speakerOnOff) {
             speechSynthesis.speak(speak);
           }
-        });
-        item.addEventListener("mouseout", () => {
-          speechSynthesis.cancel();
-        });
+        }
+      });
+
+      $body.addEventListener("mouseout", () => {
+        speechSynthesis.cancel();
       });
     }
 
