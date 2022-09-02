@@ -1,3 +1,11 @@
+:root{
+  --color-font: #333333;
+  --color-principal: #0072C6;
+  --color-fondo: #fff;
+  --resalto-links: #ffff00;
+  --color-resaltoFondo: #000;
+}
+
 .barraAccesibilidad {
   display: flex;
   align-items: flex-start;
@@ -11,9 +19,9 @@
 }
 
 .barraAccesibilidad__content {
-  background: #fff;
-  border: 1px solid #0072C6;
-  color: #333333;
+  background: var(--color-fondo);
+  border: 1px solid var(--color-principal);
+  color: var(--color-font);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -38,7 +46,7 @@
 }
 
 #centroRelevo:visited {
-  color: #333333;
+  color: var(--color-font);
 }
 
 .barraAccesibilidad__img {
@@ -69,13 +77,13 @@
 }
 
 .barraAccesibilidad__logo {
-  background-color: #0072C6;
+  background-color: var(--color-principal);
   display: flex;
   justify-content: center;
   align-items: center;
   width: 5rem;
   height: 5rem;
-  border: 1px solid #0072C6;
+  border: 1px solid var(--color-principal);
   cursor: pointer;
   transition: .3s;
   overflow: hidden;
@@ -142,8 +150,8 @@
 /* highlightLink */
 
 .src_highlightLink{
-  background-color: #000 !important;
-  color: #ffff00 !important;
+  background-color: var(--color-resaltoFondo) !important;
+  color: var(--resalto-links) !important;
 }
 
 /* Animaciones */
