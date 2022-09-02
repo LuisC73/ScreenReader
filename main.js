@@ -3,9 +3,8 @@ window.addEventListener("DOMContentLoaded", () => {
   let accesibilidadHtml = document.createElement("div");
   accesibilidadHtml.classList.add("barraAccesibilidad");
 
-  const $s4Workspace = document.getElementById("s4-workspace");
-
-  let direccion = `/Style Library/ScreenReaderV3`;
+  const $s4Workspace = document.getElementById("s4-workspace"),
+  direccion = `/Style Library/ScreenReaderV3`;
 
   accesibilidadHtml.innerHTML = `
           <div class="barraAccesibilidad__content">
@@ -130,9 +129,9 @@ window.addEventListener("DOMContentLoaded", () => {
       fontSize = parseFloat(fontSize);
       arrayFont.push(fontSize);
       if (type == "more" && fontSize < 25) {
-        el.style.fontSize = `${fontSize + 5}px`;
+        el.style.fontSize = `${fontSize + 0.5}px`;
       } else if (type == "less" && fontSize > 11) {
-        el.style.fontSize = `${fontSize - 5}px`;
+        el.style.fontSize = `${fontSize - 0.5}px`;
       } else if (type == "normal") {
         arrayFont.forEach((font, index) => {
           if (i == index) el.style.fontSize = `${font}px`;
@@ -271,3 +270,5 @@ window.addEventListener("DOMContentLoaded", () => {
     if (e.target == $audio) screenReader(!speakerOnOff);
   });
 });
+
+
