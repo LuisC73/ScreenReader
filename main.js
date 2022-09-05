@@ -4,7 +4,7 @@ window.addEventListener("DOMContentLoaded", () => {
   accesibilidadHtml.classList.add("barraAccesibilidad");
 
   const $s4Workspace = document.getElementById("s4-workspace"),
-  direccion = `/Style Library/ScreenReaderV3`;
+    direccion = `/Style Library/ScreenReaderV3`;
 
   accesibilidadHtml.innerHTML = `
           <div class="barraAccesibilidad__content">
@@ -171,12 +171,6 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  function addClass(nameClass, button, container) {
-    document.addEventListener("click", (e) => {
-      if (e.target == button) container.classList.toggle(nameClass);
-    });
-  }
-
   function returnTag(e) {
     let tag = e.srcElement ? e.srcElement.tagName : e.target.type;
     return tag;
@@ -255,20 +249,18 @@ window.addEventListener("DOMContentLoaded", () => {
 
     if (e.target == $lessSpacing) changeSpacing("less");
 
-    if (e.target == $contraste) addClass("scr_highcontrast", $contraste, $body);
+    if (e.target == $contraste) $body.classList.toggle("scr_highcontrast");
 
     if (e.target == $dyslexic)
-      $allFont2.forEach((el) => addClass("font-dyslexic", $dyslexic, el));
+      $allFont2.forEach((el) => el.classList.toggle("font-dyslexic"));
 
-    if (e.target == $hues) addClass("scr_grayHues", $hues, $body);
+    if (e.target == $hues) $body.classList.toggle("scr_grayHues");
 
-    if (e.target == $cursor) addClass("scr_bigcursor", $cursor, $body);
+    if (e.target == $cursor) $body.classList.toggle("scr_bigcursor");
 
     if (e.target == $highlight)
-      $allLinks.forEach((el) => addClass("src_highlightLink", $highlight, el));
+      $allLinks.forEach((el) => el.classList.toggle("src_highlightLink"));
 
     if (e.target == $audio) screenReader(!speakerOnOff);
   });
 });
-
-
