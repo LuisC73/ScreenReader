@@ -189,14 +189,21 @@ window.addEventListener("DOMContentLoaded", () => {
       returnTag(e) == "A" ||
       returnTag(e) == "LI" ||
       returnTag(e) == "SPAN" ||
-      returnTag(e) == "STRONG"
+      returnTag(e) == "STRONG" ||
+      returnTag(e) == "BUTTON" ||
+      returnTag(e) == "SELECT" ||
+      returnTag(e) == "LABEL" 
     ) {
       return e.target.textContent;
     } else if (returnTag(e) == "DIV" && e.target.textContent.length <= 100) {
       return e.target.textContent;
     } else if (returnTag(e) == "IMG" && e.target.getAttribute("alt")) {
       return e.target.getAttribute("alt");
-    } else {
+    } else if (returnTag(e) == "INPUT" && e.target.getAttribute("value")) {
+      return e.target.getAttribute("value");
+    }else if (returnTag(e) == "INPUT" && e.target.getAttribute("placeholder")) {
+      return e.target.getAttribute("placeholder");
+    }else{
       return "";
     }
   }
