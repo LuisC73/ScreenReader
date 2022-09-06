@@ -19,7 +19,7 @@ el valor del flex-direction a row, ademas de su translateX
   right: 1rem;
   bottom: 30%;
   flex-direction: row-reverse;
-  z-index: 999;
+  z-index: 99;
   transition: .6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   transform: translateX(80%);
 }
