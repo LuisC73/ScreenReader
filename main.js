@@ -2,7 +2,6 @@ window.addEventListener("DOMContentLoaded", () => {
   //insertar barra lateral al html
   let accesibilidadHtml = document.createElement("div");
   accesibilidadHtml.classList.add("barraAccesibilidad");
-  accesibilidadHtml.setAttribute("tabindex", "0");
 
   const $s4Workspace = document.getElementById("s4-workspace"),
     direccion = `/Style Library/ScreenReaderV3`;
@@ -192,7 +191,7 @@ window.addEventListener("DOMContentLoaded", () => {
       returnTag(e) == "STRONG" ||
       returnTag(e) == "BUTTON" ||
       returnTag(e) == "SELECT" ||
-      returnTag(e) == "LABEL" 
+      returnTag(e) == "LABEL"
     ) {
       return e.target.textContent;
     } else if (returnTag(e) == "DIV" && e.target.textContent.length <= 100) {
@@ -201,9 +200,12 @@ window.addEventListener("DOMContentLoaded", () => {
       return e.target.getAttribute("alt");
     } else if (returnTag(e) == "INPUT" && e.target.getAttribute("value")) {
       return e.target.getAttribute("value");
-    }else if (returnTag(e) == "INPUT" && e.target.getAttribute("placeholder")) {
+    } else if (
+      returnTag(e) == "INPUT" &&
+      e.target.getAttribute("placeholder")
+    ) {
       return e.target.getAttribute("placeholder");
-    }else{
+    } else {
       return "";
     }
   }
@@ -272,4 +274,9 @@ window.addEventListener("DOMContentLoaded", () => {
     if (e.target == $audio) screenReader(!speakerOnOff);
   });
 
+  $screenreader.addEventListener("keypress", (e) => {
+    if (e.key == "enter" || e.keyCode == 13) {
+      activeMenu();
+    }
+  });
 });

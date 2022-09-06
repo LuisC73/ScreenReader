@@ -6,6 +6,12 @@
   --color-resaltoFondo: #000;
 }
 
+/* Contenedor Principal, donde podras editar la posicion de la barra
+
+Si deseas cambiar la posicion de la barra al lado izquierdo, es necesario cambiar 
+el valor del flex-direction a row, ademas de su translateX
+
+*/
 .barraAccesibilidad {
   display: flex;
   align-items: flex-start;
@@ -18,6 +24,8 @@
   transform: translateX(80%);
 }
 
+/* Contenedor de opciones de la barra, donde podras cambiar su tamaño */
+
 .barraAccesibilidad__content {
   background: var(--color-fondo);
   border: 1px solid var(--color-principal);
@@ -27,10 +35,11 @@
   align-items: flex-start;
   justify-content: start;
   width: 15rem;
-  height: 36rem;
+  height: 37.2rem;
   padding: .2rem 1rem .5rem 1rem;
 }
 
+/* Titulo principal */
 .barraAccesibilidad__title {
   font-size: 1.3rem !important;
   letter-spacing: normal !important;
@@ -40,6 +49,16 @@
   font-weight: 700;
 }
 
+/* Opciones de la barra */
+.barraAccesibilidad__options {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: flex-start;
+  row-gap: .3rem;
+}
+
+/* Parrafos de las opciones */
 .barraAccesibilidad__p {
   font-size: 1rem !important;
   letter-spacing: normal !important;
@@ -49,20 +68,14 @@
   color: var(--color-font);
 }
 
+/* Iconos de las opciones */
 .barraAccesibilidad__img {
   width: .9rem;
   vertical-align: middle;
   margin-right: 1.4rem;
 }
 
-.barraAccesibilidad__options {
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: flex-start;
-  row-gap: .3rem;
-}
-
+/* Opcion de la barra por individual */
 .barraAccesibilidad__option {
   display: flex;
   align-items: baseline;
@@ -70,12 +83,14 @@
   opacity: 0;
 }
 
+/* efecto hover de cada opcion */
 .barraAccesibilidad__option:hover .barraAccesibilidad__p {
   text-decoration: underline;
   cursor: pointer;
   transform: scale(1.1);
 }
 
+/* Contenedor de la imagen del logo */
 .barraAccesibilidad__logo {
   background-color: var(--color-principal);
   display: flex;
@@ -97,6 +112,7 @@
   transform: translateX(0%);
 }
 
+/* Logo de Accesibilidad */
 .barraAccesibilidad__lg {
   width: 2.5rem;
 }
@@ -130,7 +146,7 @@
   font-family: "OpenDyslexic", sans-serif !important;
 }
 
-/* gray hues */
+/* Tono gris */
 
 .scr_grayHues {
   filter: grayscale(1);
@@ -147,7 +163,15 @@
   cursor: url("/Style Library/ScreenReaderV3/images/bigcursor.svg"), auto !important;
 }
 
-/* highlightLink */
+.scr_bigcursor a, 
+.scr_bigcursor input,
+.scr_bigcursor button {
+  cursor: url("/Style Library/ScreenReaderV3/images/cursorPointer.svg"), auto !important;
+}
+
+
+
+/* Resaltar enlaces */
 
 .src_highlightLink{
   background-color: var(--color-resaltoFondo) !important;
@@ -188,4 +212,3 @@
   }
 }
 
-/* Responsive */
