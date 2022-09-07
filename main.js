@@ -32,12 +32,12 @@ window.addEventListener("DOMContentLoaded", () => {
             <div class="barraAccesibilidad__option">
             <img src="${direccion}/images/more_spacing.svg" alt="Aumentar Espacio"
               class="barraAccesibilidad__img">
-            <p class="barraAccesibilidad__p" id="espaciadoAC"  tabindex="0">Aumentar espacio</p>
+            <p class="barraAccesibilidad__p" id="espaciadoAC"  tabindex="0">Aumentar espaciado</p>
           </div>
           <div class="barraAccesibilidad__option">
             <img src="${direccion}/images/less_spacing.svg" alt="Disminuir Espacio"
               class="barraAccesibilidad__img">
-            <p class="barraAccesibilidad__p" id="disminuirEspaciadoAC" tabindex="0">Disminuir espacio</p>
+            <p class="barraAccesibilidad__p" id="disminuirEspaciadoAC" tabindex="0">Disminuir espaciado</p>
           </div>
             <div class="barraAccesibilidad__option">
               <img src="${direccion}/images/bar_gray.svg" alt="Escala de grises"
@@ -65,8 +65,8 @@ window.addEventListener("DOMContentLoaded", () => {
               <p class="barraAccesibilidad__p" id="resaltarAC" tabindex="0">Resaltar enlaces</p>
             </div>
             <div class="barraAccesibilidad__option">
-              <img src="${direccion}/images/restart.svg" alt="Resetear" class="barraAccesibilidad__img">
-              <p class="barraAccesibilidad__p" id="reiniciarAC" tabindex="0">Resetear</p>
+              <img src="${direccion}/images/restart.svg" alt="Restablecer" class="barraAccesibilidad__img">
+              <p class="barraAccesibilidad__p" id="reiniciarAC" tabindex="0">Restablecer</p>
             </div>
             <div class="barraAccesibilidad__option">
               <img src="${direccion}/images/centro_relevo.svg" alt="Centro de relevo"
