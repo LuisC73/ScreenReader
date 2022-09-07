@@ -224,6 +224,8 @@ window.addEventListener("DOMContentLoaded", () => {
   function screenReader(value) {
     let mediaQuery = window.matchMedia("(max-width: 800px)");
     speakerOnOff = value;
+    speak.lang = "es-ES";
+    speak.rate = 1.3;
     if (mediaQuery.matches) {
       $body.addEventListener("click", (e) => {
         if (returnText(e) != "") {

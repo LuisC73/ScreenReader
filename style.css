@@ -200,6 +200,7 @@ el valor del flex-direction a row-reverse, ademas de su translateX
 .src_highlightLink {
   background-color: var(--color-resaltoFondo) !important;
   color: var(--resalto-links) !important;
+  text-decoration: underline !important;
 }
 
 /* Animaciones */
