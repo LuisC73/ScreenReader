@@ -1,16 +1,26 @@
-:root{
+:root {
   --color-font: #333333;
-  --color-principal: #0072C6;
+  --color-principal: #0186f8;
+  --color-secundario: #00a9ee;
   --color-fondo: #fff;
   --resalto-links: #ffff00;
   --color-resaltoFondo: #000;
 }
 
+/* Fuentes */
+@font-face {
+  font-family: "Montserrat";
+  src: url("/Style Library/ScreenReaderV3/fonts/Montserrat-Regular.ttf");
+}
+
+@font-face {
+  font-family: "WorkSans";
+  src: url("/Style Library/ScreenReaderV3/fonts/WorkSans-Regular.ttf");
+}
+
 /* Contenedor Principal, donde podras editar la posicion de la barra
-
 Si deseas cambiar la posicion de la barra al lado izquierdo, es necesario cambiar 
-el valor del flex-direction a row, ademas de su translateX
-
+el valor del flex-direction a row-reverse, ademas de su translateX
 */
 .barraAccesibilidad {
   display: flex;
@@ -18,17 +28,25 @@ el valor del flex-direction a row, ademas de su translateX
   position: fixed;
   right: 1rem;
   bottom: 30%;
-  flex-direction: row-reverse;
+  flex-direction: row;
   z-index: 99;
-  transition: .6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  transform: translateX(80%);
+  transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transform: translateX(87%);
+}
+
+.barraAccesibilidad:focus {
+  border: none !important;
 }
 
 /* Contenedor de opciones de la barra, donde podras cambiar su tamaño */
 
 .barraAccesibilidad__content {
-  background: var(--color-fondo);
-  border: 1px solid var(--color-principal);
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
   color: var(--color-font);
   display: flex;
   flex-direction: column;
@@ -36,7 +54,8 @@ el valor del flex-direction a row, ademas de su translateX
   justify-content: start;
   width: 15rem;
   height: 37.2rem;
-  padding: .2rem 1rem .5rem 1rem;
+  padding: 0.2rem 1rem 0.5rem 1rem;
+  border-radius: 0px 8px 8px 8px;
 }
 
 /* Titulo principal */
@@ -45,8 +64,10 @@ el valor del flex-direction a row, ademas de su translateX
   letter-spacing: normal !important;
   width: 100%;
   margin-top: 10px;
-  margin-bottom: 15px; 
+  margin-bottom: 15px;
   font-weight: 700;
+  font-family: "Montserrat" !important;
+  color: var(--color-principal);
 }
 
 /* Opciones de la barra */
@@ -55,22 +76,23 @@ el valor del flex-direction a row, ademas de su translateX
   flex-direction: column;
   justify-content: start;
   align-items: flex-start;
-  row-gap: .3rem;
+  row-gap: 0.3rem;
 }
 
 /* Parrafos de las opciones */
 .barraAccesibilidad__p {
   font-size: 1rem !important;
   letter-spacing: normal !important;
+  font-family: "WorkSans" !important;
 }
 
-#centroRelevo:visited {
+.barraAccesibilidad__p:visited {
   color: var(--color-font);
 }
 
 /* Iconos de las opciones */
 .barraAccesibilidad__img {
-  width: .9rem;
+  width: 0.9rem;
   vertical-align: middle;
   margin-right: 1.4rem;
 }
@@ -79,7 +101,7 @@ el valor del flex-direction a row, ademas de su translateX
 .barraAccesibilidad__option {
   display: flex;
   align-items: baseline;
-  transition: .1s;
+  transition: 0.1s;
   opacity: 0;
 }
 
@@ -88,20 +110,28 @@ el valor del flex-direction a row, ademas de su translateX
   text-decoration: underline;
   cursor: pointer;
   transform: scale(1.1);
+  color: var(--color-principal);
 }
 
 /* Contenedor de la imagen del logo */
 .barraAccesibilidad__logo {
-  background-color: var(--color-principal);
   display: flex;
   justify-content: center;
   align-items: center;
   width: 5rem;
   height: 5rem;
-  border: 1px solid var(--color-principal);
   cursor: pointer;
-  transition: .3s;
+  background: linear-gradient(
+    0deg,
+    var(--color-principal) 0%,
+    var(--color-secundario) 100%
+  );
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
   overflow: hidden;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
 }
 
 .barraAccesibilidad__logo:focus {
@@ -117,23 +147,20 @@ el valor del flex-direction a row, ademas de su translateX
   width: 2.5rem;
 }
 
-.barraAccesibilidad__logo:hover>.barraAccesibilidad__lg {
+.barraAccesibilidad__logo:hover > .barraAccesibilidad__lg {
   animation: moveLogo 1s ease-in both;
 }
 
 /* Contraste */
-
 .scr_highcontrast {
   filter: invert(100%);
-  background-color: #000;
+  background-color: #000 !important;
 }
-
 /* En caso que al activar el contraste y modo gris se pierda la barra y boton de subir descomentar linea de codigo 187-189 */
 
 /* .scr_highcontrast .scroll-to-top,.scr_highcontrast .accesibilidadBtn{
 	bottom: 8rem !important;
 } */
-
 
 /* Letra para dislexicos*/
 
@@ -163,17 +190,14 @@ el valor del flex-direction a row, ademas de su translateX
   cursor: url("/Style Library/ScreenReaderV3/images/bigcursor.svg"), auto !important;
 }
 
-.scr_bigcursor a, 
+.scr_bigcursor a,
 .scr_bigcursor input,
 .scr_bigcursor button {
   cursor: url("/Style Library/ScreenReaderV3/images/cursorPointer.svg"), auto !important;
 }
 
-
-
 /* Resaltar enlaces */
-
-.src_highlightLink{
+.src_highlightLink {
   background-color: var(--color-resaltoFondo) !important;
   color: var(--resalto-links) !important;
 }
@@ -211,4 +235,3 @@ el valor del flex-direction a row, ademas de su translateX
     transform: translateY(0);
   }
 }
-

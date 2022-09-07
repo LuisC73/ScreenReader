@@ -2,84 +2,87 @@ window.addEventListener("DOMContentLoaded", () => {
   //insertar barra lateral al html
   let accesibilidadHtml = document.createElement("div");
   accesibilidadHtml.classList.add("barraAccesibilidad");
-
+  accesibilidadHtml.setAttribute("tabindex", "1");
+  // Contenedor padre donde se insertara, ademas de la direccion donde se encuentran
+  // ubicadas las diferentes imagenes.
   const $s4Workspace = document.getElementById("s4-workspace"),
     direccion = `/Style Library/ScreenReaderV3`;
 
   accesibilidadHtml.innerHTML = `
+        <figure class="barraAccesibilidad__logo" tabindex="0">
+            <img src="${direccion}/images/logo.svg" alt="logo" class="barraAccesibilidad__lg" title="Accesibilidad" tabindex="0">
+        </figure>
           <div class="barraAccesibilidad__content" tabindex="0">
           <h3 class="barraAccesibilidad__title">Accesibilidad</h3>
           <div class="barraAccesibilidad__options">
-            <div class="barraAccesibilidad__option" tabindex="0">
+            <div class="barraAccesibilidad__option">
               <img src="${direccion}/images/play.svg" alt="Narrador" class="barraAccesibilidad__img" id="narradorIMG">
-              <p class="barraAccesibilidad__p" id="narradorAC">Narrador</p>
+              <p class="barraAccesibilidad__p" id="narradorAC"  tabindex="0">Narrador</p>
             </div>
-            <div class="barraAccesibilidad__option" tabindex="0">
+            <div class="barraAccesibilidad__option">
               <img src="${direccion}/images/more_size.svg" alt="Aumentar letra"
                 class="barraAccesibilidad__img">
-              <p class="barraAccesibilidad__p" id="aumentarAC">Aumentar texto</p>
+              <p class="barraAccesibilidad__p" id="aumentarAC" tabindex="0">Aumentar texto</p>
             </div>
-            <div class="barraAccesibilidad__option" tabindex="0">
+            <div class="barraAccesibilidad__option">
               <img src="${direccion}/images/less_size.svg" alt="Disminuir letra"
                 class="barraAccesibilidad__img">
-              <p class="barraAccesibilidad__p" id="disminuirAC">Disminuir texto</p>
+              <p class="barraAccesibilidad__p" id="disminuirAC" tabindex="0">Disminuir texto</p>
             </div>
-            <div class="barraAccesibilidad__option" tabindex="0">
+            <div class="barraAccesibilidad__option">
             <img src="${direccion}/images/more_spacing.svg" alt="Aumentar Espacio"
               class="barraAccesibilidad__img">
-            <p class="barraAccesibilidad__p" id="espaciadoAC">Aumentar espacio</p>
+            <p class="barraAccesibilidad__p" id="espaciadoAC"  tabindex="0">Aumentar espacio</p>
           </div>
-          <div class="barraAccesibilidad__option" tabindex="0">
+          <div class="barraAccesibilidad__option">
             <img src="${direccion}/images/less_spacing.svg" alt="Disminuir Espacio"
               class="barraAccesibilidad__img">
-            <p class="barraAccesibilidad__p" id="disminuirEspaciadoAC">Disminuir espacio</p>
+            <p class="barraAccesibilidad__p" id="disminuirEspaciadoAC" tabindex="0">Disminuir espacio</p>
           </div>
-            <div class="barraAccesibilidad__option" tabindex="0">
+            <div class="barraAccesibilidad__option">
               <img src="${direccion}/images/bar_gray.svg" alt="Escala de grises"
                 class="barraAccesibilidad__img">
-              <p class="barraAccesibilidad__p" id="tonoAC">Escala de grises</p>
+              <p class="barraAccesibilidad__p" id="tonoAC"  tabindex="0">Escala de grises</p>
             </div>
-            <div class="barraAccesibilidad__option" tabindex="0">
+            <div class="barraAccesibilidad__option">
               <img src="${direccion}/images/contrast.svg" alt="Alto contraste"
                 class="barraAccesibilidad__img">
-              <p class="barraAccesibilidad__p" id="contrasteAC">Alto contraste</p>
+              <p class="barraAccesibilidad__p" id="contrasteAC" tabindex="0">Alto contraste</p>
             </div>
-            <div class="barraAccesibilidad__option" tabindex="0">
+            <div class="barraAccesibilidad__option">
               <img src="${direccion}/images/dyslexic.svg" alt="Fuente dislexicos"
                 class="barraAccesibilidad__img">
-              <p class="barraAccesibilidad__p" id="dislexicosAC">Fuente dislexicos</p>
+              <p class="barraAccesibilidad__p" id="dislexicosAC" tabindex="0">Fuente dislexicos</p>
             </div>
-            <div class="barraAccesibilidad__option" tabindex="0">
+            <div class="barraAccesibilidad__option">
               <img src="${direccion}/images/cursor.svg" alt="Aumentar cursor"
                 class="barraAccesibilidad__img">
-              <p class="barraAccesibilidad__p" id="cursorAC">Aumentar cursor</p>
+              <p class="barraAccesibilidad__p" id="cursorAC" tabindex="0">Aumentar cursor</p>
             </div>
-            <div class="barraAccesibilidad__option" tabindex="0">
+            <div class="barraAccesibilidad__option">
               <img src="${direccion}/images/link.svg" alt="Resaltar Enlaces"
                 class="barraAccesibilidad__img">
-              <p class="barraAccesibilidad__p" id="resaltarAC">Resaltar enlaces</p>
+              <p class="barraAccesibilidad__p" id="resaltarAC" tabindex="0">Resaltar enlaces</p>
             </div>
-            <div class="barraAccesibilidad__option" tabindex="0">
+            <div class="barraAccesibilidad__option">
               <img src="${direccion}/images/restart.svg" alt="Resetear" class="barraAccesibilidad__img">
-              <p class="barraAccesibilidad__p" id="reiniciarAC">Resetear</p>
+              <p class="barraAccesibilidad__p" id="reiniciarAC" tabindex="0">Resetear</p>
             </div>
-            <div class="barraAccesibilidad__option" tabindex="0">
+            <div class="barraAccesibilidad__option">
               <img src="${direccion}/images/centro_relevo.svg" alt="Centro de relevo"
                 class="barraAccesibilidad__img">
-              <a href="https://centroderelevo.gov.co/632/w3-channel.html" class="barraAccesibilidad__p" target="_blank" id="centroRelevo">Centro de
+              <a href="https://centroderelevo.gov.co/632/w3-channel.html" class="barraAccesibilidad__p" target="_blank" id="centroRelevo"  tabindex="0">Centro de
                 relevo
               </a>
             </div>
           </div>
         </div>
-        <figure class="barraAccesibilidad__logo" tabindex="0">
-          <img src="${direccion}/images/logo.svg" alt="logo" class="barraAccesibilidad__lg" title="Accesibilidad">
-        </figure>
   `;
 
   $s4Workspace.append(accesibilidadHtml);
 
-  // Barra accesibilidad
+  // Elementos del Dom para el funcionamiento de la barra, ademas de la
+  // seleccion de todas las letras.
   const $audio = document.getElementById("narradorAC"),
     $audioIMG = document.getElementById("narradorIMG"),
     $moreFont = document.getElementById("aumentarAC"),
@@ -105,11 +108,13 @@ window.addEventListener("DOMContentLoaded", () => {
     $itemsMenu = document.querySelectorAll(".barraAccesibilidad__option"),
     $allLinks = document.querySelectorAll("a");
 
+  // Se inicializa el narrador, el array donde guardamos el tamaño de letra de cada palabra
   let speakerOnOff = false,
     speak = new SpeechSynthesisUtterance(),
     arrayFont = [],
     spacing = 1;
 
+  //Funcion para la activacion del menu y animacion de opciones
   function activeMenu() {
     $screenreader.classList.toggle("barraAccesibilidad--active");
     $itemsMenu.forEach((item, index) => {
@@ -121,6 +126,7 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  //Funcion para cambiar el tamaño de letra y resetear
   function changeSizeFont(type) {
     $allFont.forEach((el, i) => {
       let fontSize = window
@@ -135,6 +141,7 @@ window.addEventListener("DOMContentLoaded", () => {
       } else if (type == "normal") {
         arrayFont.forEach((font, index) => {
           if (i == index) el.style.fontSize = `${font}px`;
+          if (index == null) el.style.fontSize = `${15}px`;
         });
         el.style.letterSpacing = `normal`;
         if (el.classList.contains("font-dyslexic"))
@@ -153,13 +160,14 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  //Funcion para cambiar el espaciado
   function changeSpacing(type) {
     if (type == "more" && spacing < 7) {
       $allFont.forEach((el) => {
         el.style.letterSpacing = `${spacing * 0.5}px`;
       });
       spacing++;
-    } else if (type == "less" && spacing > -3) {
+    } else if (type == "less" && spacing > -1) {
       $allFont.forEach((el) => {
         el.style.letterSpacing = `${spacing * 0.5}px`;
       });
@@ -171,11 +179,13 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  //Funcion para detectar la etiqueta
   function returnTag(e) {
     let tag = e.srcElement ? e.srcElement.tagName : e.target.type;
     return tag;
   }
 
+  //Funcion para a partir de la etiqueta, encontrar el texto
   function returnText(e) {
     if (
       returnTag(e) == "P" ||
@@ -210,6 +220,7 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  //Funcion para el narrador en evento hover
   function screenReader(value) {
     let mediaQuery = window.matchMedia("(max-width: 800px)");
     speakerOnOff = value;
@@ -274,9 +285,33 @@ window.addEventListener("DOMContentLoaded", () => {
     if (e.target == $audio) screenReader(!speakerOnOff);
   });
 
-  $screenreader.addEventListener("keypress", (e) => {
+  document.addEventListener("keypress", (e) => {
     if (e.key == "enter" || e.keyCode == 13) {
-      activeMenu();
+      if (e.target == $screenreaderLogo || e.target == $logoImg) activeMenu();
+
+      if (e.target == $moreFont) changeSizeFont("more");
+
+      if (e.target == $lessFont) changeSizeFont("less");
+
+      if (e.target == $normalFont) changeSizeFont("normal");
+
+      if (e.target == $moreSpacing) changeSpacing("more");
+
+      if (e.target == $lessSpacing) changeSpacing("less");
+
+      if (e.target == $contraste) $body.classList.toggle("scr_highcontrast");
+
+      if (e.target == $dyslexic)
+        $allFont2.forEach((el) => el.classList.toggle("font-dyslexic"));
+
+      if (e.target == $hues) $body.classList.toggle("scr_grayHues");
+
+      if (e.target == $cursor) $body.classList.toggle("scr_bigcursor");
+
+      if (e.target == $highlight)
+        $allLinks.forEach((el) => el.classList.toggle("src_highlightLink"));
+
+      if (e.target == $audio) screenReader(!speakerOnOff);
     }
   });
 });
