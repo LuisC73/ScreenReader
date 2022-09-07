@@ -10,7 +10,7 @@
 
 ### Sobre el proyecto
 
-- Barra de accesibilidad diseñada con css y javascript, que permite las siguientes funcionalidades:
+- Barra de accesibilidad realizada para mejorar los niveles de accesibilidad en los portales web, la cual fue diseñada con css y javascript y que permite las siguientes funcionalidades:
 
     * Aumentar tamaño de letra <br>
     * Disminuir tamaño de letra <br>
@@ -50,3 +50,7 @@ $ git clone https://github.com/LuisC73/ScreenReader.git
  /* Estilos minificados */
 <link rel="stylesheet" href="/Style Library/ScreenReaderV3/style.min.css">
 ```
+
+## Autor
+
+* Luis Miguel Castro
