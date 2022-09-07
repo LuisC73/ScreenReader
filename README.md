@@ -1,6 +1,8 @@
 
 <h1 align="center">💻 ScreenReader ✌</h1>
 
+![barraAc](https://user-images.githubusercontent.com/80079884/188977375-544b962e-7824-4e86-9dcf-838f10d8ba5c.jpg)
+
 ### Herramientas Utilizadas
 
 - [Html]
