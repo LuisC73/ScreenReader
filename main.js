@@ -134,9 +134,9 @@ window.addEventListener("DOMContentLoaded", () => {
         .getPropertyValue("font-size");
       fontSize = parseFloat(fontSize);
       arrayFont.push(fontSize);
-      if (type == "more" && fontSize < 25) {
+      if (type == "more" && fontSize < 20) {
         el.style.fontSize = `${fontSize + 0.5}px`;
-      } else if (type == "less" && fontSize > 11) {
+      } else if (type == "less" && fontSize > 10) {
         el.style.fontSize = `${fontSize - 0.5}px`;
       } else if (type == "normal") {
         arrayFont.forEach((font, index) => {

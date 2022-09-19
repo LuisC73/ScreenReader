@@ -1,10 +1,14 @@
 :root {
-  --color-font: #333333;
-  --color-principal: #0186f8;
-  --color-secundario: #00a9ee;
-  --color-fondo: #fff;
-  --resalto-links: #ffff00;
-  --color-resaltoFondo: #000;
+  --color-fontAC: #333333;
+  --color-principalAC: #0186f8;
+  --color-secundarioAC: #00a9ee;
+  --color-fondoAC: #fff;
+  --resalto-linksAC: #ffff00;
+  --color-resaltoFondoAC: #000;
+  --widthContenedorAC: 15rem;
+  --heightContenedorAC: 37.2rem;
+  --tamañoTituloAC: 1.3rem;
+  --tamañoTextoAC: 1rem;
 }
 
 /* Fuentes */
@@ -27,7 +31,7 @@ el valor del flex-direction a row-reverse, ademas de su translateX
   align-items: flex-start;
   position: fixed;
   right: 1rem;
-  bottom: 30%;
+  bottom: calc(100vh - 85vh);
   flex-direction: row;
   z-index: 99;
   transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -52,15 +56,15 @@ el valor del flex-direction a row-reverse, ademas de su translateX
   flex-direction: column;
   align-items: flex-start;
   justify-content: start;
-  width: 15rem;
-  height: 37.2rem;
+  width: var(--widthContenedor);
+  height: var(--heightContenedor);
   padding: 0.2rem 1rem 0.5rem 1rem;
   border-radius: 0px 8px 8px 8px;
 }
 
 /* Titulo principal */
 .barraAccesibilidad__title {
-  font-size: 1.3rem !important;
+  font-size: var(--tamañoTitulo) !important;
   letter-spacing: normal !important;
   width: 100%;
   margin-top: 10px;
