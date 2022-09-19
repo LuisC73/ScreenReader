@@ -7,8 +7,8 @@
   --color-resaltoFondoAC: #000;
   --widthContenedorAC: 15rem;
   --heightContenedorAC: 37.2rem;
-  --tamañoTituloAC: 1.3rem;
-  --tamañoTextoAC: 1rem;
+  --tamanoTituloAC: 1.3rem;
+  --tamanoTextoAC: 1rem;
 }
 
 /* Fuentes */
@@ -51,27 +51,27 @@ el valor del flex-direction a row-reverse, ademas de su translateX
   -webkit-backdrop-filter: blur(8px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  color: var(--color-font);
+  color: var(--color-fontAC);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: start;
-  width: var(--widthContenedor);
-  height: var(--heightContenedor);
+  width: var(--widthContenedorAC);
+  height: var(--heightContenedorAC);
   padding: 0.2rem 1rem 0.5rem 1rem;
   border-radius: 0px 8px 8px 8px;
 }
 
 /* Titulo principal */
 .barraAccesibilidad__title {
-  font-size: var(--tamañoTitulo) !important;
+  font-size: var(--tamanoTituloAC) !important;
   letter-spacing: normal !important;
   width: 100%;
   margin-top: 10px;
   margin-bottom: 15px;
   font-weight: 700;
   font-family: "Montserrat" !important;
-  color: var(--color-principal);
+  color: var(--color-principalAC);
 }
 
 /* Opciones de la barra */
@@ -91,7 +91,7 @@ el valor del flex-direction a row-reverse, ademas de su translateX
 }
 
 .barraAccesibilidad__p:visited {
-  color: var(--color-font);
+  color: var(--color-fontAC);
 }
 
 /* Iconos de las opciones */
@@ -114,7 +114,7 @@ el valor del flex-direction a row-reverse, ademas de su translateX
   text-decoration: underline;
   cursor: pointer;
   transform: scale(1.1);
-  color: var(--color-principal);
+  color: var(--color-principalAC);
 }
 
 /* Contenedor de la imagen del logo */
@@ -127,8 +127,8 @@ el valor del flex-direction a row-reverse, ademas de su translateX
   cursor: pointer;
   background: linear-gradient(
     0deg,
-    var(--color-principal) 0%,
-    var(--color-secundario) 100%
+    var(--color-principalAC) 0%,
+    var(--color-secundarioAC) 100%
   );
   box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
     7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
@@ -202,8 +202,8 @@ el valor del flex-direction a row-reverse, ademas de su translateX
 
 /* Resaltar enlaces */
 .src_highlightLink {
-  background-color: var(--color-resaltoFondo) !important;
-  color: var(--resalto-links) !important;
+  background-color: var(--color-resaltoFondoAC) !important;
+  color: var(--resalto-linksAC) !important;
   text-decoration: underline !important;
 }
 
