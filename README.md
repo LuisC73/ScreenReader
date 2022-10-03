@@ -22,6 +22,7 @@
     * Aplicar contraste <br>
     * Aumentar espaciado de letras <br>
     * Resaltar enlaces <br>
+    * Traductor de Google <br>
     * Resetear cambios
 
 
@@ -45,7 +46,7 @@ $ git clone https://github.com/LuisC73/ScreenReader.git
 <script src="/Style Library/ScreenReaderV3/main.min.js" type="text/javascript"></script>
 
 //Traductor
-<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
 ```
 
 ```css
