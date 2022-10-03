@@ -39,10 +39,13 @@ $ git clone https://github.com/LuisC73/ScreenReader.git
 
 ```javascript
 // Pegar script 
-<script src="/Style Library/ScreenReaderV3/main.js" type="text/javascript"></script>
+<script src="/Style Library/ScreenReaderV3/main.js" type="module"></script>
 
 //Si quieres una version minificada pegar el siguiente script
 <script src="/Style Library/ScreenReaderV3/main.min.js" type="text/javascript"></script>
+
+//Traductor
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 ```
 
 ```css

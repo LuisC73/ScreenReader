@@ -1,85 +1,8 @@
+import design from "/Style Library/ScreenReaderV3/design.js";
+
 window.addEventListener("DOMContentLoaded", () => {
-  //insertar barra lateral al html
-  let accesibilidadHtml = document.createElement("div");
-  accesibilidadHtml.classList.add("barraAccesibilidad");
-  accesibilidadHtml.setAttribute("tabindex", "1");
-  // Contenedor padre donde se insertara, ademas de la direccion donde se encuentran
-  // ubicadas las diferentes imagenes.
-  const $s4Workspace = document.getElementById("s4-workspace"),
-    direccion = `/Style Library/ScreenReaderV3`;
-
-  accesibilidadHtml.innerHTML = `
-        <figure class="barraAccesibilidad__logo" tabindex="0">
-            <img src="${direccion}/images/logo.svg" alt="logo" class="barraAccesibilidad__lg" title="Accesibilidad" tabindex="0">
-        </figure>
-          <div class="barraAccesibilidad__content" tabindex="0">
-          <h3 class="barraAccesibilidad__title">Accesibilidad</h3>
-          <div class="barraAccesibilidad__options">
-            <div class="barraAccesibilidad__option">
-              <img src="${direccion}/images/play.svg" alt="Narrador" class="barraAccesibilidad__img" id="narradorIMG">
-              <p class="barraAccesibilidad__p" id="narradorAC"  tabindex="0">Narrador</p>
-            </div>
-            <div class="barraAccesibilidad__option">
-              <img src="${direccion}/images/more_size.svg" alt="Aumentar letra"
-                class="barraAccesibilidad__img">
-              <p class="barraAccesibilidad__p" id="aumentarAC" tabindex="0">Aumentar texto</p>
-            </div>
-            <div class="barraAccesibilidad__option">
-              <img src="${direccion}/images/less_size.svg" alt="Disminuir letra"
-                class="barraAccesibilidad__img">
-              <p class="barraAccesibilidad__p" id="disminuirAC" tabindex="0">Disminuir texto</p>
-            </div>
-            <div class="barraAccesibilidad__option">
-            <img src="${direccion}/images/more_spacing.svg" alt="Aumentar Espacio"
-              class="barraAccesibilidad__img">
-            <p class="barraAccesibilidad__p" id="espaciadoAC"  tabindex="0">Aumentar espaciado</p>
-          </div>
-          <div class="barraAccesibilidad__option">
-            <img src="${direccion}/images/less_spacing.svg" alt="Disminuir Espacio"
-              class="barraAccesibilidad__img">
-            <p class="barraAccesibilidad__p" id="disminuirEspaciadoAC" tabindex="0">Disminuir espaciado</p>
-          </div>
-            <div class="barraAccesibilidad__option">
-              <img src="${direccion}/images/bar_gray.svg" alt="Escala de grises"
-                class="barraAccesibilidad__img">
-              <p class="barraAccesibilidad__p" id="tonoAC"  tabindex="0">Escala de grises</p>
-            </div>
-            <div class="barraAccesibilidad__option">
-              <img src="${direccion}/images/contrast.svg" alt="Alto contraste"
-                class="barraAccesibilidad__img">
-              <p class="barraAccesibilidad__p" id="contrasteAC" tabindex="0">Alto contraste</p>
-            </div>
-            <div class="barraAccesibilidad__option">
-              <img src="${direccion}/images/dyslexic.svg" alt="Fuente dislexicos"
-                class="barraAccesibilidad__img">
-              <p class="barraAccesibilidad__p" id="dislexicosAC" tabindex="0">Fuente dislexicos</p>
-            </div>
-            <div class="barraAccesibilidad__option">
-              <img src="${direccion}/images/cursor.svg" alt="Aumentar cursor"
-                class="barraAccesibilidad__img">
-              <p class="barraAccesibilidad__p" id="cursorAC" tabindex="0">Aumentar cursor</p>
-            </div>
-            <div class="barraAccesibilidad__option">
-              <img src="${direccion}/images/link.svg" alt="Resaltar Enlaces"
-                class="barraAccesibilidad__img">
-              <p class="barraAccesibilidad__p" id="resaltarAC" tabindex="0">Resaltar enlaces</p>
-            </div>
-            <div class="barraAccesibilidad__option">
-              <img src="${direccion}/images/restart.svg" alt="Restablecer" class="barraAccesibilidad__img">
-              <p class="barraAccesibilidad__p" id="reiniciarAC" tabindex="0">Restablecer</p>
-            </div>
-            <div class="barraAccesibilidad__option">
-              <img src="${direccion}/images/centro_relevo.svg" alt="Centro de relevo"
-                class="barraAccesibilidad__img">
-              <a href="https://centroderelevo.gov.co/632/w3-channel.html" class="barraAccesibilidad__p" target="_blank" id="centroRelevo"  tabindex="0">Centro de
-                relevo
-              </a>
-            </div>
-          </div>
-        </div>
-  `;
-
-  $s4Workspace.append(accesibilidadHtml);
+    //insertar barra lateral al html
+    design()
 
   // Elementos del Dom para el funcionamiento de la barra, ademas de la
   // seleccion de todas las letras.
@@ -141,7 +64,7 @@ window.addEventListener("DOMContentLoaded", () => {
       } else if (type == "normal") {
         arrayFont.forEach((font, index) => {
           if (i == index) el.style.fontSize = `${font}px`;
-          if (index == null) el.style.fontSize = `${15}px`;
+          if (index == null) el.style.fontSize = `${14}px`;
         });
         el.style.letterSpacing = `normal`;
         if (el.classList.contains("font-dyslexic"))
@@ -257,6 +180,14 @@ window.addEventListener("DOMContentLoaded", () => {
     $audioIMG.getAttribute("src") == `${direccion}/images/play.svg`
       ? ($audioIMG.src = `${direccion}/images/stop.svg`)
       : ($audioIMG.src = `${direccion}/images/play.svg`);
+  }
+
+  const googleTranslateElementInit = () => {
+    new google.translate.TranslateElement({
+      pageLanguage: 'es',
+      includedLanguages: 'ar,bg,de,el,en,es,fa,fr,hr,it,iw,ja,ko,la,nl,pl,pt,ru,tr,uk,zh-CN',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
   }
 
   document.addEventListener("click", (e) => {

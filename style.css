@@ -31,11 +31,12 @@ el valor del flex-direction a row-reverse, ademas de su translateX
   align-items: flex-start;
   position: fixed;
   right: 1rem;
-  bottom: calc(100vh - 85vh);
+  bottom: calc(100vh - 20vh);
   flex-direction: row;
   z-index: 99;
   transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  transform: translateX(87%);
+  transform: translateX(80%);
+  height: 1rem;
 }
 
 .barraAccesibilidad:focus {
@@ -45,10 +46,8 @@ el valor del flex-direction a row-reverse, ademas de su translateX
 /* Contenedor de opciones de la barra, donde podras cambiar su tamaño */
 
 .barraAccesibilidad__content {
-  background: rgba(255, 255, 255, 0.3);
+  background: #fff;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   color: var(--color-fontAC);
@@ -136,6 +135,7 @@ el valor del flex-direction a row-reverse, ademas de su translateX
   overflow: hidden;
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
+  margin: 0 !important;
 }
 
 .barraAccesibilidad__logo:focus {
@@ -154,6 +154,45 @@ el valor del flex-direction a row-reverse, ademas de su translateX
 .barraAccesibilidad__logo:hover > .barraAccesibilidad__lg {
   animation: moveLogo 1s ease-in both;
 }
+
+/* Traductor  */
+
+.barraAccesibilidad__traductor{
+	height: 100%;
+	position: relative;
+}
+
+.barraAccesibilidad__traductorDiv{
+  margin-bottom: .5rem;
+}
+
+.goog-te-gadget-simple {
+  background: none !important;
+  border: none !important;
+  font-size: var(--tamanoTextoAC) !important;
+  outline: none !important;
+}
+
+.goog-te-gadget-simple > span > a > span:last-child {
+  display: none;
+}
+
+.goog-te-gadget-simple .goog-te-menu-value,
+.goog-te-gadget-simple .goog-te-menu-value span {
+  color: #000 !important;
+  border: none !important;
+  margin-left: 0.4rem;
+}
+
+
+img.goog-te-gadget-icon {
+  background: url("/Style Library/ScreenReaderV3/images/translate-logo.svg") no-repeat !important;
+}
+
+/* .goog-te-menu-frame{
+  left: 0 !important;
+} */
+
 
 /* Contraste */
 .scr_highcontrast {
