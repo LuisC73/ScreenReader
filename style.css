@@ -179,7 +179,7 @@ el valor del flex-direction a row-reverse, ademas de su translateX
 
 .goog-te-gadget-simple .goog-te-menu-value,
 .goog-te-gadget-simple .goog-te-menu-value span {
-  color: #000 !important;
+  color: var(--color-fontAC) !important;
   border: none !important;
   margin-left: 0.4rem;
 }
