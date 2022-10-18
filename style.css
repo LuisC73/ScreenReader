@@ -5,10 +5,13 @@
   --color-fondoAC: #fff;
   --resalto-linksAC: #ffff00;
   --color-resaltoFondoAC: #000;
-  --widthContenedorAC: 15rem;
-  --heightContenedorAC: 37.2rem;
-  --tamanoTituloAC: 1.3rem;
-  --tamanoTextoAC: 1rem;
+  --widthContenedorAC: 240px;
+  --heightContenedorAC: 585px;
+  --tamanoTituloAC: 18px;
+  --tamanoTextoAC: 14px;
+  --tamanoIconosAC: 13px;
+  --LogoContenedorAC: 60px;
+  --tamanoLogoAC: 30px;
 }
 
 /* Fuentes */
@@ -30,13 +33,13 @@ el valor del flex-direction a row-reverse, ademas de su translateX
   display: flex;
   align-items: flex-start;
   position: fixed;
-  right: 1rem;
+  right: 20px;
   bottom: calc(100vh - 20vh);
   flex-direction: row;
   z-index: 99;
   transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  transform: translateX(80%);
-  height: 1rem;
+  transform: translateX(87%);
+  height: 20px;
 }
 
 .barraAccesibilidad:focus {
@@ -57,7 +60,7 @@ el valor del flex-direction a row-reverse, ademas de su translateX
   justify-content: start;
   width: var(--widthContenedorAC);
   height: var(--heightContenedorAC);
-  padding: 0.2rem 1rem 0.5rem 1rem;
+  padding: 5px 14px 8px 14px;
   border-radius: 0px 8px 8px 8px;
 }
 
@@ -79,7 +82,7 @@ el valor del flex-direction a row-reverse, ademas de su translateX
   flex-direction: column;
   justify-content: start;
   align-items: flex-start;
-  row-gap: 0.3rem;
+  row-gap: 4px;
 }
 
 /* Parrafos de las opciones */
@@ -95,9 +98,9 @@ el valor del flex-direction a row-reverse, ademas de su translateX
 
 /* Iconos de las opciones */
 .barraAccesibilidad__img {
-  width: 0.9rem;
+  width: var(--tamanoIconosAC);
   vertical-align: middle;
-  margin-right: 1.4rem;
+  margin-right: 18px;
 }
 
 /* Opcion de la barra por individual */
@@ -121,8 +124,8 @@ el valor del flex-direction a row-reverse, ademas de su translateX
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 5rem;
-  height: 5rem;
+  width: var(--LogoContenedorAC);
+  height: var(--LogoContenedorAC);
   cursor: pointer;
   background: linear-gradient(
     0deg,
@@ -148,7 +151,7 @@ el valor del flex-direction a row-reverse, ademas de su translateX
 
 /* Logo de Accesibilidad */
 .barraAccesibilidad__lg {
-  width: 2.5rem;
+  width: var(--tamanoLogoAC);
 }
 
 .barraAccesibilidad__logo:hover > .barraAccesibilidad__lg {
@@ -163,7 +166,7 @@ el valor del flex-direction a row-reverse, ademas de su translateX
 }
 
 .barraAccesibilidad__traductorDiv{
-  margin-bottom: .5rem;
+  margin-bottom: 10px;
 }
 
 .goog-te-gadget-simple {
@@ -181,7 +184,7 @@ el valor del flex-direction a row-reverse, ademas de su translateX
 .goog-te-gadget-simple .goog-te-menu-value span {
   color: var(--color-fontAC) !important;
   border: none !important;
-  margin-left: 0.4rem;
+  margin-left: 5px;
 }
 
 
@@ -195,6 +198,10 @@ img.goog-te-gadget-icon {
 
 .goog-te-menu-frame > .goog-te-menu2{
   border: none !important;
+}
+
+#google_translate_element {
+  margin: 0 !important;
 }
 
 /* .goog-te-menu-frame{
