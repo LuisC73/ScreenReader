@@ -4,6 +4,8 @@ window.addEventListener("DOMContentLoaded", () => {
     //insertar barra lateral al html
     design()
 
+  const direccion = `/Style Library/ScreenReaderV3`;
+
   // Elementos del Dom para el funcionamiento de la barra, ademas de la
   // seleccion de todas las letras.
   const $audio = document.getElementById("narradorAC"),

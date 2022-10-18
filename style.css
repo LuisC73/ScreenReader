@@ -84,7 +84,7 @@ el valor del flex-direction a row-reverse, ademas de su translateX
 
 /* Parrafos de las opciones */
 .barraAccesibilidad__p {
-  font-size: 1rem !important;
+  font-size: var(--tamanoTextoAC) !important;
   letter-spacing: normal !important;
   font-family: "WorkSans" !important;
 }
@@ -187,6 +187,14 @@ el valor del flex-direction a row-reverse, ademas de su translateX
 
 img.goog-te-gadget-icon {
   background: url("/Style Library/ScreenReaderV3/images/translate-logo.svg") no-repeat !important;
+}
+
+.goog-te-menu-frame{
+  border-radius: 12px;
+}
+
+.goog-te-menu-frame > .goog-te-menu2{
+  border: none !important;
 }
 
 /* .goog-te-menu-frame{
