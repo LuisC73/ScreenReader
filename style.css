@@ -6,7 +6,7 @@
   --resalto-linksAC: #ffff00;
   --color-resaltoFondoAC: #000;
   --widthContenedorAC: 240px;
-  --heightContenedorAC: 585px;
+  --heightContenedorAC: 518px;
   --tamanoTituloAC: 18px;
   --tamanoTextoAC: 14px;
   --tamanoIconosAC: 13px;
@@ -160,12 +160,12 @@ el valor del flex-direction a row-reverse, ademas de su translateX
 
 /* Traductor  */
 
-.barraAccesibilidad__traductor{
-	height: 100%;
-	position: relative;
+.barraAccesibilidad__traductor {
+  height: 100%;
+  position: relative;
 }
 
-.barraAccesibilidad__traductorDiv{
+.barraAccesibilidad__traductorDiv {
   margin-bottom: 10px;
 }
 
@@ -185,18 +185,26 @@ el valor del flex-direction a row-reverse, ademas de su translateX
   color: var(--color-fontAC) !important;
   border: none !important;
   margin-left: 5px;
+  transition: 0.1s;
 }
 
+.goog-te-gadget-simple .goog-te-menu-value span:hover {
+  text-decoration: underline !important;
+  cursor: pointer;
+  transform: scale(1.1) !important;
+  color: var(--color-principalAC) !important;
+}
 
 img.goog-te-gadget-icon {
-  background: url("/Style Library/ScreenReaderV3/images/translate-logo.svg") no-repeat !important;
+  background: url("/Style Library/ScreenReaderV3/images/translate-logo.svg")
+    no-repeat !important;
 }
 
-.goog-te-menu-frame{
+.goog-te-menu-frame {
   border-radius: 12px;
 }
 
-.goog-te-menu-frame > .goog-te-menu2{
+.goog-te-menu-frame > .goog-te-menu2 {
   border: none !important;
 }
 
@@ -207,7 +215,6 @@ img.goog-te-gadget-icon {
 /* .goog-te-menu-frame{
   left: 0 !important;
 } */
-
 
 /* Contraste */
 .scr_highcontrast {

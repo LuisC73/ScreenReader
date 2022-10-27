@@ -42,9 +42,6 @@ $ git clone https://github.com/LuisC73/ScreenReader.git
 // Pegar script 
 <script src="/Style Library/ScreenReaderV3/main.js" type="module"></script>
 
-//Si quieres una version minificada pegar el siguiente script
-<script src="/Style Library/ScreenReaderV3/main.min.js" type="text/javascript"></script>
-
 //Traductor
 <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
 ```
@@ -52,10 +49,6 @@ $ git clone https://github.com/LuisC73/ScreenReader.git
 ```css
 /* Pegar Hoja de estilos */
 <link rel="stylesheet" href="/Style Library/ScreenReaderV3/style.css">
-
- /* Estilos minificados */
-<link rel="stylesheet" href="/Style Library/ScreenReaderV3/style.min.css">
-```
 
 ## Autor
 
