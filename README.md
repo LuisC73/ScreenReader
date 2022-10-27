@@ -50,6 +50,7 @@ $ git clone https://github.com/LuisC73/ScreenReader.git
 /* Pegar Hoja de estilos */
 <link rel="stylesheet" href="/Style Library/ScreenReaderV3/style.css">
 
+```
 ## Autor
 
 * Luis Miguel Castro
