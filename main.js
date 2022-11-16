@@ -234,9 +234,9 @@ window.addEventListener("DOMContentLoaded", () => {
     if (e.target === $screenreaderLogo) soundContent("active");
   });
 
-  document.addEventListener('mouseout',(e) => {
+  document.addEventListener("mouseout", (e) => {
     if (e.target === $screenreaderLogo) soundContent("desactive");
-  })
+  });
 
   document.addEventListener("click", (e) => {
     if (e.target == $screenreaderLogo || e.target == $logoImg) activeMenu();
