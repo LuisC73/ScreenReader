@@ -184,7 +184,7 @@ window.addEventListener("DOMContentLoaded", () => {
       : ($audioIMG.src = `${direccion}/images/play.svg`);
   }
 
-  const googleTranslateElementInit = () => {
+  function googleTranslateElementInit() {
     new google.translate.TranslateElement(
       {
         pageLanguage: "es",
@@ -195,6 +195,8 @@ window.addEventListener("DOMContentLoaded", () => {
       "google_translate_element"
     );
   };
+
+  googleTranslateElementInit()
 
   //funcion para sonido
 
