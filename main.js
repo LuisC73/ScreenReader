@@ -208,19 +208,16 @@ window.addEventListener("DOMContentLoaded", () => {
   function soundContent(option) {
     switch (option) {
       case "active":
-        if ($screenreader.classList.contains("barraAccesibilidad--active")) {
-          $audioContent.setAttribute("src", `${audios.close}`);
-          $audioContent.play();
-          if (speakerOnOff == true) {
-            $audioContent.pause();
-            $audioContent.currentTime = 0;
-          }
+        if (speakerOnOff == true) {
+          $audioContent.pause();
+          $audioContent.currentTime = 0;
         } else {
-          $audioContent.setAttribute("src", `${audios.open}`);
-          $audioContent.play();
-          if (speakerOnOff == true) {
-            $audioContent.pause();
-            $audioContent.currentTime = 0;
+          if ($screenreader.classList.contains("barraAccesibilidad--active")) {
+            $audioContent.setAttribute("src", `${audios.close}`);
+            $audioContent.play();
+          } else {
+            $audioContent.setAttribute("src", `${audios.open}`);
+            $audioContent.play();
           }
         }
         break;
@@ -232,11 +229,13 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   document.addEventListener("mouseover", (e) => {
-    if (e.target === $screenreaderLogo) soundContent("active");
+    if (e.target === $screenreaderLogo || e.target == $logoImg)
+      soundContent("active");
   });
 
   document.addEventListener("mouseout", (e) => {
-    if (e.target === $screenreaderLogo) soundContent("desactive");
+    if (e.target === $screenreaderLogo || e.target == $logoImg)
+      soundContent("desactive");
   });
 
   document.addEventListener("click", (e) => {
