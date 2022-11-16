@@ -1,8 +1,8 @@
 import design from "/Style Library/ScreenReaderV3/design.js";
 
 window.addEventListener("DOMContentLoaded", () => {
-    //insertar barra lateral al html
-    design()
+  //insertar barra lateral al html
+  design();
 
   const direccion = `/Style Library/ScreenReaderV3`;
 
@@ -185,12 +185,39 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   const googleTranslateElementInit = () => {
-    new google.translate.TranslateElement({
-      pageLanguage: 'es',
-      includedLanguages: 'ar,bg,de,el,en,es,fa,fr,hr,it,iw,ja,ko,la,nl,pl,pt,ru,tr,uk,zh-CN',
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-    }, 'google_translate_element');
+    new google.translate.TranslateElement(
+      {
+        pageLanguage: "es",
+        includedLanguages:
+          "ar,bg,de,el,en,es,fa,fr,hr,it,iw,ja,ko,la,nl,pl,pt,ru,tr,uk,zh-CN",
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+      },
+      "google_translate_element"
+    );
+  };
+
+  //funcion para sonido
+
+  const audios = {
+    open: `${direccion}/sounds/open.mp3`,
+    close: `${direccion}/sounds/close.mp3`,
+  };
+
+  const $audioContent = document.getElementById("mp3AC");
+
+  function soundContent() {
+    if ($screenreader.classList.contains("barraAccesibilidad--active")) {
+      $audioContent.setAttribute("src", `${audios.close}`);
+      $audioContent.play();
+    } else {
+      $audioContent.setAttribute("src", `${audios.open}`);
+      $audioContent.play();
+    }
   }
+
+  document.addEventListener("mouseover", (e) => {
+    if (e.target === $screenreaderLogo) soundContent();
+  });
 
   document.addEventListener("click", (e) => {
     if (e.target == $screenreaderLogo || e.target == $logoImg) activeMenu();
