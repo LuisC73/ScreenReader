@@ -152,10 +152,11 @@ el valor del flex-direction a row-reverse, ademas de su translateX
 /* Logo de Accesibilidad */
 .barraAccesibilidad__lg {
   width: var(--tamanoLogoAC);
+  transition: 1s;
 }
 
 .barraAccesibilidad__logo:hover > .barraAccesibilidad__lg {
-  animation: moveLogo 1s ease-in both;
+  transform: rotate(360deg);
 }
 
 /* Traductor  */
