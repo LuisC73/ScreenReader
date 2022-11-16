@@ -227,6 +227,7 @@ window.addEventListener("DOMContentLoaded", () => {
       case "desactive":
         $audioContent.pause();
         $audioContent.currentTime = 0;
+        break;
     }
   }
 
