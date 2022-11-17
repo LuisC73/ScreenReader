@@ -229,9 +229,9 @@ window.addEventListener("DOMContentLoaded", () => {
   //Funcion para guardar valor de narrador, es decir si esta activo o no, para no volver a activarlo en una pagina interna.
   function screenReaderAuto() {
     let value = sessionStorage.getItem("valueNarrador"),
-      URLactual = window.location;
+      urlPage = window.location;
     if (
-      URLactual.href !=
+      urlPage.href !=
       `${location.protocol}//${location.host}/Paginas/default.aspx`
     ) {
       speakerOnOff = value;
