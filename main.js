@@ -184,20 +184,6 @@ window.addEventListener("DOMContentLoaded", () => {
       : ($audioIMG.src = `${direccion}/images/play.svg`);
   }
 
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement(
-      {
-        pageLanguage: "es",
-        includedLanguages:
-          "ar,bg,de,el,en,es,fa,fr,hr,it,iw,ja,ko,la,nl,pl,pt,ru,tr,uk,zh-CN",
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-      },
-      "google_translate_element"
-    );
-  };
-
-  googleTranslateElementInit()
-
   //funcion para sonido
 
   const audios = {
