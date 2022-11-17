@@ -145,12 +145,11 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  //Funcion para el narrador en evento hover
   function screenReader(value) {
     let mediaQuery = window.matchMedia("(max-width: 800px)");
+
     speakerOnOff = value;
-    speak.lang = "es-ES";
-    speak.rate = 1.3;
+
     if (mediaQuery.matches) {
       $body.addEventListener("click", (e) => {
         if (returnText(e) != "") {
@@ -184,8 +183,16 @@ window.addEventListener("DOMContentLoaded", () => {
       : ($audioIMG.src = `${direccion}/images/play.svg`);
   }
 
-  //funcion para sonido
+  //Funcion para el narrador en evento hover
+  function screenReaderClick(value) {
+    speakerOnOff = value;
+    speak.lang = "es-ES";
+    speak.rate = 1.3;
+    sessionStorage.setItem("valueNarrador", speakerOnOff);
 
+    screenReader(speakerOnOff);
+  }
+  //funcion para sonido
   const audios = {
     open: `${direccion}/sounds/open.mp3`,
     close: `${direccion}/sounds/close.mp3`,
@@ -215,6 +222,26 @@ window.addEventListener("DOMContentLoaded", () => {
         break;
     }
   }
+
+  function screenReaderAuto() {
+    let value = sessionStorage.getItem("valueNarrador"),
+      URLactual = window.location;
+    if (
+      URLactual.href !=
+      `${location.protocol}//${location.host}/Paginas/default.aspx`
+    ) {
+      speakerOnOff = value;
+
+      screenReader(speakerOnOff);
+
+      if (speakerOnOff == true) {
+        $audioContent.pause();
+        $audioContent.currentTime = 0;
+      }
+    }
+  }
+
+  screenReaderAuto();
 
   document.addEventListener("mouseover", (e) => {
     if (e.target === $screenreaderLogo || e.target == $logoImg)
@@ -251,7 +278,7 @@ window.addEventListener("DOMContentLoaded", () => {
     if (e.target == $highlight)
       $allLinks.forEach((el) => el.classList.toggle("src_highlightLink"));
 
-    if (e.target == $audio) screenReader(!speakerOnOff);
+    if (e.target == $audio) screenReaderClick(!speakerOnOff);
   });
 
   document.addEventListener("keypress", (e) => {
@@ -280,7 +307,7 @@ window.addEventListener("DOMContentLoaded", () => {
       if (e.target == $highlight)
         $allLinks.forEach((el) => el.classList.toggle("src_highlightLink"));
 
-      if (e.target == $audio) screenReader(!speakerOnOff);
+      if (e.target == $audio) screenReaderClick(!speakerOnOff);
     }
   });
 });
