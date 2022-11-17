@@ -180,9 +180,9 @@ window.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    $audioIMG.getAttribute("src") == `${direccion}/images/play.svg`
-      ? ($audioIMG.src = `${direccion}/images/stop.svg`)
-      : ($audioIMG.src = `${direccion}/images/play.svg`);
+    speakerOnOff == true
+      ? $audioIMG.setAttribute("src", `${direccion}/images/stop.svg`)
+      : $audioIMG.setAttribute("src", `${direccion}/images/play.svg`);
   }
 
   //Funcion para activar o desactivar narrador en evento click
@@ -228,20 +228,15 @@ window.addEventListener("DOMContentLoaded", () => {
 
   //Funcion para guardar valor de narrador, es decir si esta activo o no, para no volver a activarlo en una pagina interna.
   function screenReaderAuto() {
-    let value = sessionStorage.getItem("valueNarrador"),
-      urlPage = window.location;
-    if (
-      urlPage.href !=
-      `${location.protocol}//${location.host}/Paginas/default.aspx`
-    ) {
-      speakerOnOff = value;
+    let value = sessionStorage.getItem("valueNarrador");
 
-      screenReader(speakerOnOff);
+    value == "true" ? (speakerOnOff = true) : (speakerOnOff = false);
 
-      if (speakerOnOff == true) {
-        $audioContent.pause();
-        $audioContent.currentTime = 0;
-      }
+    screenReader(speakerOnOff);
+
+    if (speakerOnOff == true) {
+      $audioContent.pause();
+      $audioContent.currentTime = 0;
     }
   }
 
