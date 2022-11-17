@@ -4,10 +4,11 @@ window.addEventListener("DOMContentLoaded", () => {
   //insertar barra lateral al html
   design();
 
+  //variable para cambiar dirección donde se encuentran ubicados los archivos de la barra de accesibilidad.
   const direccion = `/Style Library/ScreenReaderV3`;
 
-  // Elementos del Dom para el funcionamiento de la barra, ademas de la
-  // seleccion de todas las letras.
+  /* Elementos del Dom para el funcionamiento de la barra, ademas de la
+    seleccion de todas las letras. */
   const $audio = document.getElementById("narradorAC"),
     $audioIMG = document.getElementById("narradorIMG"),
     $moreFont = document.getElementById("aumentarAC"),
@@ -33,13 +34,13 @@ window.addEventListener("DOMContentLoaded", () => {
     $itemsMenu = document.querySelectorAll(".barraAccesibilidad__option"),
     $allLinks = document.querySelectorAll("a");
 
-  // Se inicializa el narrador, el array donde guardamos el tamaño de letra de cada palabra
+  // Se inicializa el narrador, el array donde guardamos el tamaño de letra de cada texto en la pagina web.
   let speakerOnOff = false,
     speak = new SpeechSynthesisUtterance(),
     arrayFont = [],
     spacing = 1;
 
-  //Funcion para la activacion del menu y animacion de opciones
+  //Funcion para la activacion del menu y animacion de opciones en barra de accesibilidad.
   function activeMenu() {
     $screenreader.classList.toggle("barraAccesibilidad--active");
     $itemsMenu.forEach((item, index) => {
@@ -51,7 +52,7 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  //Funcion para cambiar el tamaño de letra y resetear
+  //Funcion para cambiar el tamaño de letra, es decir aumentarla o disminuirla,Ademas de tener la opción resetearla.
   function changeSizeFont(type) {
     $allFont.forEach((el, i) => {
       let fontSize = window
@@ -85,7 +86,7 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  //Funcion para cambiar el espaciado
+  //Funcion para cambiar el espaciado del texto.
   function changeSpacing(type) {
     if (type == "more" && spacing < 7) {
       $allFont.forEach((el) => {
@@ -145,6 +146,7 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  //Funcion de narrador para leer texto de pagina web al hacer el evento hover.
   function screenReader(value) {
     let mediaQuery = window.matchMedia("(max-width: 800px)");
 
@@ -183,7 +185,7 @@ window.addEventListener("DOMContentLoaded", () => {
       : ($audioIMG.src = `${direccion}/images/play.svg`);
   }
 
-  //Funcion para el narrador en evento hover
+  //Funcion para activar o desactivar narrador en evento click
   function screenReaderClick(value) {
     speakerOnOff = value;
     speak.lang = "es-ES";
@@ -192,7 +194,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
     screenReader(speakerOnOff);
   }
-  //funcion para sonido
+
+  //Funcion para sonido de abrir o cerrar barra de accesibilidad en evento hover al logo.
   const audios = {
     open: `${direccion}/sounds/open.mp3`,
     close: `${direccion}/sounds/close.mp3`,
@@ -223,6 +226,7 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  //Funcion para guardar valor de narrador, es decir si esta activo o no, para no volver a activarlo en una pagina interna.
   function screenReaderAuto() {
     let value = sessionStorage.getItem("valueNarrador"),
       URLactual = window.location;
@@ -243,6 +247,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   screenReaderAuto();
 
+  //Delegacion de eventos.
   document.addEventListener("mouseover", (e) => {
     if (e.target === $screenreaderLogo || e.target == $logoImg)
       soundContent("active");
