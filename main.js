@@ -229,7 +229,7 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   //Funcion para guardar valor de narrador, es decir si esta activo o no, para no volver a activarlo en una pagina interna.
-  function screenReaderAuto() {
+  (function screenReaderAuto() {
     let value = sessionStorage.getItem("valueNarrador");
 
     value == "true" ? (speakerOnOff = true) : (speakerOnOff = false);
@@ -240,9 +240,7 @@ window.addEventListener("DOMContentLoaded", () => {
       $audioContent.pause();
       $audioContent.currentTime = 0;
     }
-  }
-
-  screenReaderAuto();
+  })();
 
   //Delegacion de eventos.
   document.addEventListener("mouseover", (e) => {
