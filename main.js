@@ -127,7 +127,9 @@ window.addEventListener("DOMContentLoaded", () => {
       returnTag(e) == "STRONG" ||
       returnTag(e) == "BUTTON" ||
       returnTag(e) == "SELECT" ||
-      returnTag(e) == "LABEL"
+      returnTag(e) == "LABEL" ||
+      returnTag(e) == "TD" ||
+      returnTag(e) == "B"
     ) {
       return e.target.textContent;
     } else if (returnTag(e) == "DIV" && e.target.textContent.length <= 100) {
