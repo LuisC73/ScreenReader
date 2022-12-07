@@ -187,6 +187,7 @@ el valor del flex-direction a row-reverse, ademas de su translateX
   border: none !important;
   margin-left: 5px;
   transition: 0.1s;
+  font-family: "WorkSans";
 }
 
 .goog-te-gadget-simple .goog-te-menu-value span:hover {
