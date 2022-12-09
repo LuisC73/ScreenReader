@@ -29,6 +29,7 @@
 Si deseas cambiar la posicion de la barra al lado izquierdo, es necesario cambiar 
 el valor del flex-direction a row-reverse, ademas de su translateX
 */
+
 .barraAccesibilidad {
   display: flex;
   align-items: flex-start;
@@ -301,5 +302,20 @@ img.goog-te-gadget-icon {
 
   100% {
     transform: translateY(0);
+  }
+}
+
+/* Gorro de navidad */
+.barraAccesibilidad__gorro {
+  position: absolute;
+  top: -100%;
+  width: 9rem;
+  left: -11%;
+}
+
+@media (max-width: 768px) {
+  .barraAccesibilidad__logo {
+    width: calc(var(--LogoContenedorAC) - 10px);
+    height: calc(var(--LogoContenedorAC) - 10px);
   }
 }
