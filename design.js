@@ -9,7 +9,6 @@ const design = () => {
     direccion = `/Style Library/ScreenReaderV3`;
 
   accesibilidadHtml.innerHTML = `
-      <img src="${direccion}/images/gorro.png" alt="gorrito" class="barraAccesibilidad__gorro">
       <figure class="barraAccesibilidad__logo" tabindex="0">
           <img src="${direccion}/images/logo.svg" alt="logo" class="barraAccesibilidad__lg" title="Accesibilidad" tabindex="0">
       </figure>

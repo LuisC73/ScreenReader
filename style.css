@@ -305,17 +305,13 @@ img.goog-te-gadget-icon {
   }
 }
 
-/* Gorro de navidad */
-.barraAccesibilidad__gorro {
-  position: absolute;
-  top: -100%;
-  width: 9rem;
-  left: -11%;
-}
-
 @media (max-width: 768px) {
   .barraAccesibilidad__logo {
     width: calc(var(--LogoContenedorAC) - 10px);
     height: calc(var(--LogoContenedorAC) - 10px);
+  }
+
+  .barraAccesibilidad{
+    transform: translateX(89%);
   }
 }
