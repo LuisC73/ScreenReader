@@ -1,7 +1,7 @@
 
 <h1 align="center">💻 ScreenReader ✌</h1>
 
-![barraAc]('./images/barra.gif')
+![barra](https://user-images.githubusercontent.com/80079884/213296357-c060a95c-b4e6-4d8c-bb52-50c85ee2fd54.gif)
 
 ### Herramientas Utilizadas
 
