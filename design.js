@@ -1,97 +1,147 @@
 const design = () => {
-  //insertar barra lateral al html
-  let accesibilidadHtml = document.createElement("div");
-  accesibilidadHtml.classList.add("barraAccesibilidad");
-  accesibilidadHtml.setAttribute("tabindex", "0");
-  // Contenedor padre donde se insertara, ademas de la direccion donde se encuentran
-  // ubicadas las diferentes imagenes.
   const $s4Workspace = document.getElementById("s4-workspace"),
     direccion = `/Style Library/ScreenReaderV3`;
 
-  accesibilidadHtml.innerHTML = `
-      <figure class="barraAccesibilidad__logo" tabindex="0">
-          <img src="${direccion}/images/logo.svg" alt="logo" class="barraAccesibilidad__lg" title="Accesibilidad" tabindex="0">
-      </figure>
-        <div class="barraAccesibilidad__content" tabindex="0">
-        <h3 class="barraAccesibilidad__title">Accesibilidad</h3>
-        <div class="barraAccesibilidad__options">
-          <div class="barraAccesibilidad__option">
-            <img src="${direccion}/images/play.svg" alt="Narrador" class="barraAccesibilidad__img" id="narradorIMG">
-            <p class="barraAccesibilidad__p" id="narradorAC"  tabindex="0">Narrador</p>
-          </div>
-          <div class="barraAccesibilidad__option">
-            <img src="${direccion}/images/more_size.svg" alt="Aumentar letra"
-              class="barraAccesibilidad__img">
-            <p class="barraAccesibilidad__p" id="aumentarAC" tabindex="0">Aumentar texto</p>
-          </div>
-          <div class="barraAccesibilidad__option">
-            <img src="${direccion}/images/less_size.svg" alt="Disminuir letra"
-              class="barraAccesibilidad__img">
-            <p class="barraAccesibilidad__p" id="disminuirAC" tabindex="0">Disminuir texto</p>
-          </div>
-          <div class="barraAccesibilidad__option">
-          <img src="${direccion}/images/more_spacing.svg" alt="Aumentar Espacio"
-            class="barraAccesibilidad__img">
-          <p class="barraAccesibilidad__p" id="espaciadoAC"  tabindex="0">Aumentar espaciado</p>
-        </div>
-        <div class="barraAccesibilidad__option">
-          <img src="${direccion}/images/less_spacing.svg" alt="Disminuir Espacio"
-            class="barraAccesibilidad__img">
-          <p class="barraAccesibilidad__p" id="disminuirEspaciadoAC" tabindex="0">Disminuir espaciado</p>
-        </div>
-          <div class="barraAccesibilidad__option">
-            <img src="${direccion}/images/bar_gray.svg" alt="Escala de grises"
-              class="barraAccesibilidad__img">
-            <p class="barraAccesibilidad__p" id="tonoAC"  tabindex="0">Escala de grises</p>
-          </div>
-          <div class="barraAccesibilidad__option">
-            <img src="${direccion}/images/contrast.svg" alt="Alto contraste"
-              class="barraAccesibilidad__img">
-            <p class="barraAccesibilidad__p" id="contrasteAC" tabindex="0">Alto contraste</p>
-          </div>
-          <div class="barraAccesibilidad__option">
-            <img src="${direccion}/images/dyslexic.svg" alt="Fuente dislexicos"
-              class="barraAccesibilidad__img">
-            <p class="barraAccesibilidad__p" id="dislexicosAC" tabindex="0">Fuente dislexicos</p>
-          </div>
-          <div class="barraAccesibilidad__option">
-            <img src="${direccion}/images/cursor.svg" alt="Aumentar cursor"
-              class="barraAccesibilidad__img">
-            <p class="barraAccesibilidad__p" id="cursorAC" tabindex="0">Aumentar cursor</p>
-          </div>
-          <div class="barraAccesibilidad__option">
-            <a href="#" class="barraAccesibilidad__traductor" aria-label="idioma">
-                <div class="barraAccesibilidad__traductorDiv">
-                    <div id="google_translate_element"></div>
-                </div>
-            </a>
-          </div>
-          <div class="barraAccesibilidad__option">
-            <img src="${direccion}/images/link.svg" alt="Resaltar Enlaces"
-              class="barraAccesibilidad__img">
-            <p class="barraAccesibilidad__p" id="resaltarAC" tabindex="0">Resaltar enlaces</p>
-          </div>
-          <div class="barraAccesibilidad__option">
-            <img src="${direccion}/images/restart.svg" alt="Restablecer" class="barraAccesibilidad__img">
-            <p class="barraAccesibilidad__p" id="reiniciarAC" tabindex="0">Restablecer</p>
-          </div>
-          <div class="barraAccesibilidad__option">
-            <img src="${direccion}/images/centro_relevo.svg" alt="Centro de relevo"
-              class="barraAccesibilidad__img">
-            <a href="https://centroderelevo.gov.co/632/w3-channel.html" class="barraAccesibilidad__p" target="_blank" id="centroRelevo"  tabindex="0">Centro de
-              relevo
-            </a>
-          </div>
-          <audio src="#" id="mp3AC" class="barraAccesibilidad__audio"></audio>
-        </div>
-      </div>
+  const accessibilityContainer = document.createElement("div");
 
-      <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
-`;
+  accessibilityContainer.classList.add("accessibilityBar");
+  accessibilityContainer.setAttribute("tabindex", "0");
 
-  $s4Workspace.append(accesibilidadHtml);
+  accessibilityContainer.innerHTML = `
+  <figure class="accessibilityBar__figure" tabindex="0">
+    <img src="${direccion}/images/logo.svg" alt="logo" class="accessibilityBar__logo" title="Accesibilidad" tabindex="0">
+  </figure>
+  <div class="accessibilityBar__content" tabindex="0">
+    <h3 class="accessibilityBar__title">Accesibilidad</h3>
+    <div class="accessibilityBar__options">
+      <audio src="#" id="mp3AC" class="accessibilityBar__audio"></audio>
+    </div>
+   </div> 
+  `;
 
+  $s4Workspace.append(accessibilityContainer);
+
+  const data = [
+    {
+      text: "Narrador",
+      img: "play",
+      id: "narratorAc",
+    },
+    {
+      text: "Aumentar texto",
+      img: "more_size",
+      id: "moreSizeAc",
+    },
+    {
+      text: "Disminuir texto",
+      img: "less_size",
+      id: "lessSizeAc",
+    },
+    {
+      text: "Aumentar espaciado",
+      img: "more_spacing",
+      id: "moreSpacingAc",
+    },
+    {
+      text: "Disminuir espaciado",
+      img: "less_spacing",
+      id: "lessSpacingAc",
+    },
+    {
+      text: "Escala de grises",
+      img: "bar_gray",
+      id: "grayAc",
+    },
+    {
+      text: "Alto contraste",
+      img: "contrast",
+      id: "contrastAc",
+    },
+    {
+      text: "Fuente dislexicos",
+      img: "dyslexic",
+      id: "dyslexicAc",
+    },
+    {
+      text: "Aumentar cursor",
+      img: "cursor",
+      id: "cursorAc",
+    },
+    {
+      text: "Seleccionar Idioma",
+      img: "translate-logo",
+      id: "translateAc",
+    },
+    {
+      text: "Resaltar enlaces",
+      img: "link",
+      id: "linksAc",
+    },
+    {
+      text: "Restablecer",
+      img: "restart",
+      id: "restartAc",
+    },
+    {
+      text: "Centro de relevo",
+      img: "centro_relevo",
+      id: "relevoAc",
+    },
+  ];
+
+  const optionsContainer = document.querySelector(".accessibilityBar__options");
+
+  let fragmentContent = document.createDocumentFragment();
+
+  for (const i in data) {
+    let optionAc = document.createElement("div");
+
+    optionAc.classList.add("accessibilityBar__option");
+
+    optionAc.innerHTML = `
+      <img src="${direccion}/images/${data[i].img}.svg" alt="${data[i].text}" class="accessibilityBar__img">
+      <p class="accessibilityBar__p" id="${data[i].id}" tabindex="0">${data[i].text}</p>`;
+
+    if (i == 12) {
+      optionAc.innerHTML = `  
+          <img src="${direccion}/images/${data[i].img}.svg" alt="${data[i].text}" class="accessibilityBar__img">
+          <a href="https://centroderelevo.gov.co/632/w3-channel.html" class="accessibilityBar__p" target="_blank" id="${data[i].id}" tabindex="0">${data[i].text}</a>`;
+    }
+
+    if (i == 9) {
+      optionAc.innerHTML = `
+          <div id="google_translate_element"></div>
+            <div class="accessibilityBar__translate">
+              <div class="accessibilityBar__select">
+                <img src="${direccion}/images/${data[i].img}.svg" alt="${data[i].text}"
+                class="accessibilityBar__img">
+                <p class="accessibilityBar__p" id="${data[i].id}" tabindex="0">${data[i].text}</p>
+              </div>
+              <div class="translateAc">
+                <p class="translateAc__p">Cambiar idioma del sitio:</p>
+                <ul class="translateAc__ul">
+                  <li class="translateAc__li" id="español">
+                    <a href="javascript:;" data-lang="español" class="translateAc__a" title="español"></a>
+                  </li>
+                  <li class="translateAc__li" id="inglés">
+                    <a href="javascript:;" data-lang="inglés" class="translateAc__a" title="inglés"></a>
+                  </li>
+                  <li class="translateAc__li" id="portugués">
+                    <a href="javascript:;" data-lang="portugués" class="translateAc__a" title="portugués"></a>
+                  </li>
+                  <li class="translateAc__li" id="japonés">
+                    <a href="javascript:;" data-lang="japonés" class="translateAc__a" title="japonés"></a>
+                  </li>
+                  <li class="translateAc__li" id="italiano">
+                    <a href="javascript:;" data-lang="italiano" class="translateAc__a" title="italiano"></a>
+                  </li>
+                </ul>
+              </div>
+            </div>`;
+    }
+    fragmentContent.appendChild(optionAc);
+  }
+  optionsContainer.appendChild(fragmentContent);
 };
-
 
 export default design;

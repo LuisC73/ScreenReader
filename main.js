@@ -9,21 +9,23 @@ window.addEventListener("DOMContentLoaded", () => {
 
   /* Elementos del Dom para el funcionamiento de la barra, ademas de la
     seleccion de todas las letras. */
-  const $audio = document.getElementById("narradorAC"),
-    $audioIMG = document.getElementById("narradorIMG"),
-    $moreFont = document.getElementById("aumentarAC"),
-    $lessFont = document.getElementById("disminuirAC"),
-    $normalFont = document.getElementById("reiniciarAC"),
-    $dyslexic = document.getElementById("dislexicosAC"),
-    $hues = document.getElementById("tonoAC"),
-    $cursor = document.getElementById("cursorAC"),
-    $contraste = document.getElementById("contrasteAC"),
-    $highlight = document.getElementById("resaltarAC"),
-    $moreSpacing = document.getElementById("espaciadoAC"),
-    $lessSpacing = document.getElementById("disminuirEspaciadoAC"),
-    $screenreaderLogo = document.querySelector(".barraAccesibilidad__logo"),
-    $logoImg = document.querySelector(".barraAccesibilidad__lg"),
-    $screenreader = document.querySelector(".barraAccesibilidad"),
+  const $audio = document.getElementById("narratorAc"),
+    $audioIMG = document.querySelector(
+      ".accessibilityBar__img[alt='Narrador']"
+    ),
+    $moreFont = document.getElementById("moreSizeAc"),
+    $lessFont = document.getElementById("lessSizeAc"),
+    $normalFont = document.getElementById("restartAc"),
+    $dyslexic = document.getElementById("dyslexicAc"),
+    $hues = document.getElementById("grayAc"),
+    $cursor = document.getElementById("cursorAc"),
+    $contraste = document.getElementById("contrastAc"),
+    $highlight = document.getElementById("linksAc"),
+    $moreSpacing = document.getElementById("moreSpacingAc"),
+    $lessSpacing = document.getElementById("lessSpacingAc"),
+    $screenreaderLogo = document.querySelector(".accessibilityBar__figure"),
+    $logoImg = document.querySelector(".accessibilityBar__logo"),
+    $screenreader = document.querySelector(".accessibilityBar"),
     $body = document.querySelector("body"),
     $allFont = document.querySelectorAll(
       "span, p, a, h1, h2, h3, h4, h5, input, div, .titulos,.titulo,#testimonios > .card-title, .evento-fecha-2,button,strong,td,.w3layouts_event_grid,.nav-link"
@@ -31,8 +33,10 @@ window.addEventListener("DOMContentLoaded", () => {
     $allFont2 = document.querySelectorAll(
       "p, a, h1, h2, h3, h4, h5, input, div, .titulos, #testimonios > .card-title, .evento-fecha-2,button, .w3layouts_event_grid,.titulo,.nav-link"
     ),
-    $itemsMenu = document.querySelectorAll(".barraAccesibilidad__option"),
+    $itemsMenu = document.querySelectorAll(".accessibilityBar__option"),
     $allLinks = document.querySelectorAll("a");
+
+  console.log($audioIMG);
 
   // Se inicializa el narrador, el array donde guardamos el tamaño de letra de cada texto en la pagina web.
   let speakerOnOff = false,
@@ -42,7 +46,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   //Funcion para la activacion del menu y animacion de opciones en barra de accesibilidad.
   function activeMenu() {
-    $screenreader.classList.toggle("barraAccesibilidad--active");
+    $screenreader.classList.toggle("accessibilityBar--active");
     $itemsMenu.forEach((item, index) => {
       item.style.animation
         ? (item.style.animation = "")
@@ -212,7 +216,7 @@ window.addEventListener("DOMContentLoaded", () => {
           $audioContent.pause();
           $audioContent.currentTime = 0;
         } else {
-          if ($screenreader.classList.contains("barraAccesibilidad--active")) {
+          if ($screenreader.classList.contains("accessibilityBar--active")) {
             $audioContent.setAttribute("src", `${audios.close}`);
             $audioContent.play();
           } else {
@@ -241,6 +245,30 @@ window.addEventListener("DOMContentLoaded", () => {
       $audioContent.currentTime = 0;
     }
   })();
+
+  // funcion de traductor
+
+  const btnTranslate = document.querySelector(".accessibilityBar__select"),
+    translateOptions = document.querySelector(".translateAc"),
+    optionsTranslate = document.querySelectorAll(".translateAc__a");
+
+  function translateLanguage(lang) {
+    let $frame = $(".goog-te-menu-frame:first");
+
+    $frame
+      .contents()
+      .find(".goog-te-menu2-item span.text:contains(" + lang + ")")
+      .get(0)
+      .click();
+    return false;
+  }
+
+  optionsTranslate.forEach((el) => {
+    el.addEventListener("click", () => {
+      let lang = el.getAttribute("data-lang");
+      translateLanguage(lang);
+    });
+  });
 
   //Delegacion de eventos.
   document.addEventListener("mouseover", (e) => {
@@ -279,6 +307,12 @@ window.addEventListener("DOMContentLoaded", () => {
       $allLinks.forEach((el) => el.classList.toggle("src_highlightLink"));
 
     if (e.target == $audio) screenReaderClick(!speakerOnOff);
+
+    if (e.target === btnTranslate || e.target === `${btnTranslate} > *`) {
+      translateOptions.classList.toggle("translateAc--active");
+    } else {
+      translateOptions.classList.remove("translateAc--active");
+    }
   });
 
   document.addEventListener("keypress", (e) => {

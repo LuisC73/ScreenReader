@@ -1,12 +1,11 @@
 :root {
   --color-fontAC: #333333;
-  --color-principalAC: #0186f8;
-  --color-secundarioAC: #00a9ee;
+  --color-principalAC: #31539e;
+  --color-secundarioAC: #243c6f;
   --color-fondoAC: #fff;
   --resalto-linksAC: #ffff00;
   --color-resaltoFondoAC: #000;
   --widthContenedorAC: 240px;
-  --heightContenedorAC: 518px;
   --tamanoTituloAC: 18px;
   --tamanoTextoAC: 14px;
   --tamanoIconosAC: 13px;
@@ -29,99 +28,25 @@
 Si deseas cambiar la posicion de la barra al lado izquierdo, es necesario cambiar 
 el valor del flex-direction a row-reverse, ademas de su translateX
 */
-
-.barraAccesibilidad {
+.accessibilityBar {
   display: flex;
   align-items: flex-start;
   position: fixed;
   right: 20px;
-  bottom: calc(100vh - 20vh);
+  bottom: calc(100vh - 30vh);
   flex-direction: row;
-  z-index: 99;
+  z-index: 999;
   transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   transform: translateX(87%);
   height: 20px;
 }
 
-.barraAccesibilidad:focus {
+.accessibilityBar:focus {
   border: none !important;
 }
 
-/* Contenedor de opciones de la barra, donde podras cambiar su tamaño */
-
-.barraAccesibilidad__content {
-  background: #fff;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  color: var(--color-fontAC);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: start;
-  width: var(--widthContenedorAC);
-  height: var(--heightContenedorAC);
-  padding: 5px 14px 8px 14px;
-  border-radius: 0px 8px 8px 8px;
-}
-
-/* Titulo principal */
-.barraAccesibilidad__title {
-  font-size: var(--tamanoTituloAC) !important;
-  letter-spacing: normal !important;
-  width: 100%;
-  margin-top: 10px;
-  margin-bottom: 15px;
-  font-weight: 700;
-  font-family: "Montserrat" !important;
-  color: var(--color-principalAC);
-}
-
-/* Opciones de la barra */
-.barraAccesibilidad__options {
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: flex-start;
-  row-gap: 4px;
-}
-
-/* Parrafos de las opciones */
-.barraAccesibilidad__p {
-  font-size: var(--tamanoTextoAC) !important;
-  letter-spacing: normal !important;
-  font-family: "WorkSans" !important;
-}
-
-.barraAccesibilidad__p:visited {
-  color: var(--color-fontAC);
-}
-
-/* Iconos de las opciones */
-.barraAccesibilidad__img {
-  width: var(--tamanoIconosAC);
-  vertical-align: middle;
-  margin-right: 18px;
-}
-
-/* Opcion de la barra por individual */
-.barraAccesibilidad__option {
-  display: flex;
-  align-items: baseline;
-  transition: 0.1s;
-  opacity: 0;
-}
-
-/* efecto hover de cada opcion */
-.barraAccesibilidad__option:hover .barraAccesibilidad__p {
-  text-decoration: underline;
-  cursor: pointer;
-  transform: scale(1.1);
-  color: var(--color-principalAC);
-}
-
 /* Contenedor de la imagen del logo */
-.barraAccesibilidad__logo {
+.accessibilityBar__figure {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -142,82 +67,212 @@ el valor del flex-direction a row-reverse, ademas de su translateX
   margin: 0 !important;
 }
 
-.barraAccesibilidad__logo:focus {
+.accessibilityBar__figure:focus {
   border-radius: none !important;
 }
 
-.barraAccesibilidad--active {
-  transform: translateX(0%);
-}
-
 /* Logo de Accesibilidad */
-.barraAccesibilidad__lg {
+.accessibilityBar__logo {
   width: var(--tamanoLogoAC);
   transition: 1s;
+  pointer-events: none;
 }
 
-.barraAccesibilidad__logo:hover > .barraAccesibilidad__lg {
+.accessibilityBar__figure:hover > .accessibilityBar__logo {
   transform: rotate(360deg);
 }
 
-/* Traductor  */
-
-.barraAccesibilidad__traductor {
-  height: 100%;
-  position: relative;
+/* Contenedor de opciones de la barra, donde podras cambiar su tamaño */
+.accessibilityBar__content {
+  background: #fff;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: var(--color-fontAC);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: start;
+  width: var(--widthContenedorAC);
+  height: max-content;
+  padding: 5px 14px 8px 14px;
+  border-radius: 0px 8px 8px 8px;
 }
 
-.barraAccesibilidad__traductorDiv {
-  margin-bottom: 10px;
+/* Titulo principal */
+.accessibilityBar__title {
+  font-size: var(--tamanoTituloAC) !important;
+  letter-spacing: normal !important;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  font-weight: 700;
+  font-family: "Montserrat" !important;
+  color: var(--color-principalAC);
 }
 
-.goog-te-gadget-simple {
-  background: none !important;
-  border: none !important;
+/* Opciones de la barra */
+.accessibilityBar__options {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: flex-start;
+  row-gap: 12px;
+}
+
+/* Parrafos de las opciones */
+.accessibilityBar__p {
   font-size: var(--tamanoTextoAC) !important;
-  outline: none !important;
+  letter-spacing: normal !important;
+  font-family: "WorkSans" !important;
+  margin-bottom: 0px !important;
 }
 
-.goog-te-gadget-simple > span > a > span:last-child {
-  display: none;
+.accessibilityBar__p:visited {
+  color: var(--color-fontAC);
 }
 
-.goog-te-gadget-simple .goog-te-menu-value,
-.goog-te-gadget-simple .goog-te-menu-value span {
-  color: var(--color-fontAC) !important;
-  border: none !important;
-  margin-left: 5px;
-  transition: 0.1s;
-  font-family: "WorkSans";
+/* Iconos de las opciones */
+.accessibilityBar__img {
+  width: var(--tamanoIconosAC);
+  vertical-align: middle;
+  margin-right: 18px;
 }
 
-.goog-te-gadget-simple .goog-te-menu-value span:hover {
-  text-decoration: underline !important;
+/* Opcion de la barra por individual */
+.accessibilityBar__option {
+  display: flex;
+  align-items: baseline;
+  transition: 400ms;
+  opacity: 0;
   cursor: pointer;
-  transform: scale(1.1) !important;
-  color: var(--color-principalAC) !important;
 }
 
-img.goog-te-gadget-icon {
-  background: url("/Style Library/ScreenReaderV3/images/translate-logo.svg")
-    no-repeat !important;
+/* efecto hover de cada opcion */
+.accessibilityBar__option:hover .barraAccesibilidad__p {
+  text-decoration: underline;
+  cursor: pointer;
+  transform: scale(1.1);
+  color: var(--color-principalAC);
 }
 
-.goog-te-menu-frame {
-  border-radius: 12px;
+.accessibilityBar--active {
+  transform: translateX(0%);
 }
 
-.goog-te-menu-frame > .goog-te-menu2 {
-  border: none !important;
+/* Inicio estilos traductor */
+.accessibilityBar__select {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+}
+
+.accessibilityBar__select img,
+.accessibilityBar__select p {
+  pointer-events: none;
 }
 
 #google_translate_element {
-  margin: 0 !important;
+  display: none;
 }
 
-/* .goog-te-menu-frame{
-  left: 0 !important;
-} */
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+
+body {
+  top: 0px !important;
+}
+
+.goog-logo-link {
+  display: none !important;
+}
+.goog-te-gadget {
+  color: transparent !important;
+}
+
+#goog-gt-tt,
+.goog-te-balloon-frame {
+  display: none !important;
+}
+.goog-text-highlight {
+  background: none !important;
+  box-shadow: none !important;
+}
+
+.translateAc {
+  position: absolute;
+  transition: 0.5s;
+  width: 200px;
+  background-color: #F9F8F9;
+  box-shadow: 3px 21px 80px -21px rgb(0, 0, 0);
+  border-radius: 2px;
+  height: max-content;
+  padding: 10px 20px;
+  will-change: transform;
+  bottom: 0%;
+  right: 0;
+  display: none;
+  padding: 10px 20px;
+  color: #212529;
+  text-align: left;
+  transform: translateY(33px) translateX(-176px);
+}
+
+.translateAc__p {
+  margin: 0;
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.translateAc--active {
+  display: flex;
+  flex-direction: column;
+}
+
+.translateAc__ul {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.translateAc__a {
+  width: 18px !important;
+  height: 14px !important;
+  padding: 1px 0;
+  display: inline-block;
+}
+
+.translateAc__a[data-lang="español"] {
+  background: url("/Style Library/ScreenReaderV3/images/flags18.png") -2px -323px
+    no-repeat;
+}
+
+.translateAc__a[data-lang="inglés"] {
+  background: url("/Style Library/ScreenReaderV3/images/flags18.png") -118px -352px
+    no-repeat;
+}
+
+.translateAc__a[data-lang="portugués"] {
+  background: url("/Style Library/ScreenReaderV3/images/flags18.png") -118px -265px
+    no-repeat;
+}
+
+.translateAc__a[data-lang="japonés"] {
+  background: url("/Style Library/ScreenReaderV3/images/flags18.png") -89px -178px
+    no-repeat;
+}
+
+.translateAc__a[data-lang="italiano"] {
+  background: url("/Style Library/ScreenReaderV3/images/flags18.png") -60px -178px
+    no-repeat;
+}
+
+/* Fin estilos traductor */
 
 /* Contraste */
 .scr_highcontrast {
@@ -284,34 +339,14 @@ img.goog-te-gadget-icon {
   }
 }
 
-@keyframes moveLogo {
-  0% {
-    transform: translateY(0);
-  }
-  25% {
-    transform: translateY(-50%);
-  }
-
-  50% {
-    transform: translateY(-300%);
-  }
-
-  75% {
-    transform: translateY(50%);
-  }
-
-  100% {
-    transform: translateY(0);
-  }
-}
 
 @media (max-width: 768px) {
-  .barraAccesibilidad__logo {
+  .accessibilityBar__logo {
     width: calc(var(--LogoContenedorAC) - 10px);
     height: calc(var(--LogoContenedorAC) - 10px);
   }
 
-  .barraAccesibilidad{
+  .accessibilityBar {
     transform: translateX(89%);
   }
 }
