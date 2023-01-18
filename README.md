@@ -1,7 +1,7 @@
 
 <h1 align="center">💻 ScreenReader ✌</h1>
 
-![barraAc](https://user-images.githubusercontent.com/80079884/188977375-544b962e-7824-4e86-9dcf-838f10d8ba5c.jpg)
+![barraAc]('./images/barra.gif')
 
 ### Herramientas Utilizadas
 
@@ -42,7 +42,21 @@ $ git clone https://github.com/LuisC73/ScreenReader.git
 // Pegar script 
 <script src="/Style Library/ScreenReaderV3/main.js" type="module"></script>
 
-//Traductor
+//Traductor, se deben implementar estos scripts para funcionamiento del traductor
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement(
+      {
+        pageLanguage: "es",
+        includedLanguages: "en,es,pt,ja,it",
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false,
+      },
+      "google_translate_element"
+    );
+  }
+</script>
+
 <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
 ```
 
