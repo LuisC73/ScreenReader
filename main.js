@@ -246,8 +246,7 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   })();
 
-  // funcion de traductor
-
+  // Funcion de traductor
   const btnTranslate = document.querySelector(".accessibilityBar__select"),
     translateOptions = document.querySelector(".translateAc"),
     optionsTranslate = document.querySelectorAll(".translateAc__a");

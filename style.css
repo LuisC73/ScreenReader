@@ -339,14 +339,3 @@ body {
   }
 }
 
-
-@media (max-width: 768px) {
-  .accessibilityBar__logo {
-    width: calc(var(--LogoContenedorAC) - 10px);
-    height: calc(var(--LogoContenedorAC) - 10px);
-  }
-
-  .accessibilityBar {
-    transform: translateX(89%);
-  }
-}
