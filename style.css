@@ -13,7 +13,7 @@
   --tamanoLogoAC: 30px;
 }
 
-/* Fuente */
+/* Fuentes */
 @font-face {
   font-family: "WorkSans";
   src: url("/Style Library/ScreenReaderV3/fonts/WorkSans-Regular.ttf");
@@ -154,15 +154,7 @@ el valor del flex-direction a row-reverse, ademas de su translateX
 }
 
 .accessibilityBar__option:hover {
-  transform: scale(1.1);
-}
-
-/* efecto hover de cada opcion */
-.accessibilityBar__option:hover .barraAccesibilidad__p {
-  text-decoration: underline;
-  cursor: pointer;
-  transform: scale(1.1);
-  color: var(--color-principalAC);
+  margin-left: 10px;
 }
 
 .accessibilityBar--active {
