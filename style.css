@@ -224,6 +224,7 @@ body {
   margin: 0;
   font-size: 13px;
   margin-bottom: 5px;
+  font-family: "WorkSans";
 }
 
 .translateAc--active {
@@ -345,7 +346,7 @@ body {
 .accessibilityBar__icon {
   color: var(--color-secundarioAC);
   font-size: 13px;
-  font-family: "govco-font";
+  font-family: "govco-font" !important;
   margin-right: 10px;
 }
 
