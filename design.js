@@ -29,12 +29,12 @@ const design = () => {
     },
     {
       text: "Aumentar texto",
-      img: "more_size",
+      img: "maximize",
       id: "moreSizeAc",
     },
     {
       text: "Disminuir texto",
-      img: "less_size",
+      img: "minimize",
       id: "lessSizeAc",
     },
     {
@@ -69,7 +69,7 @@ const design = () => {
     },
     {
       text: "Seleccionar Idioma",
-      img: "translate-logo",
+      img: "translate",
       id: "translateAc",
     },
     {
@@ -99,12 +99,12 @@ const design = () => {
     optionAc.classList.add("accessibilityBar__option");
 
     optionAc.innerHTML = `
-      <img src="${direccion}/images/${data[i].img}.svg" alt="${data[i].text}" class="accessibilityBar__img">
+      <strong class="accessibilityBar__icon accessibilityBar__icon--${data[i].img}"></strong>
       <p class="accessibilityBar__p" id="${data[i].id}" tabindex="0">${data[i].text}</p>`;
 
     if (i == 12) {
       optionAc.innerHTML = `  
-          <img src="${direccion}/images/${data[i].img}.svg" alt="${data[i].text}" class="accessibilityBar__img">
+          <strong class="accessibilityBar__icon accessibilityBar__icon--${data[i].img}"></strong>
           <a href="https://centroderelevo.gov.co/632/w3-channel.html" class="accessibilityBar__p" target="_blank" id="${data[i].id}" tabindex="0">${data[i].text}</a>`;
     }
 
@@ -113,8 +113,7 @@ const design = () => {
           <div id="google_translate_element"></div>
             <div class="accessibilityBar__translate">
               <div class="accessibilityBar__select">
-                <img src="${direccion}/images/${data[i].img}.svg" alt="${data[i].text}"
-                class="accessibilityBar__img">
+                <strong class="accessibilityBar__icon accessibilityBar__icon--${data[i].img}"></strong>
                 <p class="accessibilityBar__p" id="${data[i].id}" tabindex="0">${data[i].text}</p>
               </div>
               <div class="translateAc">

@@ -10,9 +10,7 @@ window.addEventListener("DOMContentLoaded", () => {
   /* Elementos del Dom para el funcionamiento de la barra, ademas de la
     seleccion de todas las letras. */
   const $audio = document.getElementById("narratorAc"),
-    $audioIMG = document.querySelector(
-      ".accessibilityBar__img[alt='Narrador']"
-    ),
+    $audioIMG = document.querySelector(".accessibilityBar__icon--play"),
     $moreFont = document.getElementById("moreSizeAc"),
     $lessFont = document.getElementById("lessSizeAc"),
     $normalFont = document.getElementById("restartAc"),
@@ -35,8 +33,6 @@ window.addEventListener("DOMContentLoaded", () => {
     ),
     $itemsMenu = document.querySelectorAll(".accessibilityBar__option"),
     $allLinks = document.querySelectorAll("a");
-
-  console.log($audioIMG);
 
   // Se inicializa el narrador, el array donde guardamos el tamaño de letra de cada texto en la pagina web.
   let speakerOnOff = false,
@@ -186,9 +182,13 @@ window.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    speakerOnOff == true
-      ? $audioIMG.setAttribute("src", `${direccion}/images/stop.svg`)
-      : $audioIMG.setAttribute("src", `${direccion}/images/play.svg`);
+    if(speakerOnOff === true){
+      $audioIMG.classList.remove('accessibilityBar__icon--play');
+      $audioIMG.classList.add('accessibilityBar__icon--stop')
+    }else{
+      $audioIMG.classList.add('accessibilityBar__icon--play');
+      $audioIMG.classList.remove('accessibilityBar__icon--stop')
+    }
   }
 
   //Funcion para activar o desactivar narrador en evento click
@@ -246,11 +246,12 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   })();
 
-  // Funcion de traductor
-  const btnTranslate = document.querySelector(".accessibilityBar__select"),
-    translateOptions = document.querySelector(".translateAc"),
-    optionsTranslate = document.querySelectorAll(".translateAc__a");
+  // funcion de traductor, seleccionamos los elementos del traductor
+  const $btnTranslate = document.querySelector(".accessibilityBar__select"),
+    $translateOptions = document.querySelector(".translateAc"),
+    $optionsTranslate = document.querySelectorAll(".translateAc__a");
 
+    //Seleccionamos el contenedor de los idiomas y apartir de la seleccion del usuario se enviara el valor y se eligira el idioma correcto en el traductor de google. 
   function translateLanguage(lang) {
     let $frame = $(".goog-te-menu-frame:first");
 
@@ -262,7 +263,7 @@ window.addEventListener("DOMContentLoaded", () => {
     return false;
   }
 
-  optionsTranslate.forEach((el) => {
+  $optionsTranslate.forEach((el) => {
     el.addEventListener("click", () => {
       let lang = el.getAttribute("data-lang");
       translateLanguage(lang);
@@ -307,10 +308,10 @@ window.addEventListener("DOMContentLoaded", () => {
 
     if (e.target == $audio) screenReaderClick(!speakerOnOff);
 
-    if (e.target === btnTranslate || e.target === `${btnTranslate} > *`) {
-      translateOptions.classList.toggle("translateAc--active");
+    if (e.target === $btnTranslate || e.target === `${$btnTranslate} > *`) {
+      $translateOptions.classList.toggle("translateAc--active");
     } else {
-      translateOptions.classList.remove("translateAc--active");
+      $translateOptions.classList.remove("translateAc--active");
     }
   });
 
@@ -341,6 +342,8 @@ window.addEventListener("DOMContentLoaded", () => {
         $allLinks.forEach((el) => el.classList.toggle("src_highlightLink"));
 
       if (e.target == $audio) screenReaderClick(!speakerOnOff);
+
+      if (e.target == $btnTranslate) $translateOptions.classList.toggle("translateAc--active");
     }
   });
 });

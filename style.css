@@ -1,7 +1,7 @@
 :root {
   --color-fontAC: #333333;
   --color-principalAC: #31539e;
-  --color-secundarioAC: #243c6f;
+  --color-secundarioAC: #1b3d88;
   --color-fondoAC: #fff;
   --resalto-linksAC: #ffff00;
   --color-resaltoFondoAC: #000;
@@ -13,15 +13,19 @@
   --tamanoLogoAC: 30px;
 }
 
-/* Fuentes */
-@font-face {
-  font-family: "Montserrat";
-  src: url("/Style Library/ScreenReaderV3/fonts/Montserrat-Regular.ttf");
-}
-
+/* Fuente */
 @font-face {
   font-family: "WorkSans";
   src: url("/Style Library/ScreenReaderV3/fonts/WorkSans-Regular.ttf");
+}
+
+/* Iconos */
+@font-face {
+  font-family: "govco-font";
+  src: url("/Style Library/ScreenReaderV3/fonts/govco-font-icons.ttf")
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 /* Contenedor Principal, donde podras editar la posicion de la barra
@@ -53,18 +57,16 @@ el valor del flex-direction a row-reverse, ademas de su translateX
   width: var(--LogoContenedorAC);
   height: var(--LogoContenedorAC);
   cursor: pointer;
-  background: linear-gradient(
-    0deg,
-    var(--color-principalAC) 0%,
-    var(--color-secundarioAC) 100%
-  );
-  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
-    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  box-shadow: 0 0 0 0 transparent;
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
   transition: 0.3s;
   overflow: hidden;
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
   margin: 0 !important;
+  border: 1px solid var(--color-principalAC);
 }
 
 .accessibilityBar__figure:focus {
@@ -97,6 +99,7 @@ el valor del flex-direction a row-reverse, ademas de su translateX
   height: max-content;
   padding: 5px 14px 8px 14px;
   border-radius: 0px 8px 8px 8px;
+  border: 1px solid var(--color-principalAC);
 }
 
 /* Titulo principal */
@@ -107,8 +110,8 @@ el valor del flex-direction a row-reverse, ademas de su translateX
   margin-top: 10px;
   margin-bottom: 15px;
   font-weight: 700;
-  font-family: "Montserrat" !important;
   color: var(--color-principalAC);
+  font-family: "WorkSans";
 }
 
 /* Opciones de la barra */
@@ -126,6 +129,8 @@ el valor del flex-direction a row-reverse, ademas de su translateX
   letter-spacing: normal !important;
   font-family: "WorkSans" !important;
   margin-bottom: 0px !important;
+  color: var(--color-fontAC);
+  transition: 0.4s;
 }
 
 .accessibilityBar__p:visited {
@@ -146,6 +151,10 @@ el valor del flex-direction a row-reverse, ademas de su translateX
   transition: 400ms;
   opacity: 0;
   cursor: pointer;
+}
+
+.accessibilityBar__option:hover {
+  transform: scale(1.1);
 }
 
 /* efecto hover de cada opcion */
@@ -204,14 +213,14 @@ body {
   position: absolute;
   transition: 0.5s;
   width: 200px;
-  background-color: #F9F8F9;
+  background-color: #f9f8f9;
   box-shadow: 3px 21px 80px -21px rgb(0, 0, 0);
   border-radius: 2px;
   height: max-content;
   padding: 10px 20px;
   will-change: transform;
   bottom: 0%;
-  right: 0;
+  right: 0px;
   display: none;
   padding: 10px 20px;
   color: #212529;
@@ -339,3 +348,67 @@ body {
   }
 }
 
+/* Iconos */
+
+.accessibilityBar__icon {
+  color: var(--color-secundarioAC);
+  font-size: 13px;
+  font-family: "govco-font";
+  margin-right: 10px;
+}
+
+.accessibilityBar__icon--play:before {
+  content: "\ea94";
+}
+
+.accessibilityBar__icon--stop:before {
+  content: "\eb37";
+}
+
+.accessibilityBar__icon--maximize:before {
+  content: "\eae0";
+}
+
+.accessibilityBar__icon--minimize:before {
+  content: "\eadf";
+}
+
+.accessibilityBar__icon--more_spacing:before {
+  content: "\ec29";
+}
+
+.accessibilityBar__icon--less_spacing:before {
+  content: "\ec2a";
+}
+
+.accessibilityBar__icon--bar_gray:before {
+  content: "\e83d";
+}
+
+.accessibilityBar__icon--contrast:before {
+  content: "\e803";
+}
+
+.accessibilityBar__icon--dyslexic:before {
+  content: "\e96d";
+}
+
+.accessibilityBar__icon--cursor:before {
+  content: "\ec44";
+}
+
+.accessibilityBar__icon--translate:before {
+  content: "\ea02";
+}
+
+.accessibilityBar__icon--link:before {
+  content: "\ea14";
+}
+
+.accessibilityBar__icon--restart:before {
+  content: "\eb9b";
+}
+
+.accessibilityBar__icon--centro_relevo:before {
+  content: "\e9b6";
+}
