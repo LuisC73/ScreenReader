@@ -1,7 +1,7 @@
 
 <h1 align="center">💻 ScreenReader ✌</h1>
 
-![barra](https://user-images.githubusercontent.com/80079884/213296357-c060a95c-b4e6-4d8c-bb52-50c85ee2fd54.gif)
+![barra](https://user-images.githubusercontent.com/80079884/215129994-e49931a3-8b85-48f2-8f14-f13f64deb15e.gif)
 
 ### Herramientas Utilizadas
 
