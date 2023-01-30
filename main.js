@@ -80,6 +80,7 @@ window.addEventListener("DOMContentLoaded", () => {
           $body.classList.toggle("scr_bigcursor");
         if (el.classList.contains("src_highlightLink"))
           el.classList.remove("src_highlightLink");
+        // translateLanguage("español");
       } else {
         el.style.fontSize = `${fontSize}px`;
       }
@@ -182,12 +183,12 @@ window.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    if(speakerOnOff === true){
-      $audioIMG.classList.remove('accessibilityBar__icon--play');
-      $audioIMG.classList.add('accessibilityBar__icon--stop')
-    }else{
-      $audioIMG.classList.add('accessibilityBar__icon--play');
-      $audioIMG.classList.remove('accessibilityBar__icon--stop')
+    if (speakerOnOff === true) {
+      $audioIMG.classList.remove("accessibilityBar__icon--play");
+      $audioIMG.classList.add("accessibilityBar__icon--stop");
+    } else {
+      $audioIMG.classList.add("accessibilityBar__icon--play");
+      $audioIMG.classList.remove("accessibilityBar__icon--stop");
     }
   }
 
@@ -251,7 +252,7 @@ window.addEventListener("DOMContentLoaded", () => {
     $translateOptions = document.querySelector(".translateAc"),
     $optionsTranslate = document.querySelectorAll(".translateAc__a");
 
-    //Seleccionamos el contenedor de los idiomas y apartir de la seleccion del usuario se enviara el valor y se eligira el idioma correcto en el traductor de google. 
+  //Seleccionamos el contenedor de los idiomas y apartir de la seleccion del usuario se enviara el valor y se eligira el idioma correcto en el traductor de google.
   function translateLanguage(lang) {
     let $frame = $(".goog-te-menu-frame:first");
 
@@ -343,7 +344,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
       if (e.target == $audio) screenReaderClick(!speakerOnOff);
 
-      if (e.target == $btnTranslate) $translateOptions.classList.toggle("translateAc--active");
+      if (e.target == $btnTranslate)
+        $translateOptions.classList.toggle("translateAc--active");
     }
   });
 });

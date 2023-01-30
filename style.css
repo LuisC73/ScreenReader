@@ -1,7 +1,7 @@
 :root {
   --color-fontAC: #333333;
   --color-principalAC: #31539e;
-  --color-secundarioAC: #1b3d88;
+  --color-secundarioAC: #31539e;
   --color-fondoAC: #fff;
   --resalto-linksAC: #ffff00;
   --color-resaltoFondoAC: #000;
@@ -15,11 +15,15 @@
 
 /* Fuentes */
 @font-face {
+  font-family: "Montserrat";
+  src: url("/Style Library/ScreenReaderV3/fonts/Montserrat-Regular.ttf");
+}
+
+@font-face {
   font-family: "WorkSans";
   src: url("/Style Library/ScreenReaderV3/fonts/WorkSans-Regular.ttf");
 }
 
-/* Iconos */
 @font-face {
   font-family: "govco-font";
   src: url("/Style Library/ScreenReaderV3/fonts/govco-font-icons.ttf")
@@ -50,6 +54,7 @@ el valor del flex-direction a row-reverse, ademas de su translateX
 }
 
 /* Contenedor de la imagen del logo */
+/* Si es deseado añadir un gradient como fondo ingresar al siguiente enlace y elegir  https://uigradients.com/#CoolBlues */
 .accessibilityBar__figure {
   display: flex;
   justify-content: center;
@@ -57,16 +62,22 @@ el valor del flex-direction a row-reverse, ademas de su translateX
   width: var(--LogoContenedorAC);
   height: var(--LogoContenedorAC);
   cursor: pointer;
-  background: #fff;
-  box-shadow: 0 0 0 0 transparent;
-  -webkit-transition: all 0.2s ease-in;
-  -moz-transition: all 0.2s ease-in;
+  background: radial-gradient(100% 100% at 100% 0%, #89e5ff 0%, #5468ff 100%);
+  box-shadow: 0px 0.01em 0.01em rgb(45 35 66 / 40%),
+    0px 0.3em 0.7em -0.01em rgb(45 35 66 / 30%),
+    inset 0px -0.01em 0px rgb(58 65 111 / 50%);
   transition: 0.3s;
   overflow: hidden;
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
   margin: 0 !important;
   border: 1px solid var(--color-principalAC);
+  backdrop-filter: blur(8px);
+}
+
+.accessibilityBar__figure:hover {
+  box-shadow: 0px 0.1em 0.2em rgb(45 35 66 / 40%),
+    0px 0.4em 0.7em -0.1em rgb(45 35 66 / 30%), inset 0px -0.1em 0px #3c4fe0;
 }
 
 .accessibilityBar__figure:focus {
@@ -131,6 +142,7 @@ el valor del flex-direction a row-reverse, ademas de su translateX
   margin-bottom: 0px !important;
   color: var(--color-fontAC);
   transition: 0.4s;
+  pointer-events: none;
 }
 
 .accessibilityBar__p:visited {
@@ -188,6 +200,7 @@ body {
 .goog-logo-link {
   display: none !important;
 }
+
 .goog-te-gadget {
   color: transparent !important;
 }
@@ -196,6 +209,7 @@ body {
 .goog-te-balloon-frame {
   display: none !important;
 }
+
 .goog-text-highlight {
   background: none !important;
   box-shadow: none !important;
@@ -281,6 +295,7 @@ body {
   filter: invert(100%);
   background-color: #000 !important;
 }
+
 /* En caso que al activar el contraste y modo gris se pierda la barra y boton de subir descomentar linea de codigo 187-189 */
 
 /* .scr_highcontrast .scroll-to-top,.scr_highcontrast .accesibilidadBtn{
@@ -348,6 +363,7 @@ body {
   font-size: 13px;
   font-family: "govco-font" !important;
   margin-right: 10px;
+  pointer-events: none;
 }
 
 .accessibilityBar__icon--play:before {

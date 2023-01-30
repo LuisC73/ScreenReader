@@ -97,15 +97,16 @@ const design = () => {
     let optionAc = document.createElement("div");
 
     optionAc.classList.add("accessibilityBar__option");
+    optionAc.setAttribute("id",`${data[i].id}`)
 
     optionAc.innerHTML = `
       <strong class="accessibilityBar__icon accessibilityBar__icon--${data[i].img}"></strong>
-      <p class="accessibilityBar__p" id="${data[i].id}" tabindex="0">${data[i].text}</p>`;
+      <p class="accessibilityBar__p" tabindex="0">${data[i].text}</p>`;
 
     if (i == 12) {
       optionAc.innerHTML = `  
           <strong class="accessibilityBar__icon accessibilityBar__icon--${data[i].img}"></strong>
-          <a href="https://centroderelevo.gov.co/632/w3-channel.html" class="accessibilityBar__p" target="_blank" id="${data[i].id}" tabindex="0">${data[i].text}</a>`;
+          <a href="https://centroderelevo.gov.co/632/w3-channel.html" class="accessibilityBar__p" target="_blank"  tabindex="0">${data[i].text}</a>`;
     }
 
     if (i == 9) {
@@ -114,7 +115,7 @@ const design = () => {
             <div class="accessibilityBar__translate">
               <div class="accessibilityBar__select">
                 <strong class="accessibilityBar__icon accessibilityBar__icon--${data[i].img}"></strong>
-                <p class="accessibilityBar__p" id="${data[i].id}" tabindex="0">${data[i].text}</p>
+                <p class="accessibilityBar__p" tabindex="0">${data[i].text}</p>
               </div>
               <div class="translateAc">
                 <p class="translateAc__p">Cambiar idioma del sitio:</p>
