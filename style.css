@@ -165,8 +165,8 @@ el valor del flex-direction a row-reverse, ademas de su translateX
   cursor: pointer;
 }
 
-.accessibilityBar__option:hover {
-  margin-left: 10px;
+.accessibilityBar__option:hover .accessibilityBar__p{
+  text-decoration: underline;
 }
 
 .accessibilityBar--active {
