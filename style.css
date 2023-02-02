@@ -225,13 +225,13 @@ body {
   height: max-content;
   padding: 10px 20px;
   will-change: transform;
-  bottom: 0%;
-  right: 0px;
+  top: -50%;
+  right: 110%;
   display: none;
   padding: 10px 20px;
   color: #212529;
   text-align: left;
-  transform: translateY(33px) translateX(-176px);
+
 }
 
 .translateAc__p {
