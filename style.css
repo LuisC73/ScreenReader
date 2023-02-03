@@ -189,7 +189,7 @@ el valor del flex-direction a row-reverse, ademas de su translateX
   display: none;
 }
 
-.goog-te-banner-frame.skiptranslate {
+.goog-te-banner-frame.skiptranslate,.VIpgJd-ZVi9od-ORHb-OEVmcd.skiptranslate {
   display: none !important;
 }
 

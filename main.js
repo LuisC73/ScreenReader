@@ -254,11 +254,11 @@ window.addEventListener("DOMContentLoaded", () => {
 
   //Seleccionamos el contenedor de los idiomas y apartir de la seleccion del usuario se enviara el valor y se eligira el idioma correcto en el traductor de google.
   function translateLanguage(lang) {
-    let $frame = $(".goog-te-menu-frame:first");
+    let $frame = $(".VIpgJd-ZVi9od-xl07Ob-OEVmcd.skiptranslate:first");
 
     $frame
       .contents()
-      .find(".goog-te-menu2-item span.text:contains(" + lang + ")")
+      .find(`.VIpgJd-ZVi9od-vH1Gmf-ibnC6b span.text:contains(${lang})`)
       .get(0)
       .click();
     return false;
