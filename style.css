@@ -1,3 +1,4 @@
+/* Diferentes variables para el funcionamiento de la barra de accesilidad, en este lugar podras encontrar el color tanto de la fuente como de los iconos, el tamaño de la barra y sus diferentes colores, entre mas propiedades que podras editar a tu gusto */
 :root {
   --color-fontAC: #333333;
   --color-principalAC: #31539e;
@@ -11,19 +12,16 @@
   --tamanoIconosAC: 13px;
   --LogoContenedorAC: 60px;
   --tamanoLogoAC: 30px;
+  --colorGradient1: #89e5ff;
+  --colorGradient2: #5468ff;
 }
 
-/* Fuentes */
-@font-face {
-  font-family: "Montserrat";
-  src: url("/Style Library/ScreenReaderV3/fonts/Montserrat-Regular.ttf");
-}
-
+/* Se importa tipo de fuente para textos, Worksans es la sugerencia realizada por Mintic para aplicarse en los portales web  */
 @font-face {
   font-family: "WorkSans";
   src: url("/Style Library/ScreenReaderV3/fonts/WorkSans-Regular.ttf");
 }
-
+/* Se importa los iconos proporcionados por Mintic atravez de una fuente, para luego ser utilizado mediante clases */
 @font-face {
   font-family: "govco-font";
   src: url("/Style Library/ScreenReaderV3/fonts/govco-font-icons.ttf")
@@ -32,10 +30,9 @@
   font-style: normal;
 }
 
-/* Contenedor Principal, donde podras editar la posicion de la barra
-Si deseas cambiar la posicion de la barra al lado izquierdo, es necesario cambiar 
-el valor del flex-direction a row-reverse, ademas de su translateX
-*/
+/* Contenedor Principal, podras editar la posicion de la barra a tu gusto, por ejemplo
+si deseas cambiar la posicion de la barra al lado izquierdo, es necesario cambiar 
+el valor del flex-direction a row-reverse, ademas de su translateX*/
 .accessibilityBar {
   display: flex;
   align-items: flex-start;
@@ -49,12 +46,15 @@ el valor del flex-direction a row-reverse, ademas de su translateX
   height: 20px;
 }
 
+/* Le eliminamos el borde al momento de enfocar con tabulación la barra de accesibilidad en general */
 .accessibilityBar:focus {
   border: none !important;
 }
 
 /* Contenedor de la imagen del logo */
-/* Si es deseado añadir un gradient como fondo ingresar al siguiente enlace y elegir  https://uigradients.com/#CoolBlues */
+/* Si es deseado añadir un gradient como fondo puedes ingresar a siguiente enlace https://uigradients.com/#CoolBlues,
+en el caso de que quieras continuar con el mismo gradient y solo cambiar los colores,  puedes conseguir nuevos colores ingresando al
+siguiente enlace https://colorhunt.co/ */
 .accessibilityBar__figure {
   display: flex;
   justify-content: center;
@@ -62,7 +62,11 @@ el valor del flex-direction a row-reverse, ademas de su translateX
   width: var(--LogoContenedorAC);
   height: var(--LogoContenedorAC);
   cursor: pointer;
-  background: radial-gradient(100% 100% at 100% 0%, #89e5ff 0%, #5468ff 100%);
+  background: radial-gradient(
+    100% 100% at 100% 0%,
+    var(--colorGradient1) 0%,
+    var(--colorGradient2) 100%
+  );
   box-shadow: 0px 0.01em 0.01em rgb(45 35 66 / 40%),
     0px 0.3em 0.7em -0.01em rgb(45 35 66 / 30%),
     inset 0px -0.01em 0px rgb(58 65 111 / 50%);
@@ -75,9 +79,11 @@ el valor del flex-direction a row-reverse, ademas de su translateX
   backdrop-filter: blur(8px);
 }
 
+/* Efecto hover para el boton de la barra de accesibilidad */
 .accessibilityBar__figure:hover {
   box-shadow: 0px 0.1em 0.2em rgb(45 35 66 / 40%),
-    0px 0.4em 0.7em -0.1em rgb(45 35 66 / 30%), inset 0px -0.1em 0px #3c4fe0;
+    0px 0.4em 0.7em -0.1em rgb(45 35 66 / 30%),
+    inset 0px -0.1em 0px var(--colorGradient2);
 }
 
 .accessibilityBar__figure:focus {
@@ -91,11 +97,12 @@ el valor del flex-direction a row-reverse, ademas de su translateX
   pointer-events: none;
 }
 
+/* Efecto de rotacion en el logo de la barra de accesibilidad en el momento de pasar el cursor */
 .accessibilityBar__figure:hover > .accessibilityBar__logo {
   transform: rotate(360deg);
 }
 
-/* Contenedor de opciones de la barra, donde podras cambiar su tamaño */
+/* Contenedor de las diferentes opciones y titulo de la barra de accesibilidad */
 .accessibilityBar__content {
   background: #fff;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -145,18 +152,12 @@ el valor del flex-direction a row-reverse, ademas de su translateX
   pointer-events: none;
 }
 
+/* Se mantiene el mismo color luego de ingresar al enlace de centro de relevo */
 .accessibilityBar__p:visited {
   color: var(--color-fontAC);
 }
 
-/* Iconos de las opciones */
-.accessibilityBar__img {
-  width: var(--tamanoIconosAC);
-  vertical-align: middle;
-  margin-right: 18px;
-}
-
-/* Opcion de la barra por individual */
+/* Opción de la barra por individual */
 .accessibilityBar__option {
   display: flex;
   align-items: baseline;
@@ -165,6 +166,7 @@ el valor del flex-direction a row-reverse, ademas de su translateX
   cursor: pointer;
 }
 
+/* Efecto hover de subrayado para cada opción de la barra de accesibilidad */
 .accessibilityBar__option:hover .accessibilityBar__p {
   text-decoration: underline;
 }
@@ -185,18 +187,23 @@ el valor del flex-direction a row-reverse, ademas de su translateX
   pointer-events: none;
 }
 
+/* Se oculta traductor por defecto */
 #google_translate_element {
   display: none;
 }
 
-.goog-te-banner-frame.skiptranslate,.VIpgJd-ZVi9od-ORHb-OEVmcd.skiptranslate {
+/* Se oculta barra superior de google con el idioma seleccionado */
+.goog-te-banner-frame.skiptranslate,
+.VIpgJd-ZVi9od-ORHb-OEVmcd.skiptranslate {
   display: none !important;
 }
 
+/* Se mantiene el contenido de la pagina en la misma posicion, esto debido al espacio que dejaria ocultar la barra superior de google */
 body {
   top: 0px !important;
 }
 
+/* Se oculta logo de google */
 .goog-logo-link {
   display: none !important;
 }
@@ -215,6 +222,7 @@ body {
   box-shadow: none !important;
 }
 
+/* Contenedor de idiomas */
 .translateAc {
   position: absolute;
   transition: 0.5s;
@@ -233,6 +241,7 @@ body {
   text-align: left;
 }
 
+/* Parrafo de contenedor de idiomas */
 .translateAc__p {
   margin: 0;
   font-size: 13px;
@@ -240,11 +249,13 @@ body {
   font-family: "WorkSans";
 }
 
+/* Momento de activación de contenedor de idiomas */
 .translateAc--active {
   display: flex;
   flex-direction: column;
 }
 
+/* Contenedor de cada opcion para elegir el idioma */
 .translateAc__ul {
   display: flex;
   width: 100%;
@@ -255,6 +266,7 @@ body {
   padding: 0;
 }
 
+/* Se le da un estilo por defecto a cada opcion */
 .translateAc__a {
   width: 18px !important;
   height: 14px !important;
@@ -262,6 +274,7 @@ body {
   display: inline-block;
 }
 
+/* Dependiendo del idioma se le agregara la bandera correspondiente */
 .translateAc__a[data-lang="español"] {
   background: url("/Style Library/ScreenReaderV3/images/flags18.png") -2px -323px
     no-repeat;
@@ -356,7 +369,6 @@ body {
 }
 
 /* Iconos */
-
 .accessibilityBar__icon {
   color: var(--color-secundarioAC);
   font-size: 13px;

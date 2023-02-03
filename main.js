@@ -183,6 +183,7 @@ window.addEventListener("DOMContentLoaded", () => {
       });
     }
 
+    // Dependiendo del estado del narrador se cambiara su icono para indicar si esta activo o inactivo
     if (speakerOnOff === true) {
       $audioIMG.classList.remove("accessibilityBar__icon--play");
       $audioIMG.classList.add("accessibilityBar__icon--stop");
@@ -252,7 +253,8 @@ window.addEventListener("DOMContentLoaded", () => {
     $translateOptions = document.querySelector(".translateAc"),
     $optionsTranslate = document.querySelectorAll(".translateAc__a");
 
-  //Seleccionamos el contenedor de los idiomas y apartir de la seleccion del usuario se enviara el valor y se eligira el idioma correcto en el traductor de google.
+  //Seleccionamos el contenedor de los idiomas y apartir de la seleccion del usuario se enviara el valor y se eligira el idioma correcto en el traductor de google,
+  // en caso de que no se logre seleccionar el contenedor de idiomas por defecto de google, validar si contiene la misma clase que la seleccionda en este momento,
   function translateLanguage(lang) {
     let $frame = $(".VIpgJd-ZVi9od-xl07Ob-OEVmcd.skiptranslate:first");
 
