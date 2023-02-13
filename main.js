@@ -9,30 +9,34 @@ window.addEventListener("DOMContentLoaded", () => {
 
   /* Elementos del Dom para el funcionamiento de la barra, ademas de la
     seleccion de todas las letras. */
-  const $audio = document.getElementById("narratorAc"),
-    $audioIMG = document.querySelector(".accessibilityBar__icon--play"),
-    $moreFont = document.getElementById("moreSizeAc"),
-    $lessFont = document.getElementById("lessSizeAc"),
-    $normalFont = document.getElementById("restartAc"),
-    $dyslexic = document.getElementById("dyslexicAc"),
-    $hues = document.getElementById("grayAc"),
-    $cursor = document.getElementById("cursorAc"),
-    $contraste = document.getElementById("contrastAc"),
-    $highlight = document.getElementById("linksAc"),
-    $moreSpacing = document.getElementById("moreSpacingAc"),
-    $lessSpacing = document.getElementById("lessSpacingAc"),
+  const $audioIMG = document.querySelector(".accessibilityBar__icon--play"),
     $screenreaderLogo = document.querySelector(".accessibilityBar__figure"),
-    $logoImg = document.querySelector(".accessibilityBar__logo"),
     $screenreader = document.querySelector(".accessibilityBar"),
-    $body = document.querySelector("body"),
+    BODY_ELEMENT = document.querySelector("body"),
     $allFont = document.querySelectorAll(
-      "span, p, a, h1, h2, h3, h4, h5, input, div, .titulos,.titulo,#testimonios > .card-title, .evento-fecha-2,button,strong,td,.w3layouts_event_grid,.nav-link"
-    ),
-    $allFont2 = document.querySelectorAll(
-      "p, a, h1, h2, h3, h4, h5, input, div, .titulos, #testimonios > .card-title, .evento-fecha-2,button, .w3layouts_event_grid,.titulo,.nav-link"
+      "span:not(.glyphicon), p, a, h1, h2, h3, h4, h5, input, div,strong:not(.fa)"
     ),
     $itemsMenu = document.querySelectorAll(".accessibilityBar__option"),
     $allLinks = document.querySelectorAll("a");
+
+  const elements = {};
+  const ids = [
+    "narratorAc",
+    "moreSizeAc",
+    "lessSizeAc",
+    "restartAc",
+    "dyslexicAc",
+    "grayAc",
+    "cursorAc",
+    "contrastAc",
+    "linksAc",
+    "moreSpacingAc",
+    "lessSpacingAc",
+  ];
+
+  for (let i = 0; i < ids.length; i++) {
+    elements[ids[i]] = document.getElementById(ids[i]);
+  }
 
   // Se inicializa el narrador, el array donde guardamos el tamaño de letra de cada texto en la pagina web.
   let speakerOnOff = false,
@@ -72,12 +76,12 @@ window.addEventListener("DOMContentLoaded", () => {
         el.style.letterSpacing = `normal`;
         if (el.classList.contains("font-dyslexic"))
           el.classList.toggle("font-dyslexic");
-        if ($body.classList.contains("scr_highcontrast"))
-          $body.classList.toggle("scr_highcontrast");
-        if ($body.classList.contains("scr_grayHues"))
-          $body.classList.toggle("scr_grayHues");
-        if ($body.classList.contains("scr_bigcursor"))
-          $body.classList.toggle("scr_bigcursor");
+        if (BODY_ELEMENT.classList.contains("scr_highcontrast"))
+          BODY_ELEMENT.classList.toggle("scr_highcontrast");
+        if (BODY_ELEMENT.classList.contains("scr_grayHues"))
+          BODY_ELEMENT.classList.toggle("scr_grayHues");
+        if (BODY_ELEMENT.classList.contains("scr_bigcursor"))
+          BODY_ELEMENT.classList.toggle("scr_bigcursor");
         if (el.classList.contains("src_highlightLink"))
           el.classList.remove("src_highlightLink");
         // translateLanguage("español");
@@ -156,7 +160,7 @@ window.addEventListener("DOMContentLoaded", () => {
     speakerOnOff = value;
 
     if (mediaQuery.matches) {
-      $body.addEventListener("click", (e) => {
+      BODY_ELEMENT.addEventListener("click", (e) => {
         if (returnText(e) != "") {
           speak.text = returnText(e);
           if (speakerOnOff) {
@@ -165,11 +169,11 @@ window.addEventListener("DOMContentLoaded", () => {
         }
       });
 
-      $body.addEventListener("mouseout", () => {
+      BODY_ELEMENT.addEventListener("mouseout", () => {
         speechSynthesis.cancel();
       });
     } else {
-      $body.addEventListener("mouseover", (e) => {
+      BODY_ELEMENT.addEventListener("mouseover", (e) => {
         if (returnText(e) != "") {
           speak.text = returnText(e);
           if (speakerOnOff) {
@@ -178,7 +182,7 @@ window.addEventListener("DOMContentLoaded", () => {
         }
       });
 
-      $body.addEventListener("mouseout", () => {
+      BODY_ELEMENT.addEventListener("mouseout", () => {
         speechSynthesis.cancel();
       });
     }
@@ -275,41 +279,42 @@ window.addEventListener("DOMContentLoaded", () => {
 
   //Delegacion de eventos.
   document.addEventListener("mouseover", (e) => {
-    if (e.target === $screenreaderLogo || e.target == $logoImg)
-      soundContent("active");
+    if (e.target === $screenreaderLogo) soundContent("active");
   });
 
   document.addEventListener("mouseout", (e) => {
-    if (e.target === $screenreaderLogo || e.target == $logoImg)
-      soundContent("desactive");
+    if (e.target === $screenreaderLogo) soundContent("desactive");
   });
 
   document.addEventListener("click", (e) => {
-    if (e.target == $screenreaderLogo || e.target == $logoImg) activeMenu();
+    if (e.target == $screenreaderLogo) activeMenu();
 
-    if (e.target == $moreFont) changeSizeFont("more");
+    if (e.target == elements.moreSizeAc) changeSizeFont("more");
 
-    if (e.target == $lessFont) changeSizeFont("less");
+    if (e.target == elements.lessSizeAc) changeSizeFont("less");
 
-    if (e.target == $normalFont) changeSizeFont("normal");
+    if (e.target == elements.restartAc) changeSizeFont("normal");
 
-    if (e.target == $moreSpacing) changeSpacing("more");
+    if (e.target == elements.moreSpacingAc) changeSpacing("more");
 
-    if (e.target == $lessSpacing) changeSpacing("less");
+    if (e.target == elements.lessSpacingAc) changeSpacing("less");
 
-    if (e.target == $contraste) $body.classList.toggle("scr_highcontrast");
+    if (e.target == elements.contrastAc)
+      BODY_ELEMENT.classList.toggle("scr_highcontrast");
 
-    if (e.target == $dyslexic)
-      $allFont2.forEach((el) => el.classList.toggle("font-dyslexic"));
+    if (e.target == elements.dyslexicAc)
+      $allFont.forEach((el) => el.classList.toggle("font-dyslexic"));
 
-    if (e.target == $hues) $body.classList.toggle("scr_grayHues");
+    if (e.target == elements.grayAc)
+      BODY_ELEMENT.classList.toggle("scr_grayHues");
 
-    if (e.target == $cursor) $body.classList.toggle("scr_bigcursor");
+    if (e.target == elements.cursorAc)
+      BODY_ELEMENT.classList.toggle("scr_bigcursor");
 
-    if (e.target == $highlight)
+    if (e.target == elements.linksAc)
       $allLinks.forEach((el) => el.classList.toggle("src_highlightLink"));
 
-    if (e.target == $audio) screenReaderClick(!speakerOnOff);
+    if (e.target == elements.narratorAc) screenReaderClick(!speakerOnOff);
 
     if (e.target === $btnTranslate || e.target === `${$btnTranslate} > *`) {
       $translateOptions.classList.toggle("translateAc--active");
@@ -320,31 +325,34 @@ window.addEventListener("DOMContentLoaded", () => {
 
   document.addEventListener("keypress", (e) => {
     if (e.key == "enter" || e.keyCode == 13) {
-      if (e.target == $screenreaderLogo || e.target == $logoImg) activeMenu();
+      if (e.target == $screenreaderLogo) activeMenu();
 
-      if (e.target == $moreFont) changeSizeFont("more");
+      if (e.target == elements.moreSizeAc) changeSizeFont("more");
 
-      if (e.target == $lessFont) changeSizeFont("less");
+      if (e.target == elements.lessSizeAc) changeSizeFont("less");
 
-      if (e.target == $normalFont) changeSizeFont("normal");
+      if (e.target == elements.restartAc) changeSizeFont("normal");
 
-      if (e.target == $moreSpacing) changeSpacing("more");
+      if (e.target == elements.moreSpacingAc) changeSpacing("more");
 
-      if (e.target == $lessSpacing) changeSpacing("less");
+      if (e.target == elements.lessSpacingAc) changeSpacing("less");
 
-      if (e.target == $contraste) $body.classList.toggle("scr_highcontrast");
+      if (e.target == elements.contrastAc)
+        BODY_ELEMENT.classList.toggle("scr_highcontrast");
 
-      if (e.target == $dyslexic)
-        $allFont2.forEach((el) => el.classList.toggle("font-dyslexic"));
+      if (e.target == elements.dyslexicAc)
+        $allFont.forEach((el) => el.classList.toggle("font-dyslexic"));
 
-      if (e.target == $hues) $body.classList.toggle("scr_grayHues");
+      if (e.target == elements.grayAc)
+        BODY_ELEMENT.classList.toggle("scr_grayHues");
 
-      if (e.target == $cursor) $body.classList.toggle("scr_bigcursor");
+      if (e.target == elements.cursorAc)
+        BODY_ELEMENT.classList.toggle("scr_bigcursor");
 
-      if (e.target == $highlight)
+      if (e.target == elements.linksAc)
         $allLinks.forEach((el) => el.classList.toggle("src_highlightLink"));
 
-      if (e.target == $audio) screenReaderClick(!speakerOnOff);
+      if (e.target == elements.narratorAc) screenReaderClick(!speakerOnOff);
 
       if (e.target == $btnTranslate)
         $translateOptions.classList.toggle("translateAc--active");
