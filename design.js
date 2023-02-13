@@ -97,13 +97,16 @@ const design = () => {
     let optionAc = document.createElement("div");
 
     optionAc.classList.add("accessibilityBar__option");
-    optionAc.setAttribute("id",`${data[i].id}`)
+    optionAc.setAttribute("id", `${data[i].id}`);
 
     optionAc.innerHTML = `
       <strong class="accessibilityBar__icon accessibilityBar__icon--${data[i].img}"></strong>
       <p class="accessibilityBar__p" tabindex="0">${data[i].text}</p>`;
 
     if (i == 12) {
+      optionAc.addEventListener("click", () => {
+        location.href = "https://centroderelevo.gov.co/632/w3-channel.html";
+      });
       optionAc.innerHTML = `  
           <strong class="accessibilityBar__icon accessibilityBar__icon--${data[i].img}"></strong>
           <a href="https://centroderelevo.gov.co/632/w3-channel.html" class="accessibilityBar__p" target="_blank"  tabindex="0">${data[i].text}</a>`;
