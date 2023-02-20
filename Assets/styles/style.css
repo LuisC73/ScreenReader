@@ -19,12 +19,12 @@
   /* Se importa tipo de fuente para textos, Worksans es la sugerencia realizada por Mintic para aplicarse en los portales web  */
   @font-face {
     font-family: "WorkSans";
-    src: url("/Style Library/ScreenReaderV3/fonts/WorkSans-Regular.ttf");
+    src: url("/Style Library/ScreenReaderV3/Assets/fonts/WorkSans-Regular.ttf");
   }
   /* Se importa los iconos proporcionados por Mintic atravez de una fuente, para luego ser utilizado mediante clases */
   @font-face {
     font-family: "govco-font";
-    src: url("/Style Library/ScreenReaderV3/fonts/govco-font-icons.ttf")
+    src: url("/Style Library/ScreenReaderV3/Assets/fonts/govco-font-icons.ttf")
       format("truetype");
     font-weight: normal;
     font-style: normal;
@@ -276,27 +276,27 @@
   
   /* Dependiendo del idioma se le agregara la bandera correspondiente */
   .translateAc__a[data-lang="español"] {
-    background: url("/Style Library/ScreenReaderV3/images/flags18.png") -2px -323px
+    background: url("/Style Library/ScreenReaderV3/Assets/images/flags18.png") -2px -323px
       no-repeat;
   }
   
   .translateAc__a[data-lang="inglés"] {
-    background: url("/Style Library/ScreenReaderV3/images/flags18.png") -118px -352px
+    background: url("/Style Library/ScreenReaderV3/Assets/images/flags18.png") -118px -352px
       no-repeat;
   }
   
   .translateAc__a[data-lang="portugués"] {
-    background: url("/Style Library/ScreenReaderV3/images/flags18.png") -118px -265px
+    background: url("/Style Library/ScreenReaderV3/Assets/images/flags18.png") -118px -265px
       no-repeat;
   }
   
   .translateAc__a[data-lang="japonés"] {
-    background: url("/Style Library/ScreenReaderV3/images/flags18.png") -89px -178px
+    background: url("/Style Library/ScreenReaderV3/Assets/images/flags18.png") -89px -178px
       no-repeat;
   }
   
   .translateAc__a[data-lang="italiano"] {
-    background: url("/Style Library/ScreenReaderV3/images/flags18.png") -60px -178px
+    background: url("/Style Library/ScreenReaderV3/Assets/images/flags18.png") -60px -178px
       no-repeat;
   }
   
@@ -318,7 +318,7 @@
   
   @font-face {
     font-family: "OpenDyslexic";
-    src: url("/Style Library/ScreenReaderV3/fonts/OpenDyslexic-Regular.otf");
+    src: url("/Style Library/ScreenReaderV3/Assets/fonts/OpenDyslexic-Regular.otf");
   }
   
   .font-dyslexic {
@@ -339,13 +339,13 @@
   
   /* Cursor grande */
   .scr_bigcursor * {
-    cursor: url("/Style Library/ScreenReaderV3/images/bigcursor.svg"), auto !important;
+    cursor: url("/Style Library/ScreenReaderV3/Assets/images/bigcursor.svg"), auto !important;
   }
   
   .scr_bigcursor a,
   .scr_bigcursor input,
   .scr_bigcursor button {
-    cursor: url("/Style Library/ScreenReaderV3/images/cursorPointer.svg"), auto !important;
+    cursor: url("/Style Library/ScreenReaderV3/Assets/images/cursorPointer.svg"), auto !important;
   }
   
   /* Resaltar enlaces */

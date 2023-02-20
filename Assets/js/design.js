@@ -2,7 +2,7 @@ import data from "./data.js";
 
 const design = () => {
   const $s4Workspace = document.getElementById("s4-workspace"),
-    direccion = `/Style Library/ScreenReaderV3`;
+    direccion = `/Style Library/ScreenReaderV3/Assets`;
 
   const accessibilityContainer = document.createElement("div");
 
