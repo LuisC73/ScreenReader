@@ -39,7 +39,7 @@ const design = () => {
 
     if (i == 12) {
       optionAc.addEventListener("click", () => {
-        location.href = "https://centroderelevo.gov.co/632/w3-channel.html";
+        window.open("https://centroderelevo.gov.co/632/w3-channel.html", '_blank');
       });
       optionAc.innerHTML = `  
           <strong class="accessibilityBar__icon accessibilityBar__icon--${data[i].img}"></strong>

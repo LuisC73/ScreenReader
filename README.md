@@ -65,6 +65,12 @@ $ git clone https://github.com/LuisC73/ScreenReader.git
 <link rel="stylesheet" href="/Style Library/ScreenReaderV3/Assets/styles/style.css">
 
 ```
+```html
+
+<div id="google_translate_element"></div>
+
+```
+
 ## Autor
 
 * Luis Miguel Castro
