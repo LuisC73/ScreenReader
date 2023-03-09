@@ -1,0 +1,435 @@
+/* Diferentes variables para el funcionamiento de la barra de accesilidad, en este lugar podras encontrar el color tanto de la fuente como de los iconos, el tamaño de la barra y sus diferentes colores, entre mas propiedades que podras editar a tu gusto */
+:root {
+    --color-fontAC: #333333;
+    --color-principalAC: #31539e;
+    --color-secundarioAC: #31539e;
+    --color-fondoAC: #fff;
+    --resalto-linksAC: #ffff00;
+    --color-resaltoFondoAC: #000;
+    --widthContenedorAC: 240px;
+    --tamanoTituloAC: 18px;
+    --tamanoTextoAC: 14px;
+    --tamanoIconosAC: 13px;
+    --LogoContenedorAC: 60px;
+    --tamanoLogoAC: 30px;
+    --colorGradient1: #89e5ff;
+    --colorGradient2: #5468ff;
+  }
+  
+  /* Se importa tipo de fuente para textos, Worksans es la sugerencia realizada por Mintic para aplicarse en los portales web  */
+  @font-face {
+    font-family: "WorkSans";
+    src: url("/Style Library/ScreenReaderV3/Assets/fonts/WorkSans-Regular.ttf");
+  }
+  /* Se importa los iconos proporcionados por Mintic atravez de una fuente, para luego ser utilizado mediante clases */
+  @font-face {
+    font-family: "govco-font";
+    src: url("/Style Library/ScreenReaderV3/Assets/fonts/govco-font-icons.ttf")
+      format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  /* Contenedor Principal, podras editar la posicion de la barra a tu gusto, por ejemplo
+  si deseas cambiar la posicion de la barra al lado izquierdo, es necesario cambiar 
+  el valor del flex-direction a row-reverse, ademas de su translateX*/
+  .accessibilityBar {
+    display: flex;
+    align-items: flex-start;
+    position: fixed;
+    right: 20px;
+    bottom: calc(100vh - 30vh);
+    flex-direction: row;
+    z-index: 999;
+    transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transform: translateX(87%);
+    height: 20px;
+  }
+  
+  /* Le eliminamos el borde al momento de enfocar con tabulación la barra de accesibilidad en general */
+  .accessibilityBar:focus {
+    border: none !important;
+  }
+  
+  /* Contenedor de la imagen del logo */
+  /* Si es deseado añadir un gradient como fondo puedes ingresar a siguiente enlace https://uigradients.com/#CoolBlues,
+  en el caso de que quieras continuar con el mismo gradient y solo cambiar los colores,  puedes conseguir nuevos colores ingresando al
+  siguiente enlace https://colorhunt.co/ */
+  .accessibilityBar__figure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: var(--LogoContenedorAC);
+    height: var(--LogoContenedorAC);
+    cursor: pointer;
+    background: radial-gradient(
+      100% 100% at 100% 0%,
+      var(--colorGradient1) 0%,
+      var(--colorGradient2) 100%
+    );
+    box-shadow: 0px 0.01em 0.01em rgb(45 35 66 / 40%),
+      0px 0.3em 0.7em -0.01em rgb(45 35 66 / 30%),
+      inset 0px -0.01em 0px rgb(58 65 111 / 50%);
+    transition: 0.3s;
+    overflow: hidden;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    margin: 0 !important;
+    border: 1px solid var(--color-principalAC);
+    backdrop-filter: blur(8px);
+  }
+  
+  /* Efecto hover para el boton de la barra de accesibilidad */
+  .accessibilityBar__figure:hover {
+    box-shadow: 0px 0.1em 0.2em rgb(45 35 66 / 40%),
+      0px 0.4em 0.7em -0.1em rgb(45 35 66 / 30%),
+      inset 0px -0.1em 0px var(--colorGradient2);
+  }
+  
+  .accessibilityBar__figure:focus {
+    border-radius: none !important;
+  }
+  
+  /* Logo de Accesibilidad */
+  .accessibilityBar__logo {
+    width: var(--tamanoLogoAC);
+    transition: 1s;
+    pointer-events: none;
+  }
+  
+  /* Efecto de rotacion en el logo de la barra de accesibilidad en el momento de pasar el cursor */
+  .accessibilityBar__figure:hover > .accessibilityBar__logo {
+    transform: rotate(360deg);
+  }
+  
+  /* Contenedor de las diferentes opciones y titulo de la barra de accesibilidad */
+  .accessibilityBar__content {
+    background: #fff;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: var(--color-fontAC);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: start;
+    width: var(--widthContenedorAC);
+    height: max-content;
+    padding: 5px 14px 8px 14px;
+    border-radius: 0px 8px 8px 8px;
+    border: 1px solid var(--color-principalAC);
+  }
+  
+  /* Titulo principal */
+  .accessibilityBar__title {
+    font-size: var(--tamanoTituloAC) !important;
+    letter-spacing: normal !important;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    font-weight: 700;
+    color: var(--color-principalAC);
+    font-family: "WorkSans";
+  }
+  
+  /* Opciones de la barra */
+  .accessibilityBar__options {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+    row-gap: 12px;
+  }
+  
+  /* Parrafos de las opciones */
+  .accessibilityBar__p {
+    font-size: var(--tamanoTextoAC) !important;
+    letter-spacing: normal !important;
+    font-family: "WorkSans" !important;
+    margin-bottom: 0px !important;
+    color: var(--color-fontAC);
+    transition: 0.4s;
+    pointer-events: none;
+  }
+  
+  /* Se mantiene el mismo color luego de ingresar al enlace de centro de relevo */
+  .accessibilityBar__p:visited {
+    color: var(--color-fontAC);
+  }
+  
+  /* Opción de la barra por individual */
+  .accessibilityBar__option {
+    display: flex;
+    align-items: baseline;
+    transition: 400ms;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  /* Efecto hover de subrayado para cada opción de la barra de accesibilidad */
+  .accessibilityBar__option:hover .accessibilityBar__p {
+    text-decoration: underline;
+  }
+  
+  .accessibilityBar--active {
+    transform: translateX(0%);
+  }
+  
+  /* Inicio estilos traductor */
+  .accessibilityBar__select {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+  }
+  
+  .accessibilityBar__select img,
+  .accessibilityBar__select p {
+    pointer-events: none;
+  }
+  
+  /* Se oculta traductor por defecto */
+  #google_translate_element {
+    display: none;
+  }
+  
+  /* Se oculta barra superior de google con el idioma seleccionado */
+  .goog-te-banner-frame.skiptranslate,
+  .VIpgJd-ZVi9od-ORHb-OEVmcd.skiptranslate {
+    display: none !important;
+  }
+  
+  /* Se mantiene el contenido de la pagina en la misma posicion, esto debido al espacio que dejaria ocultar la barra superior de google */
+  body {
+    top: 0px !important;
+  }
+  
+  /* Se oculta logo de google */
+  .goog-logo-link {
+    display: none !important;
+  }
+  
+  .goog-te-gadget {
+    color: transparent !important;
+  }
+  
+  #goog-gt-tt,
+  .goog-te-balloon-frame {
+    display: none !important;
+  }
+  
+  .goog-text-highlight {
+    background: none !important;
+    box-shadow: none !important;
+  }
+  
+  /* Contenedor de idiomas */
+  .translateAc {
+    position: absolute;
+    transition: 0.5s;
+    width: 200px;
+    background-color: #f9f8f9;
+    box-shadow: 3px 21px 80px -21px rgb(0, 0, 0);
+    border-radius: 2px;
+    height: max-content;
+    padding: 10px 20px;
+    will-change: transform;
+    top: -50%;
+    right: 110%;
+    display: none;
+    padding: 10px 20px;
+    color: #212529;
+    text-align: left;
+  }
+  
+  /* Parrafo de contenedor de idiomas */
+  .translateAc__p {
+    margin: 0;
+    font-size: 13px;
+    margin-bottom: 5px;
+    font-family: "WorkSans";
+  }
+  
+  /* Momento de activación de contenedor de idiomas */
+  .translateAc--active {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Contenedor de cada opcion para elegir el idioma */
+  .translateAc__ul {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Se le da un estilo por defecto a cada opcion */
+  .translateAc__a {
+    width: 18px !important;
+    height: 14px !important;
+    padding: 1px 0;
+    display: inline-block;
+  }
+  
+  /* Dependiendo del idioma se le agregara la bandera correspondiente */
+  .translateAc__a[data-lang="español"] {
+    background: url("/Style Library/ScreenReaderV3/Assets/images/flags18.png") -2px -323px
+      no-repeat;
+  }
+  
+  .translateAc__a[data-lang="inglés"] {
+    background: url("/Style Library/ScreenReaderV3/Assets/images/flags18.png") -118px -352px
+      no-repeat;
+  }
+  
+  .translateAc__a[data-lang="portugués"] {
+    background: url("/Style Library/ScreenReaderV3/Assets/images/flags18.png") -118px -265px
+      no-repeat;
+  }
+  
+  .translateAc__a[data-lang="japonés"] {
+    background: url("/Style Library/ScreenReaderV3/Assets/images/flags18.png") -89px -178px
+      no-repeat;
+  }
+  
+  .translateAc__a[data-lang="italiano"] {
+    background: url("/Style Library/ScreenReaderV3/Assets/images/flags18.png") -60px -178px
+      no-repeat;
+  }
+  
+  /* Fin estilos traductor */
+  
+  /* Contraste */
+  .scr_highcontrast {
+    filter: invert(100%);
+    background-color: #000 !important;
+  }
+  
+  /* En caso que al activar el contraste y modo gris se pierda la barra y boton de subir descomentar linea de codigo 187-189 */
+  
+  /* .scr_highcontrast .scroll-to-top,.scr_highcontrast .accesibilidadBtn{
+      bottom: 8rem !important;
+  } */
+  
+  /* Letra para dislexicos*/
+  
+  @font-face {
+    font-family: "OpenDyslexic";
+    src: url("/Style Library/ScreenReaderV3/Assets/fonts/OpenDyslexic-Regular.otf");
+  }
+  
+  .font-dyslexic {
+    font-family: "OpenDyslexic", sans-serif !important;
+  }
+  
+  /* Tono gris */
+  
+  .scr_grayHues {
+    filter: grayscale(1);
+  }
+  
+  /* En caso que al activar el contraste y modo gris se pierda la barra y boton de subir descomentar linea de codigo 187-189 */
+  
+  /* .scr_grayHues .scroll-to-top,.scr_grayHues .accesibilidadBtn{
+      bottom: 8rem !important;
+  } */
+  
+  /* Cursor grande */
+  .scr_bigcursor * {
+    cursor: url("/Style Library/ScreenReaderV3/Assets/images/bigcursor.svg"), auto !important;
+  }
+  
+  .scr_bigcursor a,
+  .scr_bigcursor input,
+  .scr_bigcursor button {
+    cursor: url("/Style Library/ScreenReaderV3/Assets/images/cursorPointer.svg"), auto !important;
+  }
+  
+  /* Resaltar enlaces */
+  .src_highlightLink {
+    background-color: var(--color-resaltoFondoAC) !important;
+    color: var(--resalto-linksAC) !important;
+    text-decoration: underline !important;
+  }
+  
+  /* Animaciones */
+  @keyframes itemFade {
+    from {
+      opacity: 0;
+      transform: translateX(70px);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+  }
+  
+  /* Iconos */
+  .accessibilityBar__icon {
+    color: var(--color-secundarioAC);
+    font-size: 13px;
+    font-family: "govco-font" !important;
+    margin-right: 10px;
+    pointer-events: none;
+  }
+  
+  .accessibilityBar__icon--play:before {
+    content: "\ea94";
+  }
+  
+  .accessibilityBar__icon--stop:before {
+    content: "\eb37";
+  }
+  
+  .accessibilityBar__icon--maximize:before {
+    content: "\eae0";
+  }
+  
+  .accessibilityBar__icon--minimize:before {
+    content: "\eadf";
+  }
+  
+  .accessibilityBar__icon--more_spacing:before {
+    content: "\ec29";
+  }
+  
+  .accessibilityBar__icon--less_spacing:before {
+    content: "\ec2a";
+  }
+  
+  .accessibilityBar__icon--bar_gray:before {
+    content: "\e83d";
+  }
+  
+  .accessibilityBar__icon--contrast:before {
+    content: "\e803";
+  }
+  
+  .accessibilityBar__icon--dyslexic:before {
+    content: "\e96d";
+  }
+  
+  .accessibilityBar__icon--cursor:before {
+    content: "\ec44";
+  }
+  
+  .accessibilityBar__icon--translate:before {
+    content: "\ea02";
+  }
+  
+  .accessibilityBar__icon--link:before {
+    content: "\ea14";
+  }
+  
+  .accessibilityBar__icon--restart:before {
+    content: "\eb9b";
+  }
+  
+  .accessibilityBar__icon--centro_relevo:before {
+    content: "\e9b6";
+  }
+  

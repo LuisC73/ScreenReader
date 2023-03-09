@@ -1,4 +1,4 @@
-import design from "/Style Library/ScreenReaderV3/design.js";
+import design from "/Style Library/ScreenReaderV3/Assets/js/design.js";
 
 window.addEventListener("DOMContentLoaded", () => {
   //insertar barra lateral al html
