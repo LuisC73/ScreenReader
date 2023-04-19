@@ -4,9 +4,6 @@ window.addEventListener("DOMContentLoaded", () => {
   //insertar barra lateral al html
   design();
 
-  //variable para cambiar dirección donde se encuentran ubicados los archivos de la barra de accesibilidad.
-  const direccion = `/Style Library/ScreenReaderV3`;
-
   /* Elementos del Dom para el funcionamiento de la barra, ademas de la
     seleccion de todas las letras. */
   const $audioIMG = document.querySelector(".accessibilityBar__icon--play"),
@@ -50,18 +47,14 @@ window.addEventListener("DOMContentLoaded", () => {
     $itemsMenu.forEach((item, index) => {
       item.style.animation
         ? (item.style.animation = "")
-        : (item.style.animation = `itemFade .5s ease forwards ${
-            index / 7 + 0.3
-          }s`);
+        : (item.style.animation = `itemFade .5s ease forwards ${index / 7 + 0.3}s`);
     });
   }
 
   //Funcion para cambiar el tamaño de letra, es decir aumentarla o disminuirla,Ademas de tener la opción resetearla.
   function changeSizeFont(type) {
     $allFont.forEach((el, i) => {
-      let fontSize = window
-        .getComputedStyle(el, null)
-        .getPropertyValue("font-size");
+      let fontSize = window.getComputedStyle(el, null).getPropertyValue("font-size");
       fontSize = parseFloat(fontSize);
       arrayFont.push(fontSize);
       if (type == "more" && fontSize < 20) {
@@ -74,16 +67,14 @@ window.addEventListener("DOMContentLoaded", () => {
           if (index == null) el.style.fontSize = `${14}px`;
         });
         el.style.letterSpacing = `normal`;
-        if (el.classList.contains("font-dyslexic"))
-          el.classList.toggle("font-dyslexic");
+        if (el.classList.contains("font-dyslexic")) el.classList.toggle("font-dyslexic");
         if (BODY_ELEMENT.classList.contains("scr_highcontrast"))
           BODY_ELEMENT.classList.toggle("scr_highcontrast");
         if (BODY_ELEMENT.classList.contains("scr_grayHues"))
           BODY_ELEMENT.classList.toggle("scr_grayHues");
         if (BODY_ELEMENT.classList.contains("scr_bigcursor"))
           BODY_ELEMENT.classList.toggle("scr_bigcursor");
-        if (el.classList.contains("src_highlightLink"))
-          el.classList.remove("src_highlightLink");
+        if (el.classList.contains("src_highlightLink")) el.classList.remove("src_highlightLink");
         // translateLanguage("español");
       } else {
         el.style.fontSize = `${fontSize}px`;
@@ -143,10 +134,9 @@ window.addEventListener("DOMContentLoaded", () => {
       return e.target.getAttribute("alt");
     } else if (returnTag(e) == "INPUT" && e.target.getAttribute("value")) {
       return e.target.getAttribute("value");
-    } else if (
-      returnTag(e) == "INPUT" &&
-      e.target.getAttribute("placeholder")
-    ) {
+    } else if (returnTag(e) == "A" && e.target.getAttribute("aria-label")) {
+      return e.target.getAttribute("aria-label");
+    } else if (returnTag(e) == "INPUT" && e.target.getAttribute("placeholder")) {
       return e.target.getAttribute("placeholder");
     } else {
       return "";
@@ -209,8 +199,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
   //Funcion para sonido de abrir o cerrar barra de accesibilidad en evento hover al logo.
   const audios = {
-    open: `${direccion}/sounds/open.mp3`,
-    close: `${direccion}/sounds/close.mp3`,
+    open: `/Style Library/ScreenReaderV3/Assets/sounds/open.mp3`,
+    close: `/Style Library/ScreenReaderV3/Assets/sounds/close.mp3`,
   };
 
   const $audioContent = document.getElementById("mp3AC");
@@ -299,17 +289,14 @@ window.addEventListener("DOMContentLoaded", () => {
 
     if (e.target == elements.lessSpacingAc) changeSpacing("less");
 
-    if (e.target == elements.contrastAc)
-      BODY_ELEMENT.classList.toggle("scr_highcontrast");
+    if (e.target == elements.contrastAc) BODY_ELEMENT.classList.toggle("scr_highcontrast");
 
     if (e.target == elements.dyslexicAc)
       $allFont.forEach((el) => el.classList.toggle("font-dyslexic"));
 
-    if (e.target == elements.grayAc)
-      BODY_ELEMENT.classList.toggle("scr_grayHues");
+    if (e.target == elements.grayAc) BODY_ELEMENT.classList.toggle("scr_grayHues");
 
-    if (e.target == elements.cursorAc)
-      BODY_ELEMENT.classList.toggle("scr_bigcursor");
+    if (e.target == elements.cursorAc) BODY_ELEMENT.classList.toggle("scr_bigcursor");
 
     if (e.target == elements.linksAc)
       $allLinks.forEach((el) => el.classList.toggle("src_highlightLink"));
@@ -337,25 +324,21 @@ window.addEventListener("DOMContentLoaded", () => {
 
       if (e.target == elements.lessSpacingAc) changeSpacing("less");
 
-      if (e.target == elements.contrastAc)
-        BODY_ELEMENT.classList.toggle("scr_highcontrast");
+      if (e.target == elements.contrastAc) BODY_ELEMENT.classList.toggle("scr_highcontrast");
 
       if (e.target == elements.dyslexicAc)
         $allFont.forEach((el) => el.classList.toggle("font-dyslexic"));
 
-      if (e.target == elements.grayAc)
-        BODY_ELEMENT.classList.toggle("scr_grayHues");
+      if (e.target == elements.grayAc) BODY_ELEMENT.classList.toggle("scr_grayHues");
 
-      if (e.target == elements.cursorAc)
-        BODY_ELEMENT.classList.toggle("scr_bigcursor");
+      if (e.target == elements.cursorAc) BODY_ELEMENT.classList.toggle("scr_bigcursor");
 
       if (e.target == elements.linksAc)
         $allLinks.forEach((el) => el.classList.toggle("src_highlightLink"));
 
       if (e.target == elements.narratorAc) screenReaderClick(!speakerOnOff);
 
-      if (e.target == $btnTranslate)
-        $translateOptions.classList.toggle("translateAc--active");
+      if (e.target == $btnTranslate) $translateOptions.classList.toggle("translateAc--active");
     }
   });
 });
